@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curated Capital | Private Asset Platform</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET & BASE --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #f1e9dc; /* Brand Cream */
+            color: #1e3a5f; /* Brand Navy */
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+
+        /* --- UTILITIES --- */
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 40px; width: 100%; position: relative; z-index: 2; }
+        :root { --grid-color: rgba(139, 115, 85, 0.25); }
+        :root { --gold-solid: #8b7355; }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block; padding: 18px 36px; background-color: #1e3a5f; color: white;
+            text-decoration: none; text-transform: uppercase; font-size: 11px; letter-spacing: 2px;
+            font-weight: 600; border: 1px solid #1e3a5f; transition: all 0.3s ease;
+        }
+        .btn:hover { background-color: #8b7355; border-color: #8b7355; color: white; }
+
+        .btn-outline {
+            background-color: transparent; color: #1e3a5f; border: 1px solid #1e3a5f;
+            display: inline-block; padding: 18px 36px; text-decoration: none; text-transform: uppercase;
+            font-size: 11px; letter-spacing: 2px; font-weight: 600; transition: all 0.3s ease;
+        }
+        .btn-outline:hover { background-color: #1e3a5f; color: white; }
+
+        /* --- HEADER (EXECUTIVE STYLE) --- */
+        header {
+            padding: 0; position: fixed; width: 100%; top: 0;
+            background-color: rgba(241, 233, 220, 0.95); backdrop-filter: blur(12px); z-index: 1000;
+            border-bottom: 1px solid var(--grid-color);
+        }
+        nav {
+            display: flex; justify-content: space-between; align-items: center; height: 80px;
+        }
+        .nav-logo { display: flex; align-items: center; }
+        .nav-logo img { height: 45px; }
+        .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 26px; letter-spacing: 1px; text-transform: uppercase; color: #1e3a5f; text-decoration: none; }
+
+        .nav-links {
+            display: flex; gap: 30px; margin-left: auto; margin-right: 40px;
+        }
+        .nav-links a {
+            text-decoration: none; color: #1e3a5f; font-family: 'Inter', sans-serif;
+            font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;
+            transition: color 0.2s; position: relative;
+        }
+        .nav-links a:after {
+            content: ''; position: absolute; width: 0; height: 1px; bottom: -5px; left: 0;
+            background-color: #8b7355; transition: width 0.3s;
+        }
+        .nav-links a:hover:after { width: 100%; }
+        .nav-links a:hover { color: #8b7355; }
+
+        .client-portal-btn {
+            text-decoration: none; color: #1e3a5f; border: 1px solid rgba(30, 58, 95, 0.3);
+            padding: 10px 20px; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px;
+            font-weight: 600; transition: all 0.3s ease;
+        }
+        .client-portal-btn:hover { background-color: #1e3a5f; border-color: #1e3a5f; color: #fff; }
+
+        /* --- HERO (COMPACT 45% HEIGHT) --- */
+        .hero {
+            height: 45vh;
+            min-height: 450px;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(241,233,220,0.85), #f1e9dc), url('hero.jpeg');
+            background-size: cover; background-position: center;
+            margin-top: 80px; /* Offset for fixed header */
+        }
+        .hero h1 { font-size: 72px; line-height: 1; margin-bottom: 20px; color: #1e3a5f; letter-spacing: -2px; }
+        .hero p { font-size: 18px; max-width: 580px; margin: 0 auto 30px; font-weight: 300; color: #4a5a6a; font-family: 'Cormorant Garamond', serif; font-style: italic; }
+
+        /* --- TRUST PILLARS BAR (REPLACING STATS) --- */
+        .stats-section { border-top: 1px solid var(--grid-color); border-bottom: 1px solid var(--grid-color); }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); background-color: var(--grid-color); gap: 1px; border-left: 1px solid var(--grid-color); border-right: 1px solid var(--grid-color); }
+        .stat-item { background-color: #f1e9dc; padding: 50px 20px; text-align: center; }
+        .stat-item h3 { font-size: 24px; color: #8b7355; margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase; }
+        .stat-item span { font-family: 'Inter', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #1e3a5f; opacity: 0.7; }
+
+        /* --- SERVICES (HYBRID STYLE) --- */
+        .services-section { padding: 0; background-color: #000; }
+
+        .services-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); height: 500px;
+            gap: 1px; /* Creates the Gold Line */
+            background-color: #8b7355; /* The Gold Line Color */
+            border-top: 1px solid #8b7355; border-bottom: 1px solid #8b7355;
+        }
+
+        .service-panel {
+            position: relative; display: flex; align-items: center; justify-content: center; text-align: center;
+            overflow: hidden; background-color: #1e3a5f;
+        }
+
+        .panel-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            transition: transform 0.8s ease; z-index: 1;
+        }
+
+        .panel-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(30, 58, 95, 0.75); /* Navy Tint */
+            transition: background 0.5s ease; z-index: 2;
+        }
+
+        .panel-content {
+            position: relative; z-index: 3; padding: 40px;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .panel-subtitle {
+            display: block; font-family: 'Inter', sans-serif; font-size: 10px;
+            letter-spacing: 3px; text-transform: uppercase; color: #8b7355;
+            margin-bottom: 15px; font-weight: 700;
+        }
+
+        .panel-title { font-family: 'Cormorant Garamond', serif; font-size: 38px; color: #f1e9dc; margin-bottom: 15px; }
+
+        .panel-desc {
+            font-size: 14px; color: rgba(241, 233, 220, 0.9); max-width: 280px;
+            margin: 0 auto 30px; line-height: 1.6; font-weight: 300;
+        }
+
+        .panel-btn {
+            display: inline-block; background-color: #8b7355; color: #fff; border: 1px solid #8b7355;
+            padding: 14px 28px; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;
+            text-decoration: none; transition: all 0.3s ease;
+        }
+
+        .service-panel:hover .panel-bg { transform: scale(1.05); }
+        .service-panel:hover .panel-overlay { background: rgba(30, 58, 95, 0.5); }
+        .service-panel:hover .panel-btn { background-color: #fff; color: #8b7355; border-color: #fff; }
+
+
+        /* --- ASSETS SECTION (6-GRID) --- */
+        .assets-section { padding: 120px 0; }
+        .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; padding-bottom: 20px; border-bottom: 1px solid var(--grid-color); }
+        .section-title { font-size: 52px; color: #1e3a5f; }
+
+        .asset-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+        .asset-card {
+            height: 400px; position: relative; overflow: hidden; cursor: pointer;
+            background-color: #000; display: flex; flex-direction: column; justify-content: flex-end; padding: 40px;
+            text-decoration: none;
+        }
+        .card-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            opacity: 0.6; /* Dark Overlay */
+            transition: transform 0.8s ease, opacity 0.5s ease;
+        }
+
+        .asset-card:hover .card-bg { transform: scale(1.05); opacity: 0.4; }
+        .card-content { position: relative; z-index: 2; color: #fff; }
+        .card-title { font-size: 32px; font-family: 'Cormorant Garamond', serif; margin-bottom: 5px; color: #f1e9dc; }
+        .card-arrow { position: absolute; top: 30px; right: 30px; font-size: 24px; color: #8b7355; transform: rotate(-45deg); transition: transform 0.3s ease; }
+        .asset-card:hover .card-arrow { transform: rotate(0deg); }
+
+        /* --- FOOTER --- */
+        footer { background-color: #1e3a5f; color: #f1e9dc; padding: 100px 0 60px; }
+        .footer-top { display: flex; justify-content: space-between; margin-bottom: 80px; align-items: flex-start; }
+        .footer-brand h4 { font-size: 32px; margin-bottom: 20px; color: #8b7355; }
+        .footer-col strong { display: block; margin-bottom: 20px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.5; }
+        .footer-col a { display: block; color: #fff; text-decoration: none; margin-bottom: 12px; font-size: 14px; transition: color 0.3s; }
+
+        @media (max-width: 850px) {
+            .hero h1 { font-size: 42px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .asset-grid, .services-grid { grid-template-columns: 1fr; height: auto; }
+            .service-panel { height: 350px; }
+            .nav-links { display: none; }
+            .nav-actions { display: none; }
+            .container { padding: 0 20px; }
+            .section-title { font-size: 36px; }
+            .footer-top { flex-direction: column; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="Curated-Capital-Logo (1).png" alt="Curated Capital">
+                    </a>
+                </div>
+
+                <div class="nav-links">
+                    <a href="process.html">Process</a>
+                    <a href="shop.html">The Collection</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <div class="nav-actions">
+                    <a href="contact.html" class="client-portal-btn">Client Portal</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>The Private<br>Asset Platform.</h1>
+            <p>Liquidity, acquisition, and financing for the world's finest assets. <br>The modern alternative to traditional banking and auction houses.</p>
+            <div style="margin-top: 30px;">
+                <a href="contact.html" class="btn">Get Liquidity</a>
+                <span style="display:inline-block; width: 20px;"></span>
+                <a href="shop.html" class="btn-outline">Shop Collection</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>Privacy</h3>
+                    <span>100% Discreet Transactions</span>
+                </div>
+                <div class="stat-item">
+                    <h3>Security</h3>
+                    <span>Insured & Bonded Storage</span>
+                </div>
+                <div class="stat-item">
+                    <h3>Expertise</h3>
+                    <span>Certified Valuations</span>
+                </div>
+                <div class="stat-item">
+                    <h3>Global</h3>
+                    <span>Logistics & Transport</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="services-section">
+        <div class="services-grid">
+
+            <div class="service-panel">
+                <div class="panel-bg" style="background-image: url('Gold.jpg');"></div>
+                <div class="panel-overlay"></div>
+                <div class="panel-content">
+                    <span class="panel-subtitle">01. Lending</span>
+                    <h3 class="panel-title">Access Liquidity</h3>
+                    <p class="panel-desc">Unlock capital while retaining ownership and security.</p>
+                    <a href="contact.html" class="panel-btn">Get a Loan</a>
+                </div>
+            </div>
+
+            <div class="service-panel">
+                <div class="panel-bg" style="background-image: url('jewelry.jpg');"></div>
+                <div class="panel-overlay"></div>
+                <div class="panel-content">
+                    <span class="panel-subtitle">02. Acquisition</span>
+                    <h3 class="panel-title">Sell to Us</h3>
+                    <p class="panel-desc">Recycle capital through selling your items directly and instantly to us.</p>
+                    <a href="contact.html" class="panel-btn">Get an Offer</a>
+                </div>
+            </div>
+
+            <div class="service-panel">
+                <div class="panel-bg" style="background-image: url('watch.jpg');"></div>
+                <div class="panel-overlay"></div>
+                <div class="panel-content">
+                    <span class="panel-subtitle">03. Inventory</span>
+                    <h3 class="panel-title">View Collection</h3>
+                    <p class="panel-desc">Discover a curated selection of fine assets to purchase or finance.</p>
+                    <a href="shop.html" class="panel-btn">Browse Inventory</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="assets-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Accepted Assets</h2>
+                <a href="shop.html" style="color: #1e3a5f; text-decoration: none; border-bottom: 1px solid #1e3a5f; font-size: 14px;">View Full List</a>
+            </div>
+
+            <div class="asset-grid">
+
+                <a href="shop.html" class="asset-card">
+                    <div class="card-bg" style="background-image: url('watch.jpg');"></div>
+                    <div class="card-arrow">→</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Timepieces</h3>
+                        <p style="font-size: 12px; color: rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1px;">Rolex • Patek • AP</p>
+                    </div>
+                </a>
+
+                <a href="shop.html" class="asset-card">
+                    <div class="card-bg" style="background-image: url('art.jpg');"></div>
+                    <div class="card-arrow">→</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Fine Art</h3>
+                        <p style="font-size: 12px; color: rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1px;">Modern • Contemporary</p>
+                    </div>
+                </a>
+
+                <a href="shop.html" class="asset-card">
+                    <div class="card-bg" style="background-image: url('Gold.jpg');"></div>
+                    <div class="card-arrow">→</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Gold & Gems</h3>
+                        <p style="font-size: 12px; color: rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1px;">Bullion • Diamonds • Loose Stones</p>
+                    </div>
+                </a>
+
+                <a href="shop.html" class="asset-card">
+                    <div class="card-bg" style="background-image: url('jewelry.jpg');"></div>
+                    <div class="card-arrow">→</div>
+                    <div class="card-content">
+                        <h3 class="card-title">High Jewelry</h3>
+                        <p style="font-size: 12px; color: rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1px;">Cartier • Van Cleef • Estate</p>
+                    </div>
+                </a>
+
+                <a href="shop.html" class="asset-card">
+                    <div class="card-bg" style="background-image: url('collectibles.jpg');"></div>
+                    <div class="card-arrow">→</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Collectibles</h3>
+                        <p style="font-size: 12px; color: rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1px;">Memorabilia • Wine • Handbags</p>
+                    </div>
+                </a>
+
+                <a href="shop.html" class="asset-card">
+                    <div class="card-bg" style="background-image: url('car.jpg');"></div>
+                    <div class="card-arrow">→</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Automobiles</h3>
+                        <p style="font-size: 12px; color: rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1px;">Classic • Supercar • Luxury</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h4>CURATED CAPITAL</h4>
+                    <p style="font-size: 12px; opacity: 0.7; max-width: 300px;">
+                        Lending Reimagined. We provide sophisticated solutions for discerning clients.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <strong>Contact</strong>
+                    <a href="mailto:patrick@curatedcapital.com">patrick@curatedcapital.com</a>
+                </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 10px; opacity: 0.5; text-align: center;">
+                &copy; 2026 Curated Capital. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

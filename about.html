@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Curated Capital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #f1e9dc;
+            color: #1e3a5f;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 40px; width: 100%; }
+        :root { --grid-color: rgba(139, 115, 85, 0.25); --gold-solid: #8b7355; }
+
+        /* Header */
+        header {
+            padding: 0; position: fixed; width: 100%; top: 0;
+            background-color: rgba(241, 233, 220, 0.95); backdrop-filter: blur(12px); z-index: 1000;
+            border-bottom: 1px solid var(--grid-color);
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .nav-logo { display: flex; align-items: center; }
+        .nav-logo img { height: 45px; }
+        .nav-links { display: flex; gap: 30px; margin-left: auto; margin-right: 40px; }
+        .nav-links a {
+            text-decoration: none; color: #1e3a5f; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;
+            transition: color 0.2s; position: relative;
+        }
+        .nav-links a:after {
+            content: ''; position: absolute; width: 0; height: 1px; bottom: -5px; left: 0;
+            background-color: #8b7355; transition: width 0.3s;
+        }
+        .nav-links a:hover:after { width: 100%; }
+        .nav-links a:hover { color: #8b7355; }
+        .client-portal-btn {
+            text-decoration: none; color: #1e3a5f; border: 1px solid rgba(30, 58, 95, 0.3);
+            padding: 10px 20px; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px;
+            font-weight: 600; transition: all 0.3s ease;
+        }
+        .client-portal-btn:hover { background-color: #1e3a5f; border-color: #1e3a5f; color: #fff; }
+
+        /* Page Header */
+        .page-hero {
+            padding: 180px 0 100px;
+            text-align: center;
+            border-bottom: 1px solid var(--grid-color);
+        }
+        .page-hero h1 { font-size: 64px; margin-bottom: 20px; }
+        .page-hero p { font-size: 18px; color: #4a5a6a; font-family: 'Cormorant Garamond', serif; font-style: italic; max-width: 600px; margin: 0 auto; }
+
+        /* About Content */
+        .about-content {
+            padding: 100px 0;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .about-text h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            color: var(--gold-solid);
+        }
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #4a5a6a;
+        }
+        .about-image {
+            height: 500px;
+            background: url('hero.jpeg') center/cover;
+            position: relative;
+        }
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 1px solid var(--gold-solid);
+            z-index: -1;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 100px 0;
+            background: #1e3a5f;
+            color: #f1e9dc;
+        }
+        .values-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .values-header h2 { font-size: 42px; color: #8b7355; }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .value-item {
+            text-align: center;
+            padding: 40px;
+            border: 1px solid rgba(139, 115, 85, 0.3);
+        }
+        .value-item h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #8b7355;
+        }
+        .value-item p {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer { background-color: #1e3a5f; color: #f1e9dc; padding: 60px 0 40px; border-top: 1px solid rgba(139, 115, 85, 0.3); }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-brand h4 { font-size: 24px; color: #8b7355; margin-bottom: 10px; }
+        .footer-brand p { font-size: 12px; opacity: 0.7; }
+        .footer-links a { color: #fff; text-decoration: none; margin-left: 30px; font-size: 12px; opacity: 0.7; transition: opacity 0.3s; }
+        .footer-links a:hover { opacity: 1; }
+
+        @media (max-width: 850px) {
+            .page-hero h1 { font-size: 42px; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .about-image { height: 300px; }
+            .values-grid { grid-template-columns: 1fr; }
+            .nav-links, .nav-actions { display: none; }
+            .container { padding: 0 20px; }
+            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+            .footer-links a { margin: 0 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="Curated-Capital-Logo (1).png" alt="Curated Capital">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="process.html">Process</a>
+                    <a href="shop.html">The Collection</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="nav-actions">
+                    <a href="contact.html" class="client-portal-btn">Client Portal</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Redefining how discerning individuals access liquidity and acquire extraordinary assets.</p>
+        </div>
+    </section>
+
+    <section class="about-content">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Lending Reimagined</h2>
+                    <p>Curated Capital represents a new paradigm in private asset services. We combine the discretion of private banking with the expertise of specialized asset valuation to offer unparalleled solutions for our clients.</p>
+                    <p>Whether you're seeking liquidity against your existing collection, looking to acquire exceptional pieces, or exploring financing options for significant purchases, our team provides white-glove service tailored to your unique needs.</p>
+                    <p>Founded on principles of privacy, expertise, and integrity, we serve a discerning clientele who appreciate both the tangible value and the intangible significance of extraordinary assets.</p>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="container">
+            <div class="values-header">
+                <h2>Our Principles</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h3>Discretion</h3>
+                    <p>Every transaction is handled with the utmost privacy. Your business remains yours alone.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Expertise</h3>
+                    <p>Our specialists bring decades of combined experience across every asset category we serve.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Integrity</h3>
+                    <p>Transparent valuations, fair terms, and honest guidance form the foundation of every relationship.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h4>CURATED CAPITAL</h4>
+                    <p>&copy; 2026 All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="shop.html">Collection</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Process | Curated Capital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #f1e9dc;
+            color: #1e3a5f;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 40px; width: 100%; }
+        :root { --grid-color: rgba(139, 115, 85, 0.25); --gold-solid: #8b7355; }
+
+        /* Header */
+        header {
+            padding: 0; position: fixed; width: 100%; top: 0;
+            background-color: rgba(241, 233, 220, 0.95); backdrop-filter: blur(12px); z-index: 1000;
+            border-bottom: 1px solid var(--grid-color);
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .nav-logo { display: flex; align-items: center; }
+        .nav-logo img { height: 45px; }
+        .nav-links { display: flex; gap: 30px; margin-left: auto; margin-right: 40px; }
+        .nav-links a {
+            text-decoration: none; color: #1e3a5f; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;
+            transition: color 0.2s; position: relative;
+        }
+        .nav-links a:after {
+            content: ''; position: absolute; width: 0; height: 1px; bottom: -5px; left: 0;
+            background-color: #8b7355; transition: width 0.3s;
+        }
+        .nav-links a:hover:after { width: 100%; }
+        .nav-links a:hover { color: #8b7355; }
+        .client-portal-btn {
+            text-decoration: none; color: #1e3a5f; border: 1px solid rgba(30, 58, 95, 0.3);
+            padding: 10px 20px; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px;
+            font-weight: 600; transition: all 0.3s ease;
+        }
+        .client-portal-btn:hover { background-color: #1e3a5f; border-color: #1e3a5f; color: #fff; }
+
+        /* Page Header */
+        .page-hero {
+            padding: 180px 0 100px;
+            text-align: center;
+            border-bottom: 1px solid var(--grid-color);
+        }
+        .page-hero h1 { font-size: 64px; margin-bottom: 20px; }
+        .page-hero p { font-size: 18px; color: #4a5a6a; font-family: 'Cormorant Garamond', serif; font-style: italic; max-width: 600px; margin: 0 auto; }
+
+        /* Process Steps */
+        .process-section {
+            padding: 100px 0;
+        }
+        .process-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+        }
+        .process-intro h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--gold-solid);
+        }
+        .process-intro p {
+            color: #4a5a6a;
+            font-size: 16px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .process-step {
+            text-align: center;
+            padding: 40px 30px;
+            border: 1px solid var(--grid-color);
+            position: relative;
+        }
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background: var(--gold-solid);
+            color: #fff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+        .process-step h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #1e3a5f;
+        }
+        .process-step p {
+            font-size: 14px;
+            color: #4a5a6a;
+            line-height: 1.7;
+        }
+
+        /* Services Detail */
+        .services-detail {
+            padding: 100px 0;
+            background: #1e3a5f;
+            color: #f1e9dc;
+        }
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .services-header h2 { font-size: 42px; color: #8b7355; }
+
+        .service-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(139, 115, 85, 0.3);
+        }
+        .service-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .service-content h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #8b7355;
+        }
+        .service-content p {
+            font-size: 15px;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        .service-image {
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        .cta-section p {
+            max-width: 500px;
+            margin: 0 auto 30px;
+            color: #4a5a6a;
+        }
+        .btn {
+            display: inline-block; padding: 18px 36px; background-color: #1e3a5f; color: white;
+            text-decoration: none; text-transform: uppercase; font-size: 11px; letter-spacing: 2px;
+            font-weight: 600; border: 1px solid #1e3a5f; transition: all 0.3s ease;
+        }
+        .btn:hover { background-color: #8b7355; border-color: #8b7355; }
+
+        /* Footer */
+        footer { background-color: #1e3a5f; color: #f1e9dc; padding: 60px 0 40px; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-brand h4 { font-size: 24px; color: #8b7355; margin-bottom: 10px; }
+        .footer-brand p { font-size: 12px; opacity: 0.7; }
+        .footer-links a { color: #fff; text-decoration: none; margin-left: 30px; font-size: 12px; opacity: 0.7; transition: opacity 0.3s; }
+        .footer-links a:hover { opacity: 1; }
+
+        @media (max-width: 850px) {
+            .page-hero h1 { font-size: 42px; }
+            .process-steps { grid-template-columns: 1fr 1fr; }
+            .service-row { grid-template-columns: 1fr; gap: 30px; }
+            .service-image { height: 250px; }
+            .nav-links, .nav-actions { display: none; }
+            .container { padding: 0 20px; }
+            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+            .footer-links a { margin: 0 15px; }
+        }
+        @media (max-width: 550px) {
+            .process-steps { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="Curated-Capital-Logo (1).png" alt="Curated Capital">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="process.html">Process</a>
+                    <a href="shop.html">The Collection</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="nav-actions">
+                    <a href="contact.html" class="client-portal-btn">Client Portal</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Process</h1>
+            <p>A seamless experience from initial inquiry to final transaction.</p>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="container">
+            <div class="process-intro">
+                <h2>How It Works</h2>
+                <p>Whether you're seeking liquidity, selling, or acquiring assets, our streamlined process ensures discretion, efficiency, and fair value at every step.</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Inquiry</h3>
+                    <p>Reach out with details about your asset or acquisition interest. All communications are strictly confidential.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Valuation</h3>
+                    <p>Our certified specialists provide a comprehensive assessment using current market data and expert analysis.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Terms</h3>
+                    <p>Receive transparent terms tailored to your needs—whether for lending, sale, or acquisition financing.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Completion</h3>
+                    <p>Secure logistics, insured transport, and same-day funding ensure a seamless conclusion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-detail">
+        <div class="container">
+            <div class="services-header">
+                <h2>Our Services</h2>
+            </div>
+
+            <div class="service-row">
+                <div class="service-content">
+                    <h3>Asset-Backed Lending</h3>
+                    <p>Access liquidity while retaining ownership of your assets. Our lending solutions offer competitive rates with flexible terms, allowing you to unlock capital when you need it without parting with pieces you treasure.</p>
+                    <p>Assets are stored in our fully insured, bonded facilities for the duration of the loan term.</p>
+                </div>
+                <div class="service-image" style="background-image: url('Gold.jpg');"></div>
+            </div>
+
+            <div class="service-row">
+                <div class="service-image" style="background-image: url('jewelry.jpg');"></div>
+                <div class="service-content">
+                    <h3>Direct Acquisition</h3>
+                    <p>When you're ready to sell, we offer immediate purchase at fair market value. Skip the uncertainty of auctions and the exposure of public listings—receive a private offer and same-day payment.</p>
+                    <p>Our acquisition process is designed for those who value discretion as much as value.</p>
+                </div>
+            </div>
+
+            <div class="service-row">
+                <div class="service-content">
+                    <h3>Acquisition Financing</h3>
+                    <p>Discover something extraordinary? We offer financing options for significant acquisitions, allowing you to secure exceptional pieces while maintaining financial flexibility.</p>
+                    <p>Browse our collection or bring us a piece you've found elsewhere—we'll structure terms that work for you.</p>
+                </div>
+                <div class="service-image" style="background-image: url('watch.jpg');"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Begin?</h2>
+            <p>Start a confidential conversation about your assets or acquisitions. Response within 24 hours.</p>
+            <a href="contact.html" class="btn">Contact Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h4>CURATED CAPITAL</h4>
+                    <p>&copy; 2026 All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
