@@ -112,13 +112,13 @@
         /* Mobile Menu (Dark Theme) */
         .hamburger-dark {
             display: none; flex-direction: column; justify-content: center; gap: 6px;
-            width: 28px; height: 28px; cursor: pointer; z-index: 1002;
+            width: 28px; height: 28px; cursor: pointer; z-index: 10000;
             position: fixed; right: 24px; top: 22px;
         }
-        .hamburger-dark span { display: block; width: 100%; height: 2px; background-color: var(--cream); transition: all 0.3s ease; }
-        .hamburger-dark.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); background-color: var(--gold) !important; }
+        .hamburger-dark span { display: block; width: 100%; height: 2px; background-color: var(--gold); transition: all 0.3s ease; }
+        .hamburger-dark.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
         .hamburger-dark.active span:nth-child(2) { opacity: 0; }
-        .hamburger-dark.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); background-color: var(--gold) !important; }
+        .hamburger-dark.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
         .mobile-menu-dark {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: var(--navy-deep); z-index: 999; flex-direction: column; justify-content: center; align-items: center;
