@@ -67,10 +67,58 @@
             z-index: 0;
         }
 
+        /* Top Navigation Bar */
+        .top-nav {
+            background: rgba(10, 10, 20, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 12px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 101;
+        }
+
+        .top-nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .top-nav-links a {
+            color: var(--cream-muted);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .top-nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .top-nav-links a.active {
+            color: var(--gold);
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link::before {
+            content: '←';
+        }
+
         /* Header */
         header {
             position: fixed;
-            top: 0;
+            top: 44px;
             left: 0;
             right: 0;
             z-index: 100;
@@ -120,7 +168,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 120px 48px 80px;
+            padding: 164px 48px 80px;
             position: relative;
         }
 
@@ -520,12 +568,20 @@
 
         /* Responsive */
         @media (max-width: 900px) {
+            .top-nav {
+                padding: 12px 24px;
+            }
+
+            .top-nav-links {
+                gap: 20px;
+            }
+
             header {
                 padding: 16px 24px;
             }
 
             .hero {
-                padding: 100px 24px 60px;
+                padding: 144px 24px 60px;
             }
 
             .hero-content {
@@ -563,6 +619,17 @@
         }
 
         @media (max-width: 600px) {
+            .top-nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 16px 24px;
+            }
+
+            .top-nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
             .hero h1 {
                 font-size: 32px;
             }
@@ -693,9 +760,24 @@
 <body>
     <div class="texture"></div>
 
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-links">
+            <a href="index.html" class="back-link">Main Site</a>
+            <a href="about.html">About</a>
+            <a href="process.html">Process</a>
+            <a href="perspectives.html">Perspectives</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="top-nav-links">
+            <a href="client-portal.html">Client Portal</a>
+            <a href="waitlist.html" class="active">Join Waitlist</a>
+        </div>
+    </nav>
+
     <!-- Header -->
     <header>
-        <a href="https://curatedcapital.com" class="logo">Curated Capital</a>
+        <a href="index.html" class="logo">Curated Capital</a>
         <a href="#waitlist" class="header-cta">Join Waitlist</a>
     </header>
 

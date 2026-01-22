@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Portal | Curated Capital</title>
 
-    <!-- Favicon -->
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,12 +57,61 @@
             z-index: 0;
         }
 
+        /* Top Navigation Bar */
+        .top-nav {
+            background: rgba(10, 10, 20, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 12px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 102;
+        }
+
+        .top-nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .top-nav-links a {
+            color: var(--cream-muted);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .top-nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .top-nav-links a.active {
+            color: var(--gold);
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link::before {
+            content: '←';
+        }
+
         /* Demo Banner */
         .demo-banner {
             background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.08) 100%);
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
             padding: 14px 48px;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
             position: relative;
             z-index: 101;
         }
@@ -71,21 +120,29 @@
             font-size: 13px;
             color: var(--gold);
             letter-spacing: 0.5px;
+            margin: 0;
         }
 
         .demo-banner strong {
             font-weight: 600;
         }
 
-        .demo-banner a {
-            color: var(--cream);
-            text-decoration: underline;
-            margin-left: 12px;
-            transition: color 0.3s ease;
+        .demo-cta {
+            background: var(--gold);
+            color: var(--navy-deep);
+            padding: 10px 24px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
-        .demo-banner a:hover {
-            color: var(--gold-light);
+        .demo-cta:hover {
+            background: var(--gold-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
         }
 
         /* Header */
@@ -722,23 +779,43 @@
             .portfolio-summary {
                 grid-template-columns: 1fr;
             }
-            
+
             .category-filters {
                 flex-wrap: wrap;
             }
-            
+
             .filter-btn {
                 flex: 1 1 45%;
+            }
+
+            .top-nav {
+                padding: 12px 24px;
+            }
+
+            .top-nav-links {
+                gap: 20px;
             }
         }
 
         @media (max-width: 600px) {
+            .top-nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 16px 24px;
+            }
+
+            .top-nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
             header {
                 padding: 16px 24px;
             }
 
             main {
                 padding: 24px;
+                padding-bottom: 120px;
             }
 
             .value-card,
@@ -765,16 +842,100 @@
             .modal-values {
                 grid-template-columns: 1fr;
             }
+
+            .sticky-cta-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+
+            .sticky-cta-text {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+
+        /* Sticky Bottom CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 20px 48px;
+            z-index: 99;
+            box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .sticky-cta-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .sticky-cta-text {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .sticky-cta-text strong {
+            color: var(--cream);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .sticky-cta-text span {
+            color: var(--cream-muted);
+            font-size: 14px;
+        }
+
+        .sticky-cta-btn {
+            background: linear-gradient(135deg, var(--gold) 0%, #b8963a 100%);
+            color: var(--navy-deep);
+            padding: 14px 32px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .sticky-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
         }
     </style>
 </head>
 <body>
     <div class="texture-overlay"></div>
 
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-links">
+            <a href="index.html" class="back-link">Main Site</a>
+            <a href="about.html">About</a>
+            <a href="process.html">Process</a>
+            <a href="perspectives.html">Perspectives</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="top-nav-links">
+            <a href="client-portal.html" class="active">Client Portal</a>
+            <a href="waitlist.html">Join Waitlist</a>
+        </div>
+    </nav>
+
     <!-- Demo Banner -->
     <div class="demo-banner">
-        <p><strong>Demo Mode</strong> — This is an illustrative preview with sample data. 
-        <a href="/contact">Contact us</a> to set up your personal portfolio.</p>
+        <p><strong>Demo Mode</strong> — This is an illustrative preview with sample data.</p>
+        <a href="waitlist.html" class="demo-cta">Join the Waitlist →</a>
     </div>
 
     <!-- Header -->
@@ -914,6 +1075,17 @@
                 <button class="btn-primary">Borrow Against This Asset</button>
                 <button class="btn-secondary">Edit</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Sticky Bottom CTA -->
+    <div class="sticky-cta">
+        <div class="sticky-cta-content">
+            <div class="sticky-cta-text">
+                <strong>Want this for your collection?</strong>
+                <span>Be first to access the Curated Capital Portfolio tracker.</span>
+            </div>
+            <a href="waitlist.html" class="sticky-cta-btn">Join the Waitlist</a>
         </div>
     </div>
 
@@ -1084,11 +1256,11 @@
 
         // Format currency
         function formatCurrency(num) {
-            return new Intl.NumberFormat('en-US', { 
-                style: 'currency', 
-                currency: 'USD', 
-                minimumFractionDigits: 0, 
-                maximumFractionDigits: 0 
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
             }).format(num);
         }
 
@@ -1096,7 +1268,7 @@
         function renderAssetCard(asset) {
             const gainClass = asset.gain >= 0 ? 'positive' : 'negative';
             const gainArrow = asset.gain >= 0 ? '↑' : '↓';
-            
+
             return `
                 <div class="asset-card" data-category="${asset.category}" onclick="openModal(${asset.id})">
                     <div class="asset-header">
@@ -1125,12 +1297,12 @@
         // Render all assets
         function renderAssets(category = 'all') {
             const grid = document.getElementById('assetsGrid');
-            const filtered = category === 'all' 
-                ? assets 
+            const filtered = category === 'all'
+                ? assets
                 : assets.filter(a => a.category === category);
-            
+
             grid.innerHTML = filtered.map(renderAssetCard).join('');
-            
+
             // Update count
             document.querySelector('.assets-count').textContent = `${filtered.length} Assets`;
         }
@@ -1155,17 +1327,17 @@
             document.getElementById('modalValue').textContent = formatCurrency(asset.currentValue);
             document.getElementById('modalCapacity').textContent = formatCurrency(asset.loanCapacity);
             document.getElementById('modalPurchase').textContent = formatCurrency(asset.purchasePrice);
-            
+
             const gainEl = document.getElementById('modalGain');
             gainEl.textContent = `${asset.gain >= 0 ? '+' : ''}${formatCurrency(asset.gain)} (${asset.gainPercent}%)`;
             gainEl.className = asset.gain >= 0 ? 'green' : 'red';
-            
+
             document.getElementById('modalCondition').textContent = asset.condition;
             document.getElementById('modalAcquired').textContent = asset.acquired;
             document.getElementById('modalLTV').textContent = '50%';
             document.getElementById('modalUpdated').textContent = asset.lastUpdated;
-            
-            document.getElementById('modalSources').innerHTML = 
+
+            document.getElementById('modalSources').innerHTML =
                 asset.sources.map(s => `<span class="tag">${s}</span>`).join('');
 
             document.getElementById('assetModal').classList.add('active');
