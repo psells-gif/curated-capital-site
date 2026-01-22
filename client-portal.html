@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal | Curated Capital</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-deep: #0a0a14;
+            --navy: #12121f;
+            --navy-light: #1a1a2e;
+            --gold: #d4af37;
+            --gold-light: #f5e6a3;
+            --gold-dim: rgba(212, 175, 55, 0.6);
+            --cream: #f5f5f0;
+            --cream-dim: rgba(245, 245, 240, 0.7);
+            --cream-muted: rgba(245, 245, 240, 0.4);
+            --green: #4ade80;
+            --green-dim: rgba(74, 222, 128, 0.15);
+            --red: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-light) 50%, var(--navy-deep) 100%);
+            color: var(--cream);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Texture Overlay */
+        .texture-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.025;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Demo Banner */
+        .demo-banner {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.08) 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 14px 48px;
+            text-align: center;
+            position: relative;
+            z-index: 101;
+        }
+
+        .demo-banner p {
+            font-size: 13px;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+        }
+
+        .demo-banner strong {
+            font-weight: 600;
+        }
+
+        .demo-banner a {
+            color: var(--cream);
+            text-decoration: underline;
+            margin-left: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .demo-banner a:hover {
+            color: var(--gold-light);
+        }
+
+        /* Header */
+        header {
+            padding: 24px 48px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            background: rgba(10, 10, 20, 0.8);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-section p {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-dim);
+            margin-top: 4px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn-add {
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--gold);
+            padding: 12px 24px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .btn-add:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), #8b7355);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy-deep);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 48px;
+        }
+
+        /* Portfolio Summary */
+        .portfolio-summary {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+
+        .value-card {
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.08) 0%, rgba(139, 115, 85, 0.04) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .card-label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--cream-muted);
+            margin-bottom: 16px;
+        }
+
+        .value-card .value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 300;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .value-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .gain-amount {
+            color: var(--green);
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .gain-badge {
+            background: var(--green-dim);
+            color: var(--green);
+            padding: 4px 12px;
+            font-size: 13px;
+        }
+
+        .cost-basis {
+            color: var(--cream-muted);
+            font-size: 13px;
+        }
+
+        .borrow-card {
+            background: linear-gradient(145deg, rgba(74, 222, 128, 0.08) 0%, rgba(74, 222, 128, 0.02) 100%);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .borrow-card .value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            font-weight: 300;
+            color: var(--green);
+        }
+
+        .borrow-card .sublabel {
+            font-size: 13px;
+            color: var(--cream-muted);
+            margin-top: 12px;
+        }
+
+        .btn-unlock {
+            background: linear-gradient(135deg, var(--green) 0%, #22c55e 100%);
+            border: none;
+            color: var(--navy-deep);
+            padding: 16px 32px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            margin-top: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-unlock:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(74, 222, 128, 0.3);
+        }
+
+        /* Category Filters */
+        .category-filters {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .filter-btn {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .filter-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .filter-icon {
+            font-size: 16px;
+        }
+
+        .filter-name {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cream-muted);
+            transition: color 0.3s ease;
+        }
+
+        .filter-btn.active .filter-name,
+        .filter-btn:hover .filter-name {
+            color: var(--gold);
+        }
+
+        .filter-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--cream-dim);
+            transition: color 0.3s ease;
+        }
+
+        .filter-btn.active .filter-value,
+        .filter-btn:hover .filter-value {
+            color: var(--cream);
+        }
+
+        /* Assets Section */
+        .assets-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .assets-count {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--cream-muted);
+        }
+
+        .sort-control {
+            font-size: 11px;
+            color: var(--cream-muted);
+        }
+
+        .sort-control span {
+            color: var(--gold);
+            cursor: pointer;
+            margin-left: 8px;
+        }
+
+        /* Assets Grid */
+        .assets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .asset-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 28px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.5s ease backwards;
+        }
+
+        .asset-card:nth-child(1) { animation-delay: 0s; }
+        .asset-card:nth-child(2) { animation-delay: 0.05s; }
+        .asset-card:nth-child(3) { animation-delay: 0.1s; }
+        .asset-card:nth-child(4) { animation-delay: 0.15s; }
+        .asset-card:nth-child(5) { animation-delay: 0.2s; }
+        .asset-card:nth-child(6) { animation-delay: 0.25s; }
+        .asset-card:nth-child(7) { animation-delay: 0.3s; }
+        .asset-card:nth-child(8) { animation-delay: 0.35s; }
+        .asset-card:nth-child(9) { animation-delay: 0.4s; }
+        .asset-card:nth-child(10) { animation-delay: 0.45s; }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .asset-card:hover {
+            background: rgba(212, 175, 55, 0.05);
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        .asset-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .asset-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(139, 115, 85, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .asset-gain {
+            padding: 4px 10px;
+            font-size: 12px;
+        }
+
+        .asset-gain.positive {
+            background: var(--green-dim);
+            color: var(--green);
+        }
+
+        .asset-gain.negative {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--red);
+        }
+
+        .asset-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .asset-ref {
+            font-size: 12px;
+            color: var(--cream-muted);
+            margin-bottom: 20px;
+        }
+
+        .asset-values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .asset-value-item label {
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--cream-muted);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .asset-value-item .amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .asset-value-item .amount.green {
+            color: var(--green);
+        }
+
+        .asset-sources {
+            margin-top: 16px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .source-tag {
+            font-size: 10px;
+            color: var(--gold-dim);
+            background: rgba(212, 175, 55, 0.1);
+            padding: 4px 8px;
+        }
+
+        /* Detail Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 48px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, var(--navy-light) 0%, var(--navy-deep) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 48px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: transparent;
+            border: none;
+            color: var(--cream-muted);
+            font-size: 28px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--cream);
+        }
+
+        .modal-header {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(139, 115, 85, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            flex-shrink: 0;
+        }
+
+        .modal-title h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 4px;
+        }
+
+        .modal-title p {
+            font-size: 14px;
+            color: var(--cream-muted);
+        }
+
+        .modal-values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .modal-value-box {
+            padding: 20px;
+        }
+
+        .modal-value-box.primary {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .modal-value-box.green {
+            background: rgba(74, 222, 128, 0.08);
+        }
+
+        .modal-value-box label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cream-muted);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .modal-value-box .amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 300;
+        }
+
+        .modal-value-box .amount.green {
+            color: var(--green);
+        }
+
+        .modal-details {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 24px;
+            margin-bottom: 24px;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .detail-item label {
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--cream-muted);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .detail-item span {
+            font-size: 15px;
+        }
+
+        .detail-item span.green {
+            color: var(--green);
+        }
+
+        .detail-item span.red {
+            color: var(--red);
+        }
+
+        .modal-sources {
+            margin-bottom: 32px;
+        }
+
+        .modal-sources label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cream-muted);
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .modal-sources .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .modal-sources .tag {
+            font-size: 12px;
+            color: var(--gold);
+            background: rgba(212, 175, 55, 0.15);
+            padding: 8px 16px;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .modal-actions .btn-primary {
+            flex: 1;
+            background: linear-gradient(135deg, var(--green) 0%, #22c55e 100%);
+            border: none;
+            color: var(--navy-deep);
+            padding: 16px 32px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+        }
+
+        .modal-actions .btn-secondary {
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--gold);
+            padding: 16px 24px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(212, 175, 55, 0.3);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(212, 175, 55, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .portfolio-summary {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-filters {
+                flex-wrap: wrap;
+            }
+            
+            .filter-btn {
+                flex: 1 1 45%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 16px 24px;
+            }
+
+            main {
+                padding: 24px;
+            }
+
+            .value-card,
+            .borrow-card {
+                padding: 32px;
+            }
+
+            .value-card .value {
+                font-size: 40px;
+            }
+
+            .filter-btn {
+                flex: 1 1 100%;
+            }
+
+            .assets-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 32px 24px;
+            }
+
+            .modal-values {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="texture-overlay"></div>
+
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        <p><strong>Demo Mode</strong> — This is an illustrative preview with sample data. 
+        <a href="/contact">Contact us</a> to set up your personal portfolio.</p>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <div class="logo-section">
+                <h1>Curated Capital</h1>
+                <p>Client Portal</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-add">+ Add Asset</button>
+                <div class="user-avatar">JD</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Portfolio Summary -->
+        <section class="portfolio-summary">
+            <div class="value-card">
+                <p class="card-label">Total Portfolio Value</p>
+                <div class="value">$487,250</div>
+                <div class="value-meta">
+                    <span class="gain-amount">+$74,450</span>
+                    <span class="gain-badge">↑ 18.0%</span>
+                    <span class="cost-basis">vs. $412,800 cost basis</span>
+                </div>
+            </div>
+            <div class="borrow-card">
+                <div>
+                    <p class="card-label">Available to Borrow</p>
+                    <div class="value">$243,625</div>
+                    <p class="sublabel">at 50% LTV across all assets</p>
+                </div>
+                <button class="btn-unlock">Unlock Liquidity →</button>
+            </div>
+        </section>
+
+        <!-- Category Filters -->
+        <section class="category-filters">
+            <button class="filter-btn active" data-category="all">
+                <div class="filter-label">
+                    <span class="filter-name">All Assets</span>
+                </div>
+                <span class="filter-value">$487,250</span>
+            </button>
+            <button class="filter-btn" data-category="watches">
+                <div class="filter-label">
+                    <span class="filter-icon">⌚</span>
+                    <span class="filter-name">Watches</span>
+                </div>
+                <span class="filter-value">$279,500</span>
+            </button>
+            <button class="filter-btn" data-category="jewelry">
+                <div class="filter-label">
+                    <span class="filter-icon">💎</span>
+                    <span class="filter-name">Jewelry</span>
+                </div>
+                <span class="filter-value">$36,300</span>
+            </button>
+            <button class="filter-btn" data-category="art">
+                <div class="filter-label">
+                    <span class="filter-icon">🎨</span>
+                    <span class="filter-name">Art</span>
+                </div>
+                <span class="filter-value">$171,450</span>
+            </button>
+        </section>
+
+        <!-- Assets Grid -->
+        <section class="assets-section">
+            <div class="assets-header">
+                <span class="assets-count">10 Assets</span>
+                <div class="sort-control">Sort by: <span>Value ↓</span></div>
+            </div>
+            <div class="assets-grid" id="assetsGrid">
+                <!-- Assets populated by JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Detail Modal -->
+    <div class="modal-overlay" id="assetModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-header">
+                <div class="modal-icon" id="modalIcon">⌚</div>
+                <div class="modal-title">
+                    <h2 id="modalName">Asset Name</h2>
+                    <p id="modalRef">Reference</p>
+                </div>
+            </div>
+            <div class="modal-values">
+                <div class="modal-value-box primary">
+                    <label>Market Value</label>
+                    <div class="amount" id="modalValue">$0</div>
+                </div>
+                <div class="modal-value-box green">
+                    <label>Borrowing Capacity</label>
+                    <div class="amount green" id="modalCapacity">$0</div>
+                </div>
+            </div>
+            <div class="modal-details">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <label>Purchase Price</label>
+                        <span id="modalPurchase">$0</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Gain/Loss</label>
+                        <span id="modalGain" class="green">$0</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Condition</label>
+                        <span id="modalCondition">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Acquired</label>
+                        <span id="modalAcquired">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>LTV Ratio</label>
+                        <span id="modalLTV">50%</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Last Updated</label>
+                        <span id="modalUpdated">-</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-sources">
+                <label>Valuation Sources</label>
+                <div class="tags" id="modalSources"></div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-primary">Borrow Against This Asset</button>
+                <button class="btn-secondary">Edit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample portfolio data
+        const assets = [
+            {
+                id: 1,
+                category: 'watches',
+                name: 'Rolex Daytona',
+                reference: '116500LN',
+                icon: '⌚',
+                purchasePrice: 32500,
+                currentValue: 38200,
+                gain: 5700,
+                gainPercent: 17.5,
+                loanCapacity: 19100,
+                condition: 'Excellent',
+                acquired: '2022-03-15',
+                sources: ['Chrono24', 'WatchCharts'],
+                lastUpdated: '2 hours ago'
+            },
+            {
+                id: 2,
+                category: 'watches',
+                name: 'Patek Philippe Nautilus',
+                reference: '5711/1A-010',
+                icon: '⌚',
+                purchasePrice: 142000,
+                currentValue: 168500,
+                gain: 26500,
+                gainPercent: 18.7,
+                loanCapacity: 84250,
+                condition: 'Mint',
+                acquired: '2021-08-22',
+                sources: ['Chrono24', 'WatchCharts', "Bob's Watches"],
+                lastUpdated: '1 hour ago'
+            },
+            {
+                id: 3,
+                category: 'jewelry',
+                name: 'Cartier Love Bracelet',
+                reference: 'Yellow Gold, Size 17',
+                icon: '💎',
+                purchasePrice: 7850,
+                currentValue: 8400,
+                gain: 550,
+                gainPercent: 7.0,
+                loanCapacity: 4200,
+                condition: 'Very Good',
+                acquired: '2023-02-14',
+                sources: ['The RealReal', '1stDibs'],
+                lastUpdated: '4 hours ago'
+            },
+            {
+                id: 4,
+                category: 'jewelry',
+                name: 'Van Cleef Alhambra Necklace',
+                reference: '10 Motif, Mother of Pearl',
+                icon: '💎',
+                purchasePrice: 14200,
+                currentValue: 15800,
+                gain: 1600,
+                gainPercent: 11.3,
+                loanCapacity: 7900,
+                condition: 'Excellent',
+                acquired: '2022-12-25',
+                sources: ['1stDibs', 'Rebag'],
+                lastUpdated: '3 hours ago'
+            },
+            {
+                id: 5,
+                category: 'art',
+                name: 'KAWS Companion',
+                reference: 'Grey, Open Edition',
+                icon: '🎨',
+                purchasePrice: 2800,
+                currentValue: 3450,
+                gain: 650,
+                gainPercent: 23.2,
+                loanCapacity: 1725,
+                condition: 'New',
+                acquired: '2023-06-10',
+                sources: ['Artsy', 'StockX'],
+                lastUpdated: '6 hours ago'
+            },
+            {
+                id: 6,
+                category: 'art',
+                name: 'Banksy Girl with Balloon',
+                reference: 'Screenprint, Unsigned',
+                icon: '🎨',
+                purchasePrice: 48500,
+                currentValue: 62400,
+                gain: 13900,
+                gainPercent: 28.7,
+                loanCapacity: 31200,
+                condition: 'Excellent',
+                acquired: '2020-11-03',
+                sources: ['MyArtBroker', 'Artsy'],
+                lastUpdated: '12 hours ago'
+            },
+            {
+                id: 7,
+                category: 'watches',
+                name: 'Audemars Piguet Royal Oak',
+                reference: '15500ST.OO.1220ST.01',
+                icon: '⌚',
+                purchasePrice: 68500,
+                currentValue: 72800,
+                gain: 4300,
+                gainPercent: 6.3,
+                loanCapacity: 36400,
+                condition: 'Very Good',
+                acquired: '2023-01-20',
+                sources: ['Chrono24', 'WatchCharts'],
+                lastUpdated: '2 hours ago'
+            },
+            {
+                id: 8,
+                category: 'art',
+                name: 'Mr. Brainwash Tomato Spray',
+                reference: 'Mixed Media on Canvas',
+                icon: '🎨',
+                purchasePrice: 18500,
+                currentValue: 21200,
+                gain: 2700,
+                gainPercent: 14.6,
+                loanCapacity: 10600,
+                condition: 'Excellent',
+                acquired: '2021-05-18',
+                sources: ['1stDibs', 'Heritage Auctions'],
+                lastUpdated: '1 day ago'
+            },
+            {
+                id: 9,
+                category: 'jewelry',
+                name: 'Cartier Juste un Clou',
+                reference: 'Yellow Gold, Size 17',
+                icon: '💎',
+                purchasePrice: 11200,
+                currentValue: 12100,
+                gain: 900,
+                gainPercent: 8.0,
+                loanCapacity: 6050,
+                condition: 'Excellent',
+                acquired: '2023-09-01',
+                sources: ['The RealReal', 'Vestiaire'],
+                lastUpdated: '5 hours ago'
+            },
+            {
+                id: 10,
+                category: 'art',
+                name: 'Takashi Murakami Flowers',
+                reference: 'Offset Lithograph, Signed',
+                icon: '🎨',
+                purchasePrice: 66750,
+                currentValue: 84400,
+                gain: 17650,
+                gainPercent: 26.4,
+                loanCapacity: 42200,
+                condition: 'Mint',
+                acquired: '2019-04-12',
+                sources: ['Artsy', 'Invaluable'],
+                lastUpdated: '8 hours ago'
+            }
+        ];
+
+        // Format currency
+        function formatCurrency(num) {
+            return new Intl.NumberFormat('en-US', { 
+                style: 'currency', 
+                currency: 'USD', 
+                minimumFractionDigits: 0, 
+                maximumFractionDigits: 0 
+            }).format(num);
+        }
+
+        // Render asset card
+        function renderAssetCard(asset) {
+            const gainClass = asset.gain >= 0 ? 'positive' : 'negative';
+            const gainArrow = asset.gain >= 0 ? '↑' : '↓';
+            
+            return `
+                <div class="asset-card" data-category="${asset.category}" onclick="openModal(${asset.id})">
+                    <div class="asset-header">
+                        <div class="asset-icon">${asset.icon}</div>
+                        <span class="asset-gain ${gainClass}">${gainArrow} ${Math.abs(asset.gainPercent)}%</span>
+                    </div>
+                    <h3 class="asset-name">${asset.name}</h3>
+                    <p class="asset-ref">${asset.reference}</p>
+                    <div class="asset-values">
+                        <div class="asset-value-item">
+                            <label>Current Value</label>
+                            <span class="amount">${formatCurrency(asset.currentValue)}</span>
+                        </div>
+                        <div class="asset-value-item">
+                            <label>Can Borrow</label>
+                            <span class="amount green">${formatCurrency(asset.loanCapacity)}</span>
+                        </div>
+                    </div>
+                    <div class="asset-sources">
+                        ${asset.sources.map(s => `<span class="source-tag">${s}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render all assets
+        function renderAssets(category = 'all') {
+            const grid = document.getElementById('assetsGrid');
+            const filtered = category === 'all' 
+                ? assets 
+                : assets.filter(a => a.category === category);
+            
+            grid.innerHTML = filtered.map(renderAssetCard).join('');
+            
+            // Update count
+            document.querySelector('.assets-count').textContent = `${filtered.length} Assets`;
+        }
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderAssets(btn.dataset.category);
+            });
+        });
+
+        // Modal functions
+        function openModal(id) {
+            const asset = assets.find(a => a.id === id);
+            if (!asset) return;
+
+            document.getElementById('modalIcon').textContent = asset.icon;
+            document.getElementById('modalName').textContent = asset.name;
+            document.getElementById('modalRef').textContent = asset.reference;
+            document.getElementById('modalValue').textContent = formatCurrency(asset.currentValue);
+            document.getElementById('modalCapacity').textContent = formatCurrency(asset.loanCapacity);
+            document.getElementById('modalPurchase').textContent = formatCurrency(asset.purchasePrice);
+            
+            const gainEl = document.getElementById('modalGain');
+            gainEl.textContent = `${asset.gain >= 0 ? '+' : ''}${formatCurrency(asset.gain)} (${asset.gainPercent}%)`;
+            gainEl.className = asset.gain >= 0 ? 'green' : 'red';
+            
+            document.getElementById('modalCondition').textContent = asset.condition;
+            document.getElementById('modalAcquired').textContent = asset.acquired;
+            document.getElementById('modalLTV').textContent = '50%';
+            document.getElementById('modalUpdated').textContent = asset.lastUpdated;
+            
+            document.getElementById('modalSources').innerHTML = 
+                asset.sources.map(s => `<span class="tag">${s}</span>`).join('');
+
+            document.getElementById('assetModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('assetModal').classList.remove('active');
+        }
+
+        // Close modal on overlay click
+        document.getElementById('assetModal').addEventListener('click', (e) => {
+            if (e.target.id === 'assetModal') closeModal();
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Initial render
+        renderAssets();
+    </script>
+</body>
+</html>
