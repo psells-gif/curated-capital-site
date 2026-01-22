@@ -488,6 +488,14 @@
             align-items: center;
             justify-content: center;
             font-size: 24px;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .asset-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .asset-gain {
@@ -621,6 +629,14 @@
             justify-content: center;
             font-size: 36px;
             flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .modal-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .modal-title h2 {
@@ -761,6 +777,141 @@
             text-transform: uppercase;
             cursor: pointer;
             font-family: 'Outfit', sans-serif;
+        }
+
+        /* Documents Section */
+        .modal-documents {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 24px;
+            margin-bottom: 24px;
+        }
+
+        .modal-documents label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cream-muted);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .document-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .document-item.empty {
+            border-style: dashed;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .document-item.empty:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .doc-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(212, 175, 55, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .doc-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .doc-info .doc-name {
+            font-size: 13px;
+            color: var(--cream);
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .doc-info .doc-meta {
+            font-size: 11px;
+            color: var(--cream-muted);
+        }
+
+        .insurance-reminder {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .insurance-reminder .reminder-text {
+            font-size: 12px;
+            color: var(--cream-dim);
+        }
+
+        .insurance-reminder .reminder-date {
+            font-size: 12px;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* Selling Interest Section */
+        .modal-selling {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 24px;
+            margin-bottom: 24px;
+        }
+
+        .selling-option {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .selling-option:hover {
+            background: rgba(212, 175, 55, 0.05);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .selling-info h4 {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--cream);
+            margin-bottom: 4px;
+        }
+
+        .selling-info p {
+            font-size: 12px;
+            color: var(--cream-muted);
+        }
+
+        .selling-arrow {
+            color: var(--gold);
+            font-size: 18px;
         }
 
         /* Scrollbar */
@@ -1082,6 +1233,50 @@
                 <label>Valuation Sources</label>
                 <div class="tags" id="modalSources"></div>
             </div>
+
+            <!-- Documents Section -->
+            <div class="modal-documents">
+                <label>Documents & Records</label>
+                <div class="documents-grid">
+                    <div class="document-item" id="docCOA">
+                        <div class="doc-icon">📄</div>
+                        <div class="doc-info">
+                            <div class="doc-name">Certificate of Authenticity</div>
+                            <div class="doc-meta" id="docCOAMeta">Uploaded Jan 2023</div>
+                        </div>
+                    </div>
+                    <div class="document-item" id="docInsurance">
+                        <div class="doc-icon">🛡️</div>
+                        <div class="doc-info">
+                            <div class="doc-name">Insurance Policy</div>
+                            <div class="doc-meta" id="docInsuranceMeta">Chubb • $170,000 coverage</div>
+                        </div>
+                    </div>
+                    <div class="document-item empty" onclick="alert('Upload functionality coming soon!')">
+                        <div class="doc-icon">+</div>
+                        <div class="doc-info">
+                            <div class="doc-name">Add Document</div>
+                            <div class="doc-meta">Receipt, appraisal, etc.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="insurance-reminder">
+                    <span class="reminder-text">📅 Insurance Renewal</span>
+                    <span class="reminder-date" id="insuranceRenewal">March 15, 2026</span>
+                </div>
+            </div>
+
+            <!-- Selling Interest -->
+            <div class="modal-selling">
+                <div class="selling-option" onclick="alert('We\'ll be in touch to discuss selling options!')">
+                    <div class="selling-info">
+                        <h4>Interested in Selling?</h4>
+                        <p>Get a private sale estimate or consignment options</p>
+                    </div>
+                    <span class="selling-arrow">→</span>
+                </div>
+            </div>
+
             <div class="modal-actions">
                 <button class="btn-primary">Borrow Against This Asset</button>
                 <button class="btn-secondary">Edit</button>
@@ -1108,7 +1303,7 @@
                 category: 'watches',
                 name: 'Rolex Daytona',
                 reference: '116500LN',
-                icon: '⌚',
+                image: 'https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=120&h=120&fit=crop',
                 purchasePrice: 32500,
                 currentValue: 38200,
                 gain: 5700,
@@ -1124,7 +1319,7 @@
                 category: 'watches',
                 name: 'Patek Philippe Nautilus',
                 reference: '5711/1A-010',
-                icon: '⌚',
+                image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=120&h=120&fit=crop',
                 purchasePrice: 142000,
                 currentValue: 168500,
                 gain: 26500,
@@ -1140,7 +1335,7 @@
                 category: 'jewelry',
                 name: 'Cartier Love Bracelet',
                 reference: 'Yellow Gold, Size 17',
-                icon: '💎',
+                image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=120&h=120&fit=crop',
                 purchasePrice: 7850,
                 currentValue: 8400,
                 gain: 550,
@@ -1156,7 +1351,7 @@
                 category: 'jewelry',
                 name: 'Van Cleef Alhambra Necklace',
                 reference: '10 Motif, Mother of Pearl',
-                icon: '💎',
+                image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=120&h=120&fit=crop',
                 purchasePrice: 14200,
                 currentValue: 15800,
                 gain: 1600,
@@ -1172,7 +1367,7 @@
                 category: 'art',
                 name: 'KAWS Companion',
                 reference: 'Grey, Open Edition',
-                icon: '🎨',
+                image: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=120&h=120&fit=crop',
                 purchasePrice: 2800,
                 currentValue: 3450,
                 gain: 650,
@@ -1188,7 +1383,7 @@
                 category: 'art',
                 name: 'Banksy Girl with Balloon',
                 reference: 'Screenprint, Unsigned',
-                icon: '🎨',
+                image: 'https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=120&h=120&fit=crop',
                 purchasePrice: 48500,
                 currentValue: 62400,
                 gain: 13900,
@@ -1204,7 +1399,7 @@
                 category: 'watches',
                 name: 'Audemars Piguet Royal Oak',
                 reference: '15500ST.OO.1220ST.01',
-                icon: '⌚',
+                image: 'https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=120&h=120&fit=crop',
                 purchasePrice: 68500,
                 currentValue: 72800,
                 gain: 4300,
@@ -1220,7 +1415,7 @@
                 category: 'art',
                 name: 'Mr. Brainwash Tomato Spray',
                 reference: 'Mixed Media on Canvas',
-                icon: '🎨',
+                image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=120&h=120&fit=crop',
                 purchasePrice: 18500,
                 currentValue: 21200,
                 gain: 2700,
@@ -1236,7 +1431,7 @@
                 category: 'jewelry',
                 name: 'Cartier Juste un Clou',
                 reference: 'Yellow Gold, Size 17',
-                icon: '💎',
+                image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=120&h=120&fit=crop',
                 purchasePrice: 11200,
                 currentValue: 12100,
                 gain: 900,
@@ -1252,7 +1447,7 @@
                 category: 'art',
                 name: 'Takashi Murakami Flowers',
                 reference: 'Offset Lithograph, Signed',
-                icon: '🎨',
+                image: 'https://images.unsplash.com/photo-1549887534-1541e9326642?w=120&h=120&fit=crop',
                 purchasePrice: 66750,
                 currentValue: 84400,
                 gain: 17650,
@@ -1283,7 +1478,9 @@
             return `
                 <div class="asset-card" data-category="${asset.category}" onclick="openModal(${asset.id})">
                     <div class="asset-header">
-                        <div class="asset-icon">${asset.icon}</div>
+                        <div class="asset-icon">
+                            <img src="${asset.image}" alt="${asset.name}">
+                        </div>
                         <span class="asset-gain ${gainClass}">${gainArrow} ${Math.abs(asset.gainPercent)}%</span>
                     </div>
                     <h3 class="asset-name">${asset.name}</h3>
@@ -1332,7 +1529,7 @@
             const asset = assets.find(a => a.id === id);
             if (!asset) return;
 
-            document.getElementById('modalIcon').textContent = asset.icon;
+            document.getElementById('modalIcon').innerHTML = `<img src="${asset.image}" alt="${asset.name}">`;
             document.getElementById('modalName').textContent = asset.name;
             document.getElementById('modalRef').textContent = asset.reference;
             document.getElementById('modalValue').textContent = formatCurrency(asset.currentValue);
