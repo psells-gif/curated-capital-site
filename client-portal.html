@@ -108,6 +108,25 @@
             content: '←';
         }
 
+        /* Mobile Menu (Dark Theme) */
+        .hamburger-dark {
+            display: none; flex-direction: column; justify-content: center; gap: 5px;
+            width: 28px; height: 28px; cursor: pointer; z-index: 1001;
+        }
+        .hamburger-dark span { display: block; width: 100%; height: 2px; background-color: var(--cream); transition: all 0.3s ease; }
+        .hamburger-dark.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger-dark.active span:nth-child(2) { opacity: 0; }
+        .hamburger-dark.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .mobile-menu-dark {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: var(--navy-deep); z-index: 999; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .mobile-menu-dark.active { display: flex; }
+        .mobile-menu-dark a { color: var(--cream); text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 32px; padding: 20px 40px; transition: color 0.3s ease; }
+        .mobile-menu-dark a:hover { color: var(--gold); }
+        .mobile-menu-dark .mobile-cta-dark { margin-top: 40px; padding: 16px 32px; border: 1px solid var(--gold); color: var(--gold); font-family: 'Outfit', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+        .mobile-menu-dark .mobile-cta-dark:hover { background: var(--gold); color: var(--navy-deep); }
+
         /* Demo Banner */
         .demo-banner {
             background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.08) 100%);
@@ -955,15 +974,12 @@
         }
 
         @media (max-width: 600px) {
-            .top-nav-inner {
-                flex-direction: column;
-                gap: 12px;
-                padding: 16px 24px;
+            .top-nav-links {
+                display: none;
             }
 
-            .top-nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
+            .hamburger-dark {
+                display: flex;
             }
 
             header {
@@ -1091,8 +1107,28 @@
                 <a href="client-portal.html" class="active">Client Portal</a>
                 <a href="waitlist.html">Join Waitlist</a>
             </div>
+            <div class="hamburger-dark" onclick="toggleMenuDark()">
+                <span></span><span></span><span></span>
+            </div>
         </div>
     </nav>
+
+    <div class="mobile-menu-dark" id="mobileMenuDark">
+        <a href="index.html">Home</a>
+        <a href="process.html">Process</a>
+        <a href="shop.html">The Collection</a>
+        <a href="perspectives.html">Perspectives</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="waitlist.html" class="mobile-cta-dark">Join Waitlist</a>
+    </div>
+    <script>
+        function toggleMenuDark() {
+            document.querySelector('.hamburger-dark').classList.toggle('active');
+            document.getElementById('mobileMenuDark').classList.toggle('active');
+            document.body.style.overflow = document.getElementById('mobileMenuDark').classList.contains('active') ? 'hidden' : '';
+        }
+    </script>
 
     <!-- Demo Banner -->
     <div class="demo-banner">
