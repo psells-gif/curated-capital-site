@@ -85,25 +85,110 @@
         }
         .client-portal-btn:hover { background-color: #1e3a5f; border-color: #1e3a5f; color: #fff; }
 
-        /* --- HERO (COMPACT 45% HEIGHT) --- */
-        .hero {
-            height: 45vh;
-            min-height: 450px;
-            display: flex; align-items: center; justify-content: center; text-align: center;
+        /* --- NEW HERO (PORTFOLIO TEASER) --- */
+        .hero-new {
+            margin-top: 80px;
+            padding: 80px 48px;
+            background: linear-gradient(135deg, #f1e9dc 0%, #e8dfd0 100%);
             position: relative;
-            background: linear-gradient(to bottom, rgba(241,233,220,0.85), #f1e9dc), url('assets/images/hero.jpeg');
-            background-size: cover; background-position: center;
-            margin-top: 80px; /* Offset for fixed header */
         }
-        .hero h1 { font-size: 72px; line-height: 1; margin-bottom: 20px; color: #1e3a5f; letter-spacing: -2px; }
-        .hero p { font-size: 18px; max-width: 580px; margin: 0 auto 30px; font-weight: 300; color: #4a5a6a; font-family: 'Cormorant Garamond', serif; font-style: italic; }
-
-        /* --- TRUST PILLARS BAR (REPLACING STATS) --- */
-        .stats-section { border-top: 1px solid var(--grid-color); border-bottom: 1px solid var(--grid-color); }
-        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); background-color: var(--grid-color); gap: 1px; border-left: 1px solid var(--grid-color); border-right: 1px solid var(--grid-color); }
-        .stat-item { background-color: #f1e9dc; padding: 50px 20px; text-align: center; }
-        .stat-item h3 { font-size: 24px; color: #8b7355; margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase; }
-        .stat-item span { font-family: 'Inter', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #1e3a5f; opacity: 0.7; }
+        .hero-new-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.1) 0%, rgba(30, 58, 95, 0.05) 100%);
+            border: 1px solid rgba(30, 58, 95, 0.2);
+            padding: 8px 20px;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #1e3a5f;
+            margin-bottom: 24px;
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-new-content h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 52px;
+            font-weight: 400;
+            color: #1e3a5f;
+            margin-bottom: 20px;
+            line-height: 1.15;
+        }
+        .hero-new-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #4a5a6a;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        .hero-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px 0;
+        }
+        .hero-features li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #4a5a6a;
+        }
+        .hero-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #8b7355;
+            font-weight: bold;
+        }
+        .hero-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2a4a70 100%);
+            color: #fff;
+            padding: 16px 40px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(30, 58, 95, 0.3);
+        }
+        .hero-preview {
+            position: relative;
+        }
+        .hero-new .preview-frame {
+            position: relative;
+            background: linear-gradient(145deg, rgba(30, 58, 95, 0.08) 0%, rgba(30, 58, 95, 0.02) 100%);
+            border: 1px solid rgba(30, 58, 95, 0.15);
+            border-radius: 4px;
+            padding: 16px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+        }
+        .hero-new .preview-frame::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 60px;
+            right: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #8b7355, transparent);
+        }
+        .hero-new .preview-frame svg {
+            width: 100%;
+            border-radius: 2px;
+            display: block;
+        }
 
         /* --- SERVICES (HYBRID STYLE) --- */
         .services-section { padding: 0; background-color: #000; }
@@ -160,133 +245,6 @@
         .service-panel:hover .panel-overlay { background: rgba(30, 58, 95, 0.5); }
         .service-panel:hover .panel-btn { background-color: #fff; color: #8b7355; border-color: #fff; }
 
-
-        /* --- PORTFOLIO TEASER SECTION --- */
-        .portfolio-teaser {
-            padding: 100px 48px;
-            background: linear-gradient(135deg, #0a0a14 0%, #1a1a2e 50%, #0a0a14 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portfolio-teaser::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
-        }
-
-        .teaser-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 64px;
-            align-items: center;
-        }
-
-        .teaser-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 8px 20px;
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #d4af37;
-            margin-bottom: 24px;
-        }
-
-        .teaser-content h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 44px;
-            font-weight: 300;
-            color: #f5f5f0;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .teaser-content p {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            color: rgba(245, 245, 240, 0.7);
-            line-height: 1.8;
-            margin-bottom: 24px;
-        }
-
-        .teaser-features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 32px 0;
-        }
-
-        .teaser-features li {
-            position: relative;
-            padding-left: 28px;
-            margin-bottom: 12px;
-            font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            color: rgba(245, 245, 240, 0.7);
-        }
-
-        .teaser-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #d4af37;
-            font-weight: bold;
-        }
-
-        .teaser-cta {
-            display: inline-block;
-            background: linear-gradient(135deg, #d4af37 0%, #b8963a 100%);
-            color: #0a0a14;
-            padding: 16px 40px;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .teaser-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
-        }
-
-        .teaser-preview {
-            position: relative;
-        }
-
-        .preview-frame {
-            position: relative;
-            background: linear-gradient(145deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 4px;
-            padding: 20px;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
-        }
-
-        .preview-frame::before {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: 60px;
-            right: 60px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #d4af37, transparent);
-        }
-
-        .preview-frame svg {
-            width: 100%;
-            border-radius: 2px;
-            display: block;
-        }
-
         /* --- ASSETS SECTION (6-GRID) --- */
         .assets-section { padding: 120px 0; }
         .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; padding-bottom: 20px; border-bottom: 1px solid var(--grid-color); }
@@ -333,11 +291,11 @@
             header { position: fixed; }
             nav { height: 70px; justify-content: center; }
             .nav-logo img { height: 50px; }
-            /* Portfolio teaser responsive */
-            .portfolio-teaser { padding: 80px 24px; }
-            .teaser-container { grid-template-columns: 1fr; gap: 48px; }
-            .teaser-preview { order: -1; }
-            .teaser-content h2 { font-size: 32px; }
+            /* Hero responsive */
+            .hero-new { padding: 60px 24px; }
+            .hero-new-container { grid-template-columns: 1fr; gap: 48px; }
+            .hero-preview { order: -1; }
+            .hero-new-content h1 { font-size: 36px; }
         }
     </style>
     <!-- Vercel Analytics -->
@@ -369,40 +327,110 @@
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>The Private<br>Asset Platform.</h1>
-            <p>Liquidity, acquisition, and financing for the world's finest assets. <br>The modern alternative to traditional banking and auction houses.</p>
-            <div style="margin-top: 30px;">
-                <a href="contact.html" class="btn">Get Liquidity</a>
-                <span style="display:inline-block; width: 20px;"></span>
-                <a href="shop.html" class="btn-outline">Shop Collection</a>
+    <section class="hero-new">
+        <div class="hero-new-container">
+            <div class="hero-new-content">
+                <span class="hero-badge">Coming Soon</span>
+                <h1>Know What Your Collection Is Worth</h1>
+                <p>
+                    The first dashboard that shows real-time valuations of your watches, jewelry, and art. Track your collection like a portfolio, and unlock liquidity when you need it.
+                </p>
+                <ul class="hero-features">
+                    <li>Real-time market valuations from trusted sources</li>
+                    <li>Track watches, jewelry, and art in one place</li>
+                    <li>See your borrowing capacity instantly</li>
+                </ul>
+                <a href="waitlist.html" class="hero-cta">
+                    Join the Waitlist →
+                </a>
+            </div>
+            <div class="hero-preview">
+                <div class="preview-frame">
+                    <!-- Inline SVG Dashboard Preview -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+                        <defs>
+                            <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0a0a14"/>
+                                <stop offset="50%" style="stop-color:#1a1a2e"/>
+                                <stop offset="100%" style="stop-color:#0a0a14"/>
+                            </linearGradient>
+                            <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#d4af37"/>
+                                <stop offset="50%" style="stop-color:#f5e6a3"/>
+                                <stop offset="100%" style="stop-color:#d4af37"/>
+                            </linearGradient>
+                            <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:rgba(212,175,55,0.12)"/>
+                                <stop offset="100%" style="stop-color:rgba(212,175,55,0.04)"/>
+                            </linearGradient>
+                            <linearGradient id="greenCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:rgba(74,222,128,0.12)"/>
+                                <stop offset="100%" style="stop-color:rgba(74,222,128,0.04)"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="800" height="500" fill="url(#bg)"/>
+                        <rect x="0" y="0" width="800" height="70" fill="rgba(10,10,20,0.9)"/>
+                        <line x1="0" y1="70" x2="800" y2="70" stroke="rgba(212,175,55,0.2)" stroke-width="1"/>
+                        <text x="40" y="42" font-family="Georgia, serif" font-size="18" font-weight="300" letter-spacing="4" fill="url(#gold)">CURATED CAPITAL</text>
+                        <text x="40" y="58" font-family="Arial, sans-serif" font-size="9" letter-spacing="2" fill="rgba(212,175,55,0.5)">CLIENT PORTAL</text>
+                        <circle cx="745" cy="35" r="18" fill="url(#gold)"/>
+                        <text x="745" y="40" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#0a0a14" text-anchor="middle">PS</text>
+                        <rect x="630" y="20" width="90" height="32" fill="none" stroke="rgba(212,175,55,0.4)" stroke-width="1" rx="1"/>
+                        <text x="675" y="40" font-family="Arial, sans-serif" font-size="9" letter-spacing="1" fill="#d4af37" text-anchor="middle">+ ADD ASSET</text>
+                        <rect x="40" y="95" width="450" height="140" fill="url(#cardBg)" stroke="rgba(212,175,55,0.25)" stroke-width="1" rx="2"/>
+                        <ellipse cx="400" cy="120" rx="150" ry="80" fill="rgba(212,175,55,0.06)"/>
+                        <text x="60" y="125" font-family="Arial, sans-serif" font-size="10" letter-spacing="2" fill="rgba(245,245,240,0.4)">TOTAL PORTFOLIO VALUE</text>
+                        <text x="60" y="175" font-family="Georgia, serif" font-size="48" font-weight="300" fill="#f5f5f0">$487,250</text>
+                        <text x="60" y="210" font-family="Arial, sans-serif" font-size="16" fill="#4ade80">+$74,450</text>
+                        <rect x="155" y="195" width="65" height="22" fill="rgba(74,222,128,0.15)" rx="2"/>
+                        <text x="187" y="210" font-family="Arial, sans-serif" font-size="11" fill="#4ade80" text-anchor="middle">↑ 18.0%</text>
+                        <text x="235" y="210" font-family="Arial, sans-serif" font-size="12" fill="rgba(245,245,240,0.4)">vs. $412,800 cost basis</text>
+                        <rect x="510" y="95" width="250" height="140" fill="url(#greenCard)" stroke="rgba(74,222,128,0.25)" stroke-width="1" rx="2"/>
+                        <text x="530" y="125" font-family="Arial, sans-serif" font-size="10" letter-spacing="2" fill="rgba(245,245,240,0.4)">AVAILABLE TO BORROW</text>
+                        <text x="530" y="165" font-family="Georgia, serif" font-size="36" font-weight="300" fill="#4ade80">$243,625</text>
+                        <text x="530" y="190" font-family="Arial, sans-serif" font-size="11" fill="rgba(245,245,240,0.4)">at 50% LTV across all assets</text>
+                        <rect x="530" y="205" width="150" height="36" fill="#4ade80" rx="1"/>
+                        <text x="605" y="228" font-family="Arial, sans-serif" font-size="10" letter-spacing="2" font-weight="600" fill="#0a0a14" text-anchor="middle">UNLOCK LIQUIDITY →</text>
+                        <rect x="40" y="255" width="175" height="70" fill="rgba(212,175,55,0.1)" stroke="rgba(212,175,55,0.3)" stroke-width="1" rx="2"/>
+                        <text x="55" y="280" font-family="Arial, sans-serif" font-size="9" letter-spacing="1" fill="#d4af37">ALL ASSETS</text>
+                        <text x="55" y="305" font-family="Georgia, serif" font-size="20" fill="#f5f5f0">$487,250</text>
+                        <rect x="225" y="255" width="145" height="70" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1" rx="2"/>
+                        <text x="240" y="280" font-family="Arial, sans-serif" font-size="9" letter-spacing="1" fill="rgba(245,245,240,0.4)">⌚ WATCHES</text>
+                        <text x="240" y="305" font-family="Georgia, serif" font-size="20" fill="rgba(245,245,240,0.6)">$279,500</text>
+                        <rect x="380" y="255" width="145" height="70" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1" rx="2"/>
+                        <text x="395" y="280" font-family="Arial, sans-serif" font-size="9" letter-spacing="1" fill="rgba(245,245,240,0.4)">💎 JEWELRY</text>
+                        <text x="395" y="305" font-family="Georgia, serif" font-size="20" fill="rgba(245,245,240,0.6)">$36,300</text>
+                        <rect x="535" y="255" width="145" height="70" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1" rx="2"/>
+                        <text x="550" y="280" font-family="Arial, sans-serif" font-size="9" letter-spacing="1" fill="rgba(245,245,240,0.4)">🎨 ART</text>
+                        <text x="550" y="305" font-family="Georgia, serif" font-size="20" fill="rgba(245,245,240,0.6)">$171,450</text>
+                        <text x="40" y="355" font-family="Arial, sans-serif" font-size="9" letter-spacing="2" fill="rgba(245,245,240,0.4)">10 ASSETS</text>
+                        <rect x="40" y="370" width="235" height="115" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1" rx="2"/>
+                        <rect x="55" y="385" width="45" height="45" fill="rgba(212,175,55,0.15)" rx="2"/>
+                        <text x="77" y="415" font-size="20" text-anchor="middle">⌚</text>
+                        <rect x="205" y="385" width="55" height="20" fill="rgba(74,222,128,0.15)" rx="2"/>
+                        <text x="232" y="399" font-family="Arial, sans-serif" font-size="10" fill="#4ade80" text-anchor="middle">↑ 17.5%</text>
+                        <text x="55" y="450" font-family="Georgia, serif" font-size="15" fill="#f5f5f0">Rolex Daytona</text>
+                        <text x="55" y="465" font-family="Arial, sans-serif" font-size="10" fill="rgba(245,245,240,0.4)">116500LN</text>
+                        <rect x="285" y="370" width="235" height="115" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1" rx="2"/>
+                        <rect x="300" y="385" width="45" height="45" fill="rgba(212,175,55,0.15)" rx="2"/>
+                        <text x="322" y="415" font-size="20" text-anchor="middle">⌚</text>
+                        <rect x="450" y="385" width="55" height="20" fill="rgba(74,222,128,0.15)" rx="2"/>
+                        <text x="477" y="399" font-family="Arial, sans-serif" font-size="10" fill="#4ade80" text-anchor="middle">↑ 18.7%</text>
+                        <text x="300" y="450" font-family="Georgia, serif" font-size="15" fill="#f5f5f0">Patek Nautilus</text>
+                        <text x="300" y="465" font-family="Arial, sans-serif" font-size="10" fill="rgba(245,245,240,0.4)">5711/1A-010</text>
+                        <rect x="530" y="370" width="235" height="115" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1" rx="2"/>
+                        <rect x="545" y="385" width="45" height="45" fill="rgba(212,175,55,0.15)" rx="2"/>
+                        <text x="567" y="415" font-size="20" text-anchor="middle">🎨</text>
+                        <rect x="695" y="385" width="55" height="20" fill="rgba(74,222,128,0.15)" rx="2"/>
+                        <text x="722" y="399" font-family="Arial, sans-serif" font-size="10" fill="#4ade80" text-anchor="middle">↑ 28.7%</text>
+                        <text x="545" y="450" font-family="Georgia, serif" font-size="15" fill="#f5f5f0">Banksy Print</text>
+                        <text x="545" y="465" font-family="Arial, sans-serif" font-size="10" fill="rgba(245,245,240,0.4)">Girl with Balloon</text>
+                        <rect x="0" y="0" width="800" height="500" fill="none" stroke="rgba(212,175,55,0.1)" stroke-width="1"/>
+                    </svg>
+                </div>
             </div>
         </div>
     </section>
-
-    <div class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>Privacy</h3>
-                    <span>100% Discreet Transactions</span>
-                </div>
-                <div class="stat-item">
-                    <h3>Security</h3>
-                    <span>Insured & Bonded Storage</span>
-                </div>
-                <div class="stat-item">
-                    <h3>Expertise</h3>
-                    <span>Certified Valuations</span>
-                </div>
-                <div class="stat-item">
-                    <h3>Global</h3>
-                    <span>Logistics & Transport</span>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <section class="services-section">
         <div class="services-grid">
@@ -440,148 +468,6 @@
                 </div>
             </div>
 
-        </div>
-    </section>
-
-    <!-- Portfolio Teaser Section -->
-    <section class="portfolio-teaser">
-        <div class="teaser-container">
-            <div class="teaser-content">
-                <span class="teaser-badge">Coming Soon</span>
-                <h2>Know What Your Collection Is Worth</h2>
-                <p>
-                    Introducing the Curated Capital Portfolio—the first dashboard that shows
-                    real-time valuations of your watches, jewelry, and art. Track your collection
-                    like a portfolio, and unlock liquidity when you need it.
-                </p>
-                <ul class="teaser-features">
-                    <li>Real-time market valuations from trusted sources</li>
-                    <li>Track watches, jewelry, and art in one place</li>
-                    <li>See your borrowing capacity instantly</li>
-                </ul>
-                <a href="waitlist.html" class="teaser-cta">
-                    Join the Waitlist →
-                </a>
-            </div>
-            <div class="teaser-preview">
-                <div class="preview-frame">
-                    <!-- Inline SVG Dashboard Preview -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
-                        <defs>
-                            <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#0a0a14"/>
-                                <stop offset="50%" style="stop-color:#1a1a2e"/>
-                                <stop offset="100%" style="stop-color:#0a0a14"/>
-                            </linearGradient>
-                            <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#d4af37"/>
-                                <stop offset="50%" style="stop-color:#f5e6a3"/>
-                                <stop offset="100%" style="stop-color:#d4af37"/>
-                            </linearGradient>
-                            <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:rgba(212,175,55,0.12)"/>
-                                <stop offset="100%" style="stop-color:rgba(212,175,55,0.04)"/>
-                            </linearGradient>
-                            <linearGradient id="greenCard" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:rgba(74,222,128,0.12)"/>
-                                <stop offset="100%" style="stop-color:rgba(74,222,128,0.04)"/>
-                            </linearGradient>
-                        </defs>
-
-                        <!-- Background -->
-                        <rect width="800" height="500" fill="url(#bg)"/>
-
-                        <!-- Header Bar -->
-                        <rect x="0" y="0" width="800" height="70" fill="rgba(10,10,20,0.9)"/>
-                        <line x1="0" y1="70" x2="800" y2="70" stroke="rgba(212,175,55,0.2)" stroke-width="1"/>
-
-                        <!-- Logo -->
-                        <text x="40" y="42" font-family="Georgia, serif" font-size="18" font-weight="300" letter-spacing="4" fill="url(#gold)">CURATED CAPITAL</text>
-                        <text x="40" y="58" font-family="Arial, sans-serif" font-size="9" letter-spacing="2" fill="rgba(212,175,55,0.5)">CLIENT PORTAL</text>
-
-                        <!-- User Avatar -->
-                        <circle cx="745" cy="35" r="18" fill="url(#gold)"/>
-                        <text x="745" y="40" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#0a0a14" text-anchor="middle">PS</text>
-
-                        <!-- Add Asset Button -->
-                        <rect x="630" y="20" width="90" height="32" fill="none" stroke="rgba(212,175,55,0.4)" stroke-width="1" rx="1"/>
-                        <text x="675" y="40" font-family="Arial, sans-serif" font-size="9" letter-spacing="1" fill="#d4af37" text-anchor="middle">+ ADD ASSET</text>
-
-                        <!-- Main Value Card -->
-                        <rect x="40" y="95" width="450" height="140" fill="url(#cardBg)" stroke="rgba(212,175,55,0.25)" stroke-width="1" rx="2"/>
-
-                        <!-- Glow effect -->
-                        <ellipse cx="400" cy="120" rx="150" ry="80" fill="rgba(212,175,55,0.06)"/>
-
-                        <text x="60" y="125" font-family="Arial, sans-serif" font-size="10" letter-spacing="2" fill="rgba(245,245,240,0.4)">TOTAL PORTFOLIO VALUE</text>
-                        <text x="60" y="175" font-family="Georgia, serif" font-size="48" font-weight="300" fill="#f5f5f0">$487,250</text>
-                        <text x="60" y="210" font-family="Arial, sans-serif" font-size="16" fill="#4ade80">+$74,450</text>
-                        <rect x="155" y="195" width="65" height="22" fill="rgba(74,222,128,0.15)" rx="2"/>
-                        <text x="187" y="210" font-family="Arial, sans-serif" font-size="11" fill="#4ade80" text-anchor="middle">↑ 18.0%</text>
-                        <text x="235" y="210" font-family="Arial, sans-serif" font-size="12" fill="rgba(245,245,240,0.4)">vs. $412,800 cost basis</text>
-
-                        <!-- Borrow Card -->
-                        <rect x="510" y="95" width="250" height="140" fill="url(#greenCard)" stroke="rgba(74,222,128,0.25)" stroke-width="1" rx="2"/>
-                        <text x="530" y="125" font-family="Arial, sans-serif" font-size="10" letter-spacing="2" fill="rgba(245,245,240,0.4)">AVAILABLE TO BORROW</text>
-                        <text x="530" y="165" font-family="Georgia, serif" font-size="36" font-weight="300" fill="#4ade80">$243,625</text>
-                        <text x="530" y="190" font-family="Arial, sans-serif" font-size="11" fill="rgba(245,245,240,0.4)">at 50% LTV across all assets</text>
-
-                        <!-- Unlock Button -->
-                        <rect x="530" y="205" width="150" height="36" fill="#4ade80" rx="1"/>
-                        <text x="605" y="228" font-family="Arial, sans-serif" font-size="10" letter-spacing="2" font-weight="600" fill="#0a0a14" text-anchor="middle">UNLOCK LIQUIDITY →</text>
-
-                        <!-- Category Filters -->
-                        <rect x="40" y="255" width="175" height="70" fill="rgba(212,175,55,0.1)" stroke="rgba(212,175,55,0.3)" stroke-width="1" rx="2"/>
-                        <text x="55" y="280" font-family="Arial, sans-serif" font-size="9" letter-spacing="1" fill="#d4af37">ALL ASSETS</text>
-                        <text x="55" y="305" font-family="Georgia, serif" font-size="20" fill="#f5f5f0">$487,250</text>
-
-                        <rect x="225" y="255" width="145" height="70" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1" rx="2"/>
-                        <text x="240" y="280" font-family="Arial, sans-serif" font-size="9" letter-spacing="1" fill="rgba(245,245,240,0.4)">⌚ WATCHES</text>
-                        <text x="240" y="305" font-family="Georgia, serif" font-size="20" fill="rgba(245,245,240,0.6)">$279,500</text>
-
-                        <rect x="380" y="255" width="145" height="70" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1" rx="2"/>
-                        <text x="395" y="280" font-family="Arial, sans-serif" font-size="9" letter-spacing="1" fill="rgba(245,245,240,0.4)">💎 JEWELRY</text>
-                        <text x="395" y="305" font-family="Georgia, serif" font-size="20" fill="rgba(245,245,240,0.6)">$36,300</text>
-
-                        <rect x="535" y="255" width="145" height="70" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1" rx="2"/>
-                        <text x="550" y="280" font-family="Arial, sans-serif" font-size="9" letter-spacing="1" fill="rgba(245,245,240,0.4)">🎨 ART</text>
-                        <text x="550" y="305" font-family="Georgia, serif" font-size="20" fill="rgba(245,245,240,0.6)">$171,450</text>
-
-                        <!-- Asset Cards Row -->
-                        <text x="40" y="355" font-family="Arial, sans-serif" font-size="9" letter-spacing="2" fill="rgba(245,245,240,0.4)">10 ASSETS</text>
-
-                        <!-- Asset Card 1 -->
-                        <rect x="40" y="370" width="235" height="115" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1" rx="2"/>
-                        <rect x="55" y="385" width="45" height="45" fill="rgba(212,175,55,0.15)" rx="2"/>
-                        <text x="77" y="415" font-size="20" text-anchor="middle">⌚</text>
-                        <rect x="205" y="385" width="55" height="20" fill="rgba(74,222,128,0.15)" rx="2"/>
-                        <text x="232" y="399" font-family="Arial, sans-serif" font-size="10" fill="#4ade80" text-anchor="middle">↑ 17.5%</text>
-                        <text x="55" y="450" font-family="Georgia, serif" font-size="15" fill="#f5f5f0">Rolex Daytona</text>
-                        <text x="55" y="465" font-family="Arial, sans-serif" font-size="10" fill="rgba(245,245,240,0.4)">116500LN</text>
-
-                        <!-- Asset Card 2 -->
-                        <rect x="285" y="370" width="235" height="115" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1" rx="2"/>
-                        <rect x="300" y="385" width="45" height="45" fill="rgba(212,175,55,0.15)" rx="2"/>
-                        <text x="322" y="415" font-size="20" text-anchor="middle">⌚</text>
-                        <rect x="450" y="385" width="55" height="20" fill="rgba(74,222,128,0.15)" rx="2"/>
-                        <text x="477" y="399" font-family="Arial, sans-serif" font-size="10" fill="#4ade80" text-anchor="middle">↑ 18.7%</text>
-                        <text x="300" y="450" font-family="Georgia, serif" font-size="15" fill="#f5f5f0">Patek Nautilus</text>
-                        <text x="300" y="465" font-family="Arial, sans-serif" font-size="10" fill="rgba(245,245,240,0.4)">5711/1A-010</text>
-
-                        <!-- Asset Card 3 -->
-                        <rect x="530" y="370" width="235" height="115" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1" rx="2"/>
-                        <rect x="545" y="385" width="45" height="45" fill="rgba(212,175,55,0.15)" rx="2"/>
-                        <text x="567" y="415" font-size="20" text-anchor="middle">🎨</text>
-                        <rect x="695" y="385" width="55" height="20" fill="rgba(74,222,128,0.15)" rx="2"/>
-                        <text x="722" y="399" font-family="Arial, sans-serif" font-size="10" fill="#4ade80" text-anchor="middle">↑ 28.7%</text>
-                        <text x="545" y="450" font-family="Georgia, serif" font-size="15" fill="#f5f5f0">Banksy Print</text>
-                        <text x="545" y="465" font-family="Arial, sans-serif" font-size="10" fill="rgba(245,245,240,0.4)">Girl with Balloon</text>
-
-                        <!-- Subtle border -->
-                        <rect x="0" y="0" width="800" height="500" fill="none" stroke="rgba(212,175,55,0.1)" stroke-width="1"/>
-                    </svg>
-                </div>
-            </div>
         </div>
     </section>
 
