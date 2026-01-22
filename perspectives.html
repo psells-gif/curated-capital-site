@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perspectives | Curated Capital</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/favicon-192x192.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #f1e9dc;
+            color: #1e3a5f;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 40px; width: 100%; }
+        :root { --grid-color: rgba(139, 115, 85, 0.25); --gold-solid: #8b7355; }
+
+        /* Header */
+        header {
+            padding: 0; position: fixed; width: 100%; top: 0;
+            background-color: rgba(241, 233, 220, 0.95); backdrop-filter: blur(12px); z-index: 1000;
+            border-bottom: 1px solid var(--grid-color);
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .nav-logo { display: flex; align-items: center; }
+        .nav-logo img { height: 60px; }
+        .nav-links { display: flex; gap: 30px; margin-left: auto; margin-right: 40px; }
+        .nav-links a {
+            text-decoration: none; color: #1e3a5f; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;
+            transition: color 0.2s; position: relative;
+        }
+        .nav-links a:after {
+            content: ''; position: absolute; width: 0; height: 1px; bottom: -5px; left: 0;
+            background-color: #8b7355; transition: width 0.3s;
+        }
+        .nav-links a:hover:after { width: 100%; }
+        .nav-links a:hover { color: #8b7355; }
+        .client-portal-btn {
+            text-decoration: none; color: #1e3a5f; border: 1px solid rgba(30, 58, 95, 0.3);
+            padding: 10px 20px; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px;
+            font-weight: 600; transition: all 0.3s ease;
+        }
+        .client-portal-btn:hover { background-color: #1e3a5f; border-color: #1e3a5f; color: #fff; }
+
+        /* Page Header - Magazine Style */
+        .page-hero {
+            padding: 180px 0 80px;
+            text-align: center;
+            border-bottom: 1px solid var(--grid-color);
+        }
+        .page-hero .label {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold-solid);
+            margin-bottom: 20px;
+        }
+        .page-hero h1 {
+            font-size: 72px;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+        .page-hero p {
+            font-size: 20px;
+            color: #4a5a6a;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Featured Article */
+        .featured-article {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--grid-color);
+        }
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .featured-image {
+            height: 500px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6f 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .featured-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238b7355' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        .featured-image-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #f1e9dc;
+        }
+        .featured-image-inner .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        .featured-image-inner .caption {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+        .featured-content .category {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-solid);
+            margin-bottom: 15px;
+        }
+        .featured-content h2 {
+            font-size: 48px;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        .featured-content h2 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .featured-content h2 a:hover {
+            color: var(--gold-solid);
+        }
+        .featured-content .excerpt {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4a5a6a;
+            margin-bottom: 30px;
+        }
+        .featured-content .meta {
+            font-size: 12px;
+            color: #8a9aaa;
+            letter-spacing: 0.5px;
+        }
+        .read-more {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #1e3a5f;
+            text-decoration: none;
+            border-bottom: 1px solid var(--gold-solid);
+            padding-bottom: 3px;
+            transition: all 0.3s;
+        }
+        .read-more:hover {
+            color: var(--gold-solid);
+        }
+
+        /* Articles Grid */
+        .articles-section {
+            padding: 80px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--grid-color);
+        }
+        .section-header h3 {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-solid);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .article-card {
+            position: relative;
+        }
+        .article-card .image {
+            height: 280px;
+            background: linear-gradient(145deg, #1e3a5f 0%, #3d5a7f 100%);
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease;
+        }
+        .article-card:hover .image {
+            transform: scale(1.02);
+        }
+        .article-card .image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238b7355' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        .article-card .image-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #f1e9dc;
+        }
+        .article-card .image-inner .icon {
+            font-size: 40px;
+            opacity: 0.7;
+        }
+        .article-card .category {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-solid);
+            margin-bottom: 12px;
+        }
+        .article-card h4 {
+            font-size: 26px;
+            line-height: 1.25;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        .article-card h4 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .article-card h4 a:hover {
+            color: var(--gold-solid);
+        }
+        .article-card .excerpt {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #5a6a7a;
+            margin-bottom: 20px;
+        }
+        .article-card .meta {
+            font-size: 11px;
+            color: #9aaabc;
+            letter-spacing: 0.5px;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            padding: 100px 0;
+            background: #1e3a5f;
+            color: #f1e9dc;
+            text-align: center;
+        }
+        .newsletter-section h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: #8b7355;
+        }
+        .newsletter-section p {
+            font-size: 16px;
+            opacity: 0.8;
+            max-width: 500px;
+            margin: 0 auto 35px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+        .newsletter-form {
+            display: flex;
+            max-width: 450px;
+            margin: 0 auto;
+            gap: 0;
+        }
+        .newsletter-form input {
+            flex: 1;
+            padding: 18px 24px;
+            border: 1px solid rgba(139, 115, 85, 0.4);
+            background: transparent;
+            color: #f1e9dc;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+        }
+        .newsletter-form input::placeholder {
+            color: rgba(241, 233, 220, 0.5);
+        }
+        .newsletter-form button {
+            padding: 18px 32px;
+            background: #8b7355;
+            border: 1px solid #8b7355;
+            color: #fff;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .newsletter-form button:hover {
+            background: #a08565;
+            border-color: #a08565;
+        }
+
+        /* Footer */
+        footer { background-color: #1e3a5f; color: #f1e9dc; padding: 60px 0 40px; border-top: 1px solid rgba(139, 115, 85, 0.3); }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-brand h4 { font-size: 24px; color: #8b7355; margin-bottom: 10px; }
+        .footer-brand p { font-size: 12px; opacity: 0.7; }
+        .footer-links a { color: #fff; text-decoration: none; margin-left: 30px; font-size: 12px; opacity: 0.7; transition: opacity 0.3s; }
+        .footer-links a:hover { opacity: 1; }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .featured-grid { grid-template-columns: 1fr; gap: 40px; }
+            .featured-image { height: 350px; }
+            .featured-content h2 { font-size: 38px; }
+            .articles-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        }
+        @media (max-width: 750px) {
+            .page-hero h1 { font-size: 48px; }
+            .page-hero p { font-size: 17px; }
+            .articles-grid { grid-template-columns: 1fr; }
+            .article-card .image { height: 220px; }
+            .nav-links, .nav-actions { display: none; }
+            .container { padding: 0 20px; }
+            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+            .footer-links a { margin: 0 15px; }
+            nav { height: 70px; justify-content: center; }
+            .nav-logo img { height: 50px; }
+            .newsletter-form { flex-direction: column; }
+            .newsletter-form input, .newsletter-form button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="assets/images/logo.png" alt="Curated Capital">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="process.html">Process</a>
+                    <a href="shop.html">The Collection</a>
+                    <a href="perspectives.html">Perspectives</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="nav-actions">
+                    <a href="client-portal.html" class="client-portal-btn">Client Portal</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <p class="label">The Journal</p>
+            <h1>Perspectives</h1>
+            <p>Insights on collecting, asset-backed lending, and the evolving landscape of luxury assets.</p>
+        </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="featured-article">
+        <div class="container">
+            <div class="featured-grid">
+                <div class="featured-image">
+                    <div class="featured-image-inner">
+                        <div class="icon">&#9201;</div>
+                        <div class="caption">Featured</div>
+                    </div>
+                </div>
+                <div class="featured-content">
+                    <p class="category">Market Insights</p>
+                    <h2><a href="articles/watch-market-2026.html">The State of the Luxury Watch Market in 2026</a></h2>
+                    <p class="excerpt">After years of unprecedented growth, the luxury watch market has entered a period of thoughtful recalibration. We examine what this means for collectors and those considering their timepieces as collateral.</p>
+                    <p class="meta">January 2026 &nbsp;&middot;&nbsp; 8 min read</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Articles -->
+    <section class="articles-section">
+        <div class="container">
+            <div class="section-header">
+                <h3>Latest Articles</h3>
+            </div>
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="image">
+                        <div class="image-inner">
+                            <div class="icon">&#128176;</div>
+                        </div>
+                    </div>
+                    <p class="category">Asset-Backed Lending</p>
+                    <h4><a href="articles/asset-backed-lending.html">Understanding Asset-Backed Lending: A Collector's Guide</a></h4>
+                    <p class="excerpt">How discerning collectors are leveraging their passion assets to access liquidity without parting with pieces they love.</p>
+                    <p class="meta">January 2026 &nbsp;&middot;&nbsp; 6 min read</p>
+                </article>
+
+                <article class="article-card">
+                    <div class="image">
+                        <div class="image-inner">
+                            <div class="icon">&#127912;</div>
+                        </div>
+                    </div>
+                    <p class="category">Collecting</p>
+                    <h4><a href="articles/art-as-collateral.html">Art as Collateral: What You Need to Know</a></h4>
+                    <p class="excerpt">From authentication to valuation, the key considerations when using fine art to secure financing.</p>
+                    <p class="meta">January 2026 &nbsp;&middot;&nbsp; 5 min read</p>
+                </article>
+
+                <article class="article-card">
+                    <div class="image">
+                        <div class="image-inner">
+                            <div class="icon">&#128142;</div>
+                        </div>
+                    </div>
+                    <p class="category">Valuation</p>
+                    <h4><a href="articles/jewelry-valuation.html">The Science and Art of Jewelry Valuation</a></h4>
+                    <p class="excerpt">What determines the lending value of fine jewelry, and how professional appraisers approach high-value pieces.</p>
+                    <p class="meta">December 2025 &nbsp;&middot;&nbsp; 7 min read</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>Stay Informed</h2>
+            <p>Receive our latest perspectives on the luxury asset market, delivered monthly.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h4>CURATED CAPITAL</h4>
+                    <p>&copy; 2026 All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="perspectives.html">Perspectives</a>
+                    <a href="shop.html">Collection</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
