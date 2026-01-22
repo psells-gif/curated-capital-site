@@ -61,12 +61,18 @@
         .top-nav {
             background: rgba(10, 10, 20, 0.95);
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-            padding: 12px 48px;
+            padding: 12px 0;
+            position: relative;
+            z-index: 102;
+        }
+
+        .top-nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            z-index: 102;
         }
 
         .top-nav-links {
@@ -788,8 +794,8 @@
                 flex: 1 1 45%;
             }
 
-            .top-nav {
-                padding: 12px 24px;
+            .top-nav-inner {
+                padding: 0 24px;
             }
 
             .top-nav-links {
@@ -798,7 +804,7 @@
         }
 
         @media (max-width: 600px) {
-            .top-nav {
+            .top-nav-inner {
                 flex-direction: column;
                 gap: 12px;
                 padding: 16px 24px;
@@ -913,22 +919,27 @@
             box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
         }
     </style>
+
+    <!-- Vercel Analytics -->
+    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
     <div class="texture-overlay"></div>
 
     <!-- Top Navigation -->
     <nav class="top-nav">
-        <div class="top-nav-links">
-            <a href="index.html" class="back-link">Main Site</a>
-            <a href="about.html">About</a>
-            <a href="process.html">Process</a>
-            <a href="perspectives.html">Perspectives</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div class="top-nav-links">
-            <a href="client-portal.html" class="active">Client Portal</a>
-            <a href="waitlist.html">Join Waitlist</a>
+        <div class="top-nav-inner">
+            <div class="top-nav-links">
+                <a href="index.html" class="back-link">Main Site</a>
+                <a href="about.html">About</a>
+                <a href="process.html">Process</a>
+                <a href="perspectives.html">Perspectives</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="top-nav-links">
+                <a href="client-portal.html" class="active">Client Portal</a>
+                <a href="waitlist.html">Join Waitlist</a>
+            </div>
         </div>
     </nav>
 
