@@ -65,25 +65,32 @@
         .page-hero h1 { font-size: 64px; margin-bottom: 20px; }
         .page-hero p { font-size: 18px; color: #4a5a6a; font-family: 'Cormorant Garamond', serif; font-style: italic; max-width: 600px; margin: 0 auto; }
 
-        /* Contact Section */
+        /* Contact Section - Full Width Dark */
         .contact-section {
-            padding: 100px 0;
+            padding: 0;
+            background: #1e3a5f;
         }
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            grid-template-columns: 1fr 1.2fr;
+            min-height: 600px;
+        }
+        .contact-info {
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .contact-info h2 {
-            font-size: 36px;
-            margin-bottom: 30px;
-            color: var(--gold-solid);
+            font-size: 42px;
+            margin-bottom: 24px;
+            color: #f1e9dc;
         }
         .contact-info p {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             font-size: 15px;
             line-height: 1.8;
-            color: #4a5a6a;
+            color: rgba(241, 233, 220, 0.7);
         }
         .contact-detail {
             margin-bottom: 25px;
@@ -93,67 +100,26 @@
             font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--gold-solid);
+            color: #8b7355;
             margin-bottom: 8px;
         }
-        .contact-detail a {
-            color: #1e3a5f;
+        .contact-detail a,
+        .contact-detail span {
+            color: #f1e9dc;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             transition: color 0.3s;
         }
-        .contact-detail a:hover { color: var(--gold-solid); }
+        .contact-detail a:hover { color: #8b7355; }
 
-        /* Contact Form */
-        .contact-form {
-            background: #fff;
-            padding: 50px;
-            border: 1px solid var(--grid-color);
+        /* Form Container */
+        .contact-form-wrapper {
+            background: #0a0a14;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .contact-form h3 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: #1e3a5f;
-        }
-        .form-group {
-            margin-bottom: 25px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            color: #1e3a5f;
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid var(--grid-color);
-            background: #f1e9dc;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            color: #1e3a5f;
-            transition: border-color 0.3s;
-        }
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--gold-solid);
-        }
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        .btn {
-            display: inline-block; padding: 18px 36px; background-color: #1e3a5f; color: white;
-            text-decoration: none; text-transform: uppercase; font-size: 11px; letter-spacing: 2px;
-            font-weight: 600; border: 1px solid #1e3a5f; transition: all 0.3s ease; cursor: pointer;
-        }
-        .btn:hover { background-color: #8b7355; border-color: #8b7355; }
 
         /* Footer */
         footer { background-color: #1e3a5f; color: #f1e9dc; padding: 60px 0 40px; }
@@ -165,8 +131,9 @@
 
         @media (max-width: 850px) {
             .page-hero h1 { font-size: 42px; }
-            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-            .contact-form { padding: 30px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .contact-info { padding: 60px 30px; }
+            .contact-form-wrapper { padding: 30px 20px; }
             .nav-links, .nav-actions { display: none; }
             .container { padding: 0 20px; }
             .footer-content { flex-direction: column; gap: 20px; text-align: center; }
@@ -206,33 +173,31 @@
 
     <section class="page-hero">
         <div class="container">
-            <h1>Contact</h1>
-            <p>Begin a conversation about your assets or acquisitions.</p>
+            <h1>Get in Touch</h1>
+            <p>Start a conversation. No obligation, complete discretion.</p>
         </div>
     </section>
 
     <section class="contact-section">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>Let's Connect</h2>
-                    <p>Whether you're exploring liquidity options, interested in selling an asset, or looking to acquire something exceptional, we're here to help. All inquiries are handled with complete discretion.</p>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Let's Talk</h2>
+                <p>Whether you're exploring liquidity options, interested in selling an asset, or looking to acquire something exceptional—we're here to help. All inquiries are handled with complete discretion.</p>
 
-                    <div class="contact-detail">
-                        <strong>Email</strong>
-                        <a href="mailto:patrick@curatedcapital.com">patrick@curatedcapital.com</a>
-                    </div>
-
-                    <div class="contact-detail">
-                        <strong>Response Time</strong>
-                        <span style="font-size: 16px; color: #4a5a6a;">Within 24 hours</span>
-                    </div>
+                <div class="contact-detail">
+                    <strong>Email</strong>
+                    <a href="mailto:patrick@curatedcapital.com">patrick@curatedcapital.com</a>
                 </div>
 
-                <div class="contact-form" style="padding: 0; background: transparent; border: none;">
-                    <div data-tf-widget="Z8ZX5EUf" data-tf-opacity="100" data-tf-iframe-props="title=CC_Contact Us Form" data-tf-transitive-search-params data-tf-medium="snippet" style="width:100%;height:500px;"></div>
-                    <script src="//embed.typeform.com/next/embed.js"></script>
+                <div class="contact-detail">
+                    <strong>Response Time</strong>
+                    <span>Within 24 hours</span>
                 </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <div data-tf-widget="Z8ZX5EUf" data-tf-opacity="100" data-tf-iframe-props="title=CC_Contact Us Form" data-tf-transitive-search-params data-tf-medium="snippet" style="width:100%;height:520px;"></div>
+                <script src="//embed.typeform.com/next/embed.js"></script>
             </div>
         </div>
     </section>
