@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Card Layout - Mockup</title>
+    <style>
+        :root {
+            --navy: #1e3a5f;
+            --navy-dark: #0d1b2a;
+            --gold: #d4af37;
+            --cream: #f5f5dc;
+            --cream-muted: rgba(245, 245, 220, 0.6);
+            --green: #4ade80;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--navy-dark);
+            color: var(--cream);
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .subtitle {
+            color: var(--cream-muted);
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+
+        .comparison {
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .card-section {
+            flex: 1;
+            min-width: 350px;
+        }
+
+        .card-section h2 {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cream-muted);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* NEW LAYOUT */
+        .asset-card-new {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 1fr 168px;
+            gap: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .asset-card-new:hover {
+            background: rgba(212, 175, 55, 0.05);
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        .asset-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .asset-name-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .asset-name-new {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--cream);
+        }
+
+        .asset-gain-new {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            color: var(--green);
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .asset-acquired {
+            font-size: 12px;
+            color: var(--cream-muted);
+            margin-bottom: 10px;
+        }
+
+        .asset-ref-new {
+            font-size: 13px;
+            color: var(--gold);
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .asset-values-new {
+            display: flex;
+            gap: 24px;
+            margin-top: auto;
+        }
+
+        .asset-value-item-new label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--cream-muted);
+            margin-bottom: 4px;
+        }
+
+        .asset-value-item-new .amount {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--cream);
+        }
+
+        .asset-value-item-new .amount.green {
+            color: var(--green);
+        }
+
+        .asset-sources-new {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .source-tag-new {
+            font-size: 10px;
+            padding: 4px 10px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--gold);
+            letter-spacing: 0.5px;
+        }
+
+        .asset-image-new {
+            width: 168px;
+            height: 168px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(139, 115, 85, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .asset-image-new img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* OLD LAYOUT for comparison */
+        .asset-card-old {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 28px;
+            cursor: pointer;
+            max-width: 350px;
+        }
+
+        .asset-header-old {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .asset-icon-old {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(139, 115, 85, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .asset-icon-old img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .asset-gain-old {
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 12px;
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            color: var(--green);
+        }
+
+        .asset-name-old {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .asset-ref-old {
+            font-size: 13px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .asset-values-old {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 16px;
+        }
+
+        .asset-value-item-old label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--cream-muted);
+            margin-bottom: 6px;
+        }
+
+        .asset-value-item-old .amount {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .asset-value-item-old .amount.green {
+            color: var(--green);
+        }
+
+        .asset-sources-old {
+            display: flex;
+            gap: 8px;
+        }
+
+        .source-tag-old {
+            font-size: 10px;
+            padding: 4px 10px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <h1>Asset Card Layout Comparison</h1>
+    <p class="subtitle">New layout features larger image on right, info stacked on left</p>
+
+    <div class="comparison">
+        <!-- NEW LAYOUT -->
+        <div class="card-section">
+            <h2>✨ Proposed New Layout</h2>
+            <div class="asset-card-new">
+                <div class="asset-info">
+                    <div class="asset-name-row">
+                        <h3 class="asset-name-new">Rolex Daytona</h3>
+                        <span class="asset-gain-new">↑ 17.5%</span>
+                    </div>
+                    <p class="asset-acquired">Acquired March 15, 2022</p>
+                    <p class="asset-ref-new">116500LN</p>
+                    <div class="asset-values-new">
+                        <div class="asset-value-item-new">
+                            <label>Estimated Value</label>
+                            <span class="amount">$38,200</span>
+                        </div>
+                        <div class="asset-value-item-new">
+                            <label>Borrow Capacity</label>
+                            <span class="amount green">$19,100</span>
+                        </div>
+                    </div>
+                    <div class="asset-sources-new">
+                        <span class="source-tag-new">Chrono24</span>
+                        <span class="source-tag-new">WatchCharts</span>
+                    </div>
+                </div>
+                <div class="asset-image-new">
+                    <img src="https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=300&h=300&fit=crop" alt="Rolex Daytona">
+                </div>
+            </div>
+        </div>
+
+        <!-- OLD LAYOUT -->
+        <div class="card-section">
+            <h2>Current Layout</h2>
+            <div class="asset-card-old">
+                <div class="asset-header-old">
+                    <div class="asset-icon-old">
+                        <img src="https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=120&h=120&fit=crop" alt="Rolex Daytona">
+                    </div>
+                    <span class="asset-gain-old">↑ 17.5%</span>
+                </div>
+                <h3 class="asset-name-old">Rolex Daytona</h3>
+                <p class="asset-ref-old">116500LN</p>
+                <div class="asset-values-old">
+                    <div class="asset-value-item-old">
+                        <label>Estimated Value</label>
+                        <span class="amount">$38,200</span>
+                    </div>
+                    <div class="asset-value-item-old">
+                        <label>Borrow Capacity</label>
+                        <span class="amount green">$19,100</span>
+                    </div>
+                </div>
+                <div class="asset-sources-old">
+                    <span class="source-tag-old">Chrono24</span>
+                    <span class="source-tag-old">WatchCharts</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
