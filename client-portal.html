@@ -988,6 +988,10 @@
                 padding: 16px 24px;
             }
 
+            .header-actions {
+                display: none;
+            }
+
             main {
                 padding: 24px;
                 padding-bottom: 120px;
@@ -1525,11 +1529,11 @@
                     <p class="asset-ref">${asset.reference}</p>
                     <div class="asset-values">
                         <div class="asset-value-item">
-                            <label>Current Value</label>
+                            <label>Estimated Value</label>
                             <span class="amount">${formatCurrency(asset.currentValue)}</span>
                         </div>
                         <div class="asset-value-item">
-                            <label>Can Borrow</label>
+                            <label>Borrow Capacity</label>
                             <span class="amount green">${formatCurrency(asset.loanCapacity)}</span>
                         </div>
                     </div>

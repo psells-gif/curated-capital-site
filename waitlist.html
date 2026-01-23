@@ -361,43 +361,100 @@
             color: var(--cream-muted);
         }
 
-        /* Social Proof */
-        .social-proof {
-            padding: 60px 48px;
-            background: var(--navy);
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        /* Brand Ticker */
+        .ticker-section {
+            width: 100%;
+            padding: 48px 0;
+            background: linear-gradient(180deg, rgba(212, 175, 55, 0.03) 0%, transparent 50%, rgba(212, 175, 55, 0.03) 100%);
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+            overflow: hidden;
         }
-
-        .proof-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 64px;
-            flex-wrap: wrap;
-        }
-
-        .proof-item {
+        .ticker-label {
             text-align: center;
+            margin-bottom: 28px;
         }
-
-        .proof-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 48px;
-            font-weight: 300;
-            color: var(--gold);
-            line-height: 1;
-        }
-
-        .proof-label {
+        .ticker-label span {
+            font-family: 'Outfit', sans-serif;
             font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 0.2em;
             color: var(--cream-muted);
-            margin-top: 8px;
+            text-transform: uppercase;
         }
+        .ticker-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .ticker-container::before,
+        .ticker-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 120px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .ticker-container::before {
+            left: 0;
+            background: linear-gradient(90deg, var(--navy-deep) 0%, transparent 100%);
+        }
+        .ticker-container::after {
+            right: 0;
+            background: linear-gradient(-90deg, var(--navy-deep) 0%, transparent 100%);
+        }
+        .ticker-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            animation: tickerScroll 80s linear infinite;
+        }
+        .ticker-track:hover {
+            animation-play-state: paused;
+        }
+        @keyframes tickerScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            padding: 0 32px;
+            white-space: nowrap;
+        }
+        .brand-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 300;
+            color: rgba(212, 175, 55, 0.6);
+            letter-spacing: 0.04em;
+            transition: color 0.3s ease;
+        }
+        .ticker-item:hover .brand-name {
+            color: var(--gold);
+        }
+        .ticker-divider {
+            width: 4px;
+            height: 4px;
+            background: rgba(212, 175, 55, 0.25);
+            border-radius: 50%;
+            margin-left: 64px;
+            flex-shrink: 0;
+        }
+        .asset-indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin-right: 14px;
+            opacity: 0.5;
+            flex-shrink: 0;
+        }
+        .asset-watch { background: #6b8cae; }
+        .asset-jewelry { background: var(--gold); }
+        .asset-art { background: #ae6b8c; }
 
         /* Problem/Solution */
         .problem-section {
@@ -999,20 +1056,55 @@
         </div>
     </section>
 
-    <!-- Social Proof -->
-    <section class="social-proof">
-        <div class="proof-content">
-            <div class="proof-item">
-                <div class="proof-number" id="waitlistCount">127</div>
-                <div class="proof-label">Collectors on Waitlist</div>
-            </div>
-            <div class="proof-item">
-                <div class="proof-number">$50M+</div>
-                <div class="proof-label">In Collections (Target)</div>
-            </div>
-            <div class="proof-item">
-                <div class="proof-number">DFW</div>
-                <div class="proof-label">Launching First</div>
+    <!-- Brand Ticker -->
+    <section class="ticker-section">
+        <div class="ticker-label">
+            <span>Curating 50+ Luxury Brands</span>
+        </div>
+        <div class="ticker-container">
+            <div class="ticker-track">
+                <!-- First set -->
+                <div class="ticker-item"><span class="asset-indicator asset-watch"></span><span class="brand-name">Rolex</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-jewelry"></span><span class="brand-name">Cartier</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-art"></span><span class="brand-name">Banksy</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-watch"></span><span class="brand-name">Patek Philippe</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-jewelry"></span><span class="brand-name">Van Cleef & Arpels</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-art"></span><span class="brand-name">KAWS</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-watch"></span><span class="brand-name">Audemars Piguet</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-jewelry"></span><span class="brand-name">Tiffany & Co.</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-art"></span><span class="brand-name">Warhol</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-watch"></span><span class="brand-name">Omega</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-jewelry"></span><span class="brand-name">Harry Winston</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-art"></span><span class="brand-name">Basquiat</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-watch"></span><span class="brand-name">Richard Mille</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-jewelry"></span><span class="brand-name">Bulgari</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-art"></span><span class="brand-name">Damien Hirst</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-watch"></span><span class="brand-name">A. Lange & Söhne</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-jewelry"></span><span class="brand-name">Graff</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-art"></span><span class="brand-name">Yoshitomo Nara</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-watch"></span><span class="brand-name">Vacheron Constantin</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-jewelry"></span><span class="brand-name">Chopard</span><span class="ticker-divider"></span></div>
+                <!-- Duplicate set for seamless loop -->
+                <div class="ticker-item"><span class="asset-indicator asset-watch"></span><span class="brand-name">Rolex</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-jewelry"></span><span class="brand-name">Cartier</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-art"></span><span class="brand-name">Banksy</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-watch"></span><span class="brand-name">Patek Philippe</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-jewelry"></span><span class="brand-name">Van Cleef & Arpels</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-art"></span><span class="brand-name">KAWS</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-watch"></span><span class="brand-name">Audemars Piguet</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-jewelry"></span><span class="brand-name">Tiffany & Co.</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-art"></span><span class="brand-name">Warhol</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-watch"></span><span class="brand-name">Omega</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-jewelry"></span><span class="brand-name">Harry Winston</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-art"></span><span class="brand-name">Basquiat</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-watch"></span><span class="brand-name">Richard Mille</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-jewelry"></span><span class="brand-name">Bulgari</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-art"></span><span class="brand-name">Damien Hirst</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-watch"></span><span class="brand-name">A. Lange & Söhne</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-jewelry"></span><span class="brand-name">Graff</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-art"></span><span class="brand-name">Yoshitomo Nara</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-watch"></span><span class="brand-name">Vacheron Constantin</span><span class="ticker-divider"></span></div>
+                <div class="ticker-item"><span class="asset-indicator asset-jewelry"></span><span class="brand-name">Chopard</span><span class="ticker-divider"></span></div>
             </div>
         </div>
     </section>
