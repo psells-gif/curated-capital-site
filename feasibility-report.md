@@ -197,6 +197,57 @@ See: `data-sources.md`
 ### C. Test Items Used
 See original: `references/test-items.md`
 
+### D. Retail Price Baseline Catalogs (January 2026)
+
+Retail price catalogs were built by scraping brand websites to establish baseline valuations:
+
+| Brand | Products | Price Range | File |
+|-------|----------|-------------|------|
+| Van Cleef & Arpels | 18 | $3,100 - $96,500 | `van-cleef-arpels-catalog.csv` |
+| Cartier | 25 | $1,420 - $38,520 | `cartier-catalog.csv` |
+| Tiffany & Co. | 18 | $550 - $18,500 | `tiffany-catalog.csv` |
+| David Yurman | 14 | $325 - $13,200 | `david-yurman-catalog.csv` |
+| Bulgari | 8 | $5,100 - $11,700 | `bulgari-catalog.csv` |
+| **Total** | **83** | | |
+
+**Key collections indexed:**
+- **Van Cleef**: Alhambra, Perlée
+- **Cartier**: Love, Juste un Clou
+- **Tiffany**: Tiffany T, HardWear, Elsa Peretti, Tiffany Lock, Tiffany Knot
+- **David Yurman**: Cable Collection, DY Madison, Cablespira, Sculpted Cable
+- **Bulgari**: B.zero1, Serpenti Viper
+
+### E. Secondary Market Data (1stDibs - January 2026)
+
+Secondary market pricing was captured from 1stDibs across jewelry and watches priced at $20,000+:
+
+| Category | Brand | Items Captured | Price Range | File |
+|----------|-------|----------------|-------------|------|
+| Jewelry | Cartier | 33 | $20,000 - $275,000 | `1stdibs-secondary-market.csv` |
+| Jewelry | Van Cleef & Arpels | 11 | $22,000 - $320,000 | `1stdibs-secondary-market.csv` |
+| Jewelry | Tiffany & Co. | 10 | $27,500 - $198,500 | `1stdibs-secondary-market.csv` |
+| Jewelry | Bulgari | 6 | $21,573 - $899,999 | `1stdibs-secondary-market.csv` |
+| Watches | Rolex | 7 | $21,300 - $281,647 | `1stdibs-secondary-market.csv` |
+| Watches | Audemars Piguet | 1 | $124,800 | `1stdibs-secondary-market.csv` |
+| Watches | Piaget | 2 | $22,000 - $23,500 | `1stdibs-secondary-market.csv` |
+| Watches | Cartier | 1 | $27,146 | `1stdibs-secondary-market.csv` |
+| **Total** | | **71** | | |
+
+**Demand indicators observed:**
+- Items showing "In X Carts" badges indicate active buyer interest
+- Rolex 6239 Daytona had 9 carts (very high demand)
+- Cartier Baignoire watch had 11 carts (extremely high demand)
+- Multiple Cartier jewelry pieces showed 2-3 carts consistently
+
+**Key observations from secondary market:**
+1. **Cartier dominates secondary market** with most listings and consistent demand
+2. **Iconic pieces command premiums**: Panthère, LOVE, and vintage items show strong retention
+3. **Rolex watches maintain value well**: Even vintage models (6239 Daytona) trade at multiples of original MSRP
+4. **Certified pieces premium**: GIA/SSEF certificates add significant value
+5. **Vintage/limited editions**: Show highest demand indicators
+
 ---
 
 *Report completed January 22, 2026*
+*Retail catalogs added January 23, 2026*
+*Secondary market data added January 23, 2026*

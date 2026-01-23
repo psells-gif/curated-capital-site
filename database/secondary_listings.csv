@@ -1,0 +1,121 @@
+listing_id,brand_id,product_id,product_name,category,material,asking_price_usd,original_price_usd,discount_pct,condition,demand_score,source_platform,listing_url,seller_type,has_certification,has_box_papers,is_vintage,date_captured,date_listed,notes
+1stdibs-cartier-001,cartier,,Panthère de Cartier Diamond Ring – Iconic Maison Creation,rings,Gold/Diamonds,31750,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-cartier-002,cartier,,1895 Round 2 Carat Brilliant Diamond Stud Earrings,earrings,Platinum/Diamonds,62400,,20,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-cartier-003,cartier,,Panthère Rose Gold Wristwatch,watches,Rose Gold,52250,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Set
+1stdibs-cartier-004,cartier,,Pluie de Cartier 26.00 carat Diamond Platinum Necklace,necklaces,Platinum/Diamonds,145000,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,Sponsored
+1stdibs-cartier-005,cartier,,Platinum Diamond Necklace 60.00ct D/VVS,necklaces,Platinum/Diamonds,277128,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,Sponsored
+1stdibs-cartier-006,cartier,,5.45 Carat Pear-Shaped Diamond Platinum Ring,rings,Platinum/Diamonds,183920,,20,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,Sponsored
+1stdibs-cartier-007,cartier,,Paris Mini Tank Pavé 18ct Yellow Gold diamonds c1985,watches,Yellow Gold/Diamonds,27533,,,pre-owned,5,1stDibs,,dealer,false,false,true,2026-01-23,,Vintage
+1stdibs-cartier-008,cartier,,18K White Gold Multirow Lignes Essentielles Ring,rings,White Gold,92000,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-cartier-009,cartier,,18K Gold Nouvelle Vague EU 53 Lapis Lazuli And Diamond Ring,rings,Gold/Lapis/Diamonds,86600,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-cartier-010,cartier,,18 Karat Yellow Gold Indomptables De Cartier Bracelet,bracelets,Yellow Gold,90000,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-cartier-011,cartier,,Tennis 5.90 Carat Diamond Necklace,necklaces,Gold/Diamonds,54400,,20,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-cartier-012,cartier,,Panthère de Cartier Diamond Emerald & Lacquer Ring,rings,Gold/Diamonds/Emerald,75000,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-cartier-013,cartier,,1895 Solitaire Diamond Engagement Ring,rings,Platinum/Diamond,22400,,20,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-cartier-014,cartier,,Essential Lines 18K White Gold 10.09ct Diamond Necklace,necklaces,White Gold/Diamonds,49000,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-cartier-015,cartier,,Mystery Set Diamond Bracelet,bracelets,Gold/Diamonds,145000,,,pre-owned,4,1stDibs,,dealer,false,false,false,2026-01-23,,
+1stdibs-cartier-016,cartier,,Germany 18K Yellow Gold Graduated Twisted Oval Link Necklace,necklaces,Yellow Gold,30743,,,pre-owned,7,1stDibs,,dealer,false,false,false,2026-01-23,,In 2 Carts - Popular
+1stdibs-cartier-017,cartier,,Himalia Diamond Dangle Earrings,earrings,Gold/Diamonds,22500,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-cartier-018,cartier,,E VVS2 Diamond Ring Platinum 950 GIA & Cartier Certificate,rings,Platinum/Diamond,46400,,20,pre-owned,5,1stDibs,,dealer,true,false,false,2026-01-23,,Certified
+1stdibs-cartier-019,cartier,,Paris 18K Large and Dramatic Elongated Link Bracelet circa 1950,bracelets,18K Gold,69950,,,pre-owned,6,1stDibs,,dealer,false,false,true,2026-01-23,,Vintage - Sponsored
+1stdibs-cartier-020,cartier,,18K Gold Diamond Curb Link Choker Necklace,necklaces,18K Gold/Diamonds,35500,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,Sponsored
+1stdibs-cartier-021,cartier,,Platinum Vintage Diamond and Emerald Bracelet,bracelets,Platinum/Diamonds/Emerald,275000,,,pre-owned,6,1stDibs,,dealer,false,false,true,2026-01-23,,Vintage - Sponsored
+1stdibs-cartier-022,cartier,,4 Carat Round Diamond Platinum Band Ring,rings,Platinum/Diamond,34400,,20,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-cartier-023,cartier,,Panthère 107000M 18K yellow Gold Ladies Watch Box & Papers,watches,Yellow Gold,23040,,,pre-owned,5,1stDibs,,dealer,false,true,false,2026-01-23,,With Box/Papers
+1stdibs-cartier-024,cartier,,Maillon Panthère 18K White Gold Diamond Bracelet,bracelets,White Gold/Diamonds,29500,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-cartier-025,cartier,,Antique 7.25 Ctw Sapphire & Diamond Horseshoe Pendant Paris,necklaces,Gold/Sapphire/Diamonds,42000,,,pre-owned,6,1stDibs,,dealer,false,false,true,2026-01-23,,In 1 Cart - Antique
+1stdibs-cartier-026,cartier,,Byzantine Diamond Sapphire Ruby Emerald Yellow Gold Bangle,bracelets,Yellow Gold/Gemstones,25900,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,In 1 Cart
+1stdibs-cartier-027,cartier,cartier-love-007,LOVE Bracelet yellow gold pavé diamonds size 16,bracelets,Yellow Gold/Diamonds,47340,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Iconic LOVE collection
+1stdibs-cartier-028,cartier,,Panthère 18 Karat Yellow Gold Skeleton Ring,rings,Yellow Gold,28050,,,pre-owned,8,1stDibs,,dealer,false,false,false,2026-01-23,,In 3 Carts - Very Popular
+1stdibs-cartier-029,cartier,,18K Large Wide Vintage Bangle Bracelet,bracelets,18K Gold,22800,,20,pre-owned,6,1stDibs,,dealer,false,false,true,2026-01-23,,Vintage - Sponsored
+1stdibs-cartier-030,cartier,,Panthère de Cartier Platinum Diamond Emerald Onyx Bracelet,bracelets,Platinum/Diamonds/Emerald/Onyx,225000,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,In 1 Cart
+1stdibs-cartier-031,cartier,,Paris Panthère Diamond Necklace Yellow Gold,necklaces,Yellow Gold/Diamonds,125000,,,pre-owned,4,1stDibs,,dealer,false,false,false,2026-01-23,,
+1stdibs-cartier-032,cartier,,Maillon Panthère Full Diamond Eternity Bracelet 18K White Gold,bracelets,White Gold/Diamonds,44400,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-cartier-033,cartier,,Maillon Panthère Bracelet with Diamond Links,bracelets,Gold/Diamonds,21000,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-vca-001,van-cleef-arpels,,White Gold Diamond Magic Alhambra Necklace VCARN9MP00,necklaces,White Gold/Diamonds,79848,,,pre-owned,7,1stDibs,,dealer,false,false,false,2026-01-23,,In 2 Carts - Popular Magic Alhambra
+1stdibs-vca-002,van-cleef-arpels,,Cabochon Ruby Sapphire and Diamond Necklace,necklaces,Gold/Ruby/Sapphire/Diamonds,50000,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,Sponsored
+1stdibs-vca-003,van-cleef-arpels,,White Gold Mother of Pearl Vintage Alhambra Necklace VCARF488,necklaces,White Gold/Mother of Pearl,23747,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Vintage Alhambra
+1stdibs-vca-004,van-cleef-arpels,,18K Yellow Gold Multistrand Pearl Diamond Necklace,necklaces,Yellow Gold/Pearl/Diamonds,22000,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-vca-005,van-cleef-arpels,,Marquise Diamond Platinum Ring GIA 5.11-carat D VVS2,rings,Platinum/Diamond,320000,,,pre-owned,4,1stDibs,,dealer,true,false,false,2026-01-23,,GIA Certified
+1stdibs-vca-006,van-cleef-arpels,,Rosee 4.25 Carats Diamond Gold Floral Band Ring,rings,Gold/Diamonds,36000,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-vca-007,van-cleef-arpels,,Magic Alhambra Long Necklace,necklaces,Gold/Mixed,23000,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-vca-008,van-cleef-arpels,,Vintage 1972 Barquerolles Bracelet,bracelets,Gold/Diamonds,75000,,,pre-owned,5,1stDibs,,dealer,false,false,true,2026-01-23,,Vintage 1972
+1stdibs-vca-009,van-cleef-arpels,,7.06 Carat Blue Sapphire 3.32 Diamond Cosmos Watch,watches,Gold/Sapphire/Diamonds,110000,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,In 1 Cart
+1stdibs-vca-010,van-cleef-arpels,,Pure Alhambra Diamond Yellow Gold Bracelet,bracelets,Yellow Gold/Diamonds,37500,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-vca-011,van-cleef-arpels,,Magic Alhambra 16 Motif Mother of Pearl Necklace,necklaces,Gold/Mother of Pearl,30880,,20,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,Sponsored
+1stdibs-tiffany-001,tiffany,,Platinum Diamond Lucida Ring 2.50ct F/VS2,rings,Platinum/Diamond,42884,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,Lucida Cut - Sponsored
+1stdibs-tiffany-002,tiffany,,Yellow Gold Jewelry Box,other,Yellow Gold,120000,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,Sponsored
+1stdibs-tiffany-003,tiffany,,Victoria Platinum Graduated Line Diamond Necklace,necklaces,Platinum/Diamonds,110000,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,In 1 Cart - Victoria Collection
+1stdibs-tiffany-004,tiffany,,Coral and Diamond Earrings,earrings,Gold/Coral/Diamonds,34500,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-tiffany-005,tiffany,,Split Front 18K Gold Vintage Hinged Cuff Bracelet,bracelets,18K Gold,27500,,,pre-owned,5,1stDibs,,dealer,false,false,true,2026-01-23,,Vintage
+1stdibs-tiffany-006,tiffany,,Louis Comfort Tiffany Topaz and Sapphire Bracelet,bracelets,Gold/Topaz/Sapphire,98500,,,pre-owned,7,1stDibs,,dealer,false,false,false,2026-01-23,,In 2 Carts - Louis Comfort Tiffany
+1stdibs-tiffany-007,tiffany,,Art Deco Burma Sapphire Diamond Platinum Ring,rings,Platinum/Sapphire/Diamonds,29500,,,pre-owned,6,1stDibs,,dealer,false,false,true,2026-01-23,,In 1 Cart - Art Deco
+1stdibs-tiffany-008,tiffany,,Kashmir Sapphire Necklace 10.25 Carats,necklaces,Gold/Kashmir Sapphire,198500,,,pre-owned,7,1stDibs,,dealer,false,false,false,2026-01-23,,In 2 Carts - Kashmir Sapphire Premium
+1stdibs-tiffany-009,tiffany,,Woven Gold Bracelet,bracelets,Gold,36500,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-tiffany-010,tiffany,,Soleste 1.24 Carat Cushion Vivid Yellow Diamond Engagement Ring,rings,Platinum/Yellow Diamond,39000,,,pre-owned,8,1stDibs,,dealer,false,false,false,2026-01-23,,In 3 Carts - Soleste Collection Popular
+1stdibs-bulgari-001,bulgari,,14.03ct SSEF & GRS Certified Blue Sapphire Ceylon No Heat Ring,rings,Gold/Sapphire/Diamonds,899999,,,pre-owned,7,1stDibs,,dealer,true,false,false,2026-01-23,,In 2 Carts - Museum Quality
+1stdibs-bulgari-002,bulgari,,GIA Sapphire & Diamond Three Stone Ring,rings,Gold/Sapphire/Diamonds,53000,,,pre-owned,8,1stDibs,,dealer,true,false,false,2026-01-23,,In 3 Carts - GIA Certified
+1stdibs-bulgari-003,bulgari,,Sapphire Cabochon Necklace Pink Blue No Heat,necklaces,Gold/Sapphires,500000,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,Sponsored - No Heat Premium
+1stdibs-bulgari-004,bulgari,,Bangle Bracelet Red Spinel and Diamonds Duhem French Marks,bracelets,Gold/Spinel/Diamonds,21573,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,French Hallmarks
+1stdibs-bulgari-005,bulgari,,Doppio Cuore Large Diamond Earrings,earrings,Gold/Diamonds,22500,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Doppio Cuore Collection
+1stdibs-bulgari-006,bulgari,,Vintage Bracelet Gold Sugarloaf Gemstones,bracelets,Gold/Gemstones,36500,,,pre-owned,5,1stDibs,,dealer,false,false,true,2026-01-23,,Vintage
+1stdibs-rolex-001,rolex,,Cosmograph Daytona 1992 18K Gold 16518,watches,18K Gold,27344,,20,pre-owned,7,1stDibs,,dealer,false,false,false,2026-01-23,,In 2 Carts
+1stdibs-rolex-002,rolex,,6239 Daytona Stainless Steel,watches,Stainless Steel,63600,,20,pre-owned,10,1stDibs,,dealer,false,false,true,2026-01-23,,In 9 Carts - Very High Demand Vintage
+1stdibs-rolex-003,rolex,,Daytona Artisans De Genève Spike Lee Limited Edition,watches,Mixed,113857,,,pre-owned,8,1stDibs,,dealer,false,false,false,2026-01-23,,In 3 Carts - Limited Edition
+1stdibs-rolex-004,rolex,,Daytona Rubens Barrichello 18K Rose Gold Artisans De Geneve,watches,18K Rose Gold,281647,,,pre-owned,8,1stDibs,,dealer,false,false,false,2026-01-23,,In 3 Carts - Limited Edition
+1stdibs-rolex-005,rolex,,1989 18K Yellow Gold President Day Date 18238,watches,18K Yellow Gold,28118,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,President Collection
+1stdibs-rolex-006,rolex,,Ladies Pearlmaster 80298 29mm MOP Diamond Dial Bezel 18K Gold,watches,18K Gold/Diamonds,26795,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Pearlmaster
+1stdibs-rolex-007,rolex,,Datejust 36mm Champagne Diamond Dial Steel Gold Jubilee 126233,watches,Steel/Gold/Diamonds,21300,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,In 1 Cart - Datejust
+1stdibs-ap-001,audemars-piguet,,Royal Oak Carolina Bucci 37mm Frosted Gold Womens 15454Ba,watches,Frosted Gold,124800,,,pre-owned,8,1stDibs,,dealer,false,false,false,2026-01-23,,In 3 Carts - Royal Oak Popular
+1stdibs-piaget-001,piaget,,Ladies 1970s Gold Watch 2 Row Diamond Bezel Oval Tigers-Eye Dial,watches,Gold/Diamonds,23500,,,pre-owned,5,1stDibs,,dealer,false,false,true,2026-01-23,,Vintage 1970s
+1stdibs-piaget-002,piaget,,Dazzling Ladies Late 1970s 18K Gold Oval Diamond Dial & Bezel,watches,18K Gold/Diamonds,22000,,,pre-owned,5,1stDibs,,dealer,false,false,true,2026-01-23,,Vintage 1970s
+1stdibs-cartier-watch-001,cartier,,1990 Montre Or Jaune Baignoire PM Yellow Gold Casque d Or,watches,Yellow Gold,27146,,,pre-owned,10,1stDibs,,dealer,false,false,false,2026-01-23,,In 11 Carts - Extremely High Demand
+1stdibs-ap-002,audemars-piguet,,Royal Oak Offshore Chronograph Stainless Steel Blue Dial Watch,watches,Stainless Steel,47250,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-ap-003,audemars-piguet,,Royal Oak Offshore Chronograph Mens Watch,watches,Steel/Rubber,28500,,,pre-owned,8,1stDibs,,dealer,false,false,false,2026-01-23,,In 4 Carts - Popular
+1stdibs-ap-004,audemars-piguet,,18K Yellow Gold Diamond Dial Cobra Bracelet Watch,watches,Yellow Gold/Diamonds,20480,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-ap-005,audemars-piguet,,18KY Audemars Piguet Diamond Ladies Watch,watches,18K Yellow Gold/Diamonds,28975,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-ap-006,audemars-piguet,,Royal Oak Steel and Gold Automatic Men's 25594SA.OO.0789S,watches,Steel/Gold,24590,,,pre-owned,9,1stDibs,,dealer,false,false,false,2026-01-23,,In 7 Carts - Very Popular
+1stdibs-ap-007,audemars-piguet,,Vintage Model 25730BA 18 Karat Yellow Gold Automatic Papers,watches,18K Yellow Gold,62500,,,pre-owned,6,1stDibs,,dealer,false,true,false,2026-01-23,,In 1 Cart - With Papers
+1stdibs-ap-008,audemars-piguet,,56175ST Tropical Royal Oak Stainless Steel 33mm Watch,watches,Stainless Steel,30995,,,pre-owned,7,1stDibs,,dealer,false,false,false,2026-01-23,,In 2 Carts - Tropical Dial
+1stdibs-ap-009,audemars-piguet,,Offshore 42MM BRICK VS Custom Diamond Watch,watches,Steel/Diamonds,110480,,,pre-owned,8,1stDibs,,dealer,false,false,false,2026-01-23,,In 3 Carts - Custom Diamonds
+1stdibs-ap-010,audemars-piguet,,Vintage Onyx and Diamond Wristwatch Yellow Gold,watches,Yellow Gold/Diamonds/Onyx,27500,,,pre-owned,6,1stDibs,,dealer,false,false,true,2026-01-23,,In 1 Cart - Vintage
+1stdibs-ap-011,audemars-piguet,,Watch Diamond Pave,watches,White Gold/Diamonds,215729,,,pre-owned,8,1stDibs,,dealer,false,false,false,2026-01-23,,In 4 Carts - Full Pave
+1stdibs-ap-012,audemars-piguet,,Royal Oak Chronograph 41mm Rose Gold Watch,watches,Rose Gold,55150,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Free Shipping
+1stdibs-ap-013,audemars-piguet,,Vintage Cobra Blue Diamond Dial 80s 18K White Gold Manual Wind,watches,18K White Gold/Diamonds,24999,,,pre-owned,5,1stDibs,,dealer,false,false,true,2026-01-23,,Vintage 1980s
+1stdibs-ap-014,audemars-piguet,,Vintage Quantieme Perpetual Calendar 25558BA Skeleton Gold Watch,watches,Yellow Gold,85055,,,pre-owned,6,1stDibs,,dealer,false,false,true,2026-01-23,,In 1 Cart - Perpetual Calendar
+1stdibs-ap-015,audemars-piguet,,Vintage Royal Oak Model 56303ST Stainless Steel 33mm Watch,watches,Stainless Steel,24200,,,pre-owned,6,1stDibs,,dealer,false,false,true,2026-01-23,,In 1 Cart - Vintage Royal Oak
+1stdibs-ap-016,audemars-piguet,,Royal Oak Offshore 42mm Steel White Dial MenWatch 15710ST,watches,Stainless Steel,21499,,,pre-owned,8,1stDibs,,dealer,false,false,false,2026-01-23,,In 4 Carts - Popular
+1stdibs-ap-017,audemars-piguet,,Royal Oak 34mm White Dial 18K Yellow Gold Quartz Watch 56303BA,watches,18K Yellow Gold,38500,,,pre-owned,7,1stDibs,,dealer,false,false,false,2026-01-23,,In 2 Carts
+1stdibs-patek-001,patek-philippe,,Nautilus Rose Gold Diamond Bezel 32mm 7010/1R-001,watches,Rose Gold/Diamonds,94923,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Nautilus Ladies
+1stdibs-patek-002,patek-philippe,,Calatrava 18k White Gold Men's Automatic Watch 5227G,watches,18K White Gold,33650,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Calatrava Collection
+1stdibs-patek-003,patek-philippe,,Complications 5396G Annual Calendar Mens Watch Box Papers,watches,White Gold,32999,,,pre-owned,5,1stDibs,,dealer,false,true,false,2026-01-23,,Annual Calendar with Box/Papers
+1stdibs-patek-004,patek-philippe,,Calatrava Platinum Ref. 5196 P,watches,Platinum,39150,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Platinum Calatrava
+1stdibs-patek-005,patek-philippe,,La Flamme 18K White Gold Diamond MOP Quartz Women's Watch 4815,watches,18K White Gold/Diamonds,22990,,,pre-owned,7,1stDibs,,dealer,false,false,false,2026-01-23,,In 2 Carts - La Flamme
+1stdibs-patek-006,patek-philippe,,Complication 5524R Calatrava Pilot Travel Time Watch Box Papers,watches,Rose Gold,39999,,,pre-owned,5,1stDibs,,dealer,false,true,false,2026-01-23,,Pilot Travel Time
+1stdibs-patek-007,patek-philippe,,Calatrava Pilot Travel Time 7234R Watch Box Papers,watches,Rose Gold,32999,,,pre-owned,5,1stDibs,,dealer,false,true,false,2026-01-23,,Ladies Travel Time
+1stdibs-patek-008,patek-philippe,,5101P 10-Day Tourbillon Platinum Watch Original Strap,watches,Platinum,270000,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,10-Day Tourbillon Grand Complication
+1stdibs-patek-009,patek-philippe,,Annual Calendar 5146P Mens Watch Box Papers,watches,Platinum,39999,,,pre-owned,6,1stDibs,,dealer,false,true,false,2026-01-23,,In 1 Cart - Annual Calendar
+1stdibs-patek-010,patek-philippe,,Vintage 18K Gold 35mm Manual Wind Watch on Leather,watches,18K Gold,25380,,,pre-owned,5,1stDibs,,dealer,false,false,true,2026-01-23,,Vintage Manual Wind
+1stdibs-patek-011,patek-philippe,,Nautilus Rose Gold Fully Loaded Diamond Set 5719/10R-010,watches,Rose Gold/Diamonds,815003,,,pre-owned,9,1stDibs,,dealer,false,false,false,2026-01-23,,In 5 Carts - Full Diamond Set Nautilus
+1stdibs-patek-012,patek-philippe,,Nautilus Service Sealed 5712R-001,watches,Rose Gold,169636,,,pre-owned,8,1stDibs,,dealer,false,false,false,2026-01-23,,In 4 Carts - Sealed Service
+1stdibs-patek-013,patek-philippe,,Grand Complications 5236P Perpetual Calendar Mens Watch,watches,Platinum,96999,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,In 1 Cart - Perpetual Calendar
+1stdibs-patek-014,patek-philippe,,Aquanaut 5065A Black Dial Mens Watch Box Papers Archives,watches,Stainless Steel,59999,,,pre-owned,6,1stDibs,,dealer,false,true,false,2026-01-23,,In 1 Cart - Aquanaut with Archives
+1stdibs-patek-015,patek-philippe,,Nautilus Comet Stainless Steel & Black Dial,watches,Stainless Steel,101187,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,In 1 Cart - Comet Dial
+1stdibs-rolex-008,rolex,,Vintage 5512 Gilt Underline Dial Pointed Crown Guard Submariner Full Set,watches,Stainless Steel,77495,,,pre-owned,5,1stDibs,,dealer,false,true,true,2026-01-23,,Vintage Submariner Full Set
+1stdibs-rolex-009,rolex,,x Loree Rodkin Watch,watches,Yellow Gold/Diamonds,48000,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Custom Collaboration
+1stdibs-rolex-010,rolex,,Perpetual 4134 18k Rose Gold Rare Mens Jumbo 37mm Automatic 1940s,watches,18K Rose Gold,31200,,20,pre-owned,5,1stDibs,,dealer,false,false,true,2026-01-23,,Vintage 1940s - 20% Off
+1stdibs-rolex-011,rolex,,1990 Day-Date President 18248 18K Yellow Gold Watch 36mm Box,watches,18K Yellow Gold,28118,,,pre-owned,7,1stDibs,,dealer,false,true,false,2026-01-23,,In 2 Carts - President with Box
+1stdibs-rolex-012,rolex,,18K Yellow Gold Ladies President Datejust Champagne Diamond Dial,watches,18K Yellow Gold/Diamonds,24000,,20,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,In 1 Cart - 20% Off
+1stdibs-rolex-013,rolex,,Ladies Datejust 18K Yellow Gold Roman Numeral Watch,watches,18K Yellow Gold,23600,,20,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,20% Off
+1stdibs-rolex-014,rolex,,Yellow Gold Cosmograph Daytona Watch,watches,Yellow Gold,181000,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,In 1 Cart - Gold Daytona
+1stdibs-rolex-015,rolex,,President Day-Date Men's 18k Rose Gold Watch 118205,watches,18K Rose Gold,34250,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Rose Gold President
+1stdibs-rolex-016,rolex,,Daytona reference 11651 18ct White Gold Panda Dial Full Set 2002,watches,18K White Gold,46119,,,pre-owned,5,1stDibs,,dealer,false,true,false,2026-01-23,,Panda Dial Full Set
+1stdibs-rolex-017,rolex,,Day-Date 228238 Champagne Dial Men Watch Box Papers,watches,Yellow Gold,44999,,,pre-owned,5,1stDibs,,dealer,false,true,false,2026-01-23,,Current Model Day-Date
+1stdibs-omega-001,omega,,Vintage Constellation Pie-Pan Dial 18K Brick-Link Bracelet Automatic,watches,18K Gold,25000,,,pre-owned,5,1stDibs,,dealer,false,false,true,2026-01-23,,Vintage Pie-Pan Dial
+1stdibs-omega-002,omega,,Constellation Watch Gold,watches,Gold,24000,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Constellation Collection
+1stdibs-omega-003,omega,,Rare Constellation TV Dark Green Spider Dial,watches,Gold,21751,,,pre-owned,6,1stDibs,,dealer,false,false,false,2026-01-23,,In 1 Cart - Rare Spider Dial
+1stdibs-omega-004,omega,,Vintage 18K Gold Pearl Sapphire & Diamonds Grape Watch Bracelet Very RARE,watches,18K Gold/Diamonds/Sapphire,29995,,,pre-owned,5,1stDibs,,dealer,false,false,true,2026-01-23,,Vintage Grape Bracelet
+1stdibs-omega-005,omega,,23mm Fire Black Opal Dial & Diamond Bezel in 14K Yellow Gold Vintage Watch,watches,14K Gold/Diamonds/Opal,20250,,,pre-owned,6,1stDibs,,dealer,false,false,true,2026-01-23,,In 1 Cart - Opal Dial
+1stdibs-omega-006,omega,,Seamaster Aqua Terra 150M 18K Rose Gold Box Papers 231.53.42.21.06.002,watches,18K Rose Gold,20995,,,pre-owned,8,1stDibs,,dealer,false,true,false,2026-01-23,,In 3 Carts - Aqua Terra Popular
+1stdibs-omega-007,omega,,18 Kt Gold Cosmic Triple Date Moon Phase Collectors Wrist Watch Ref 2473,watches,18K Gold,21573,,,pre-owned,8,1stDibs,,dealer,false,false,true,2026-01-23,,In 4 Carts - Triple Date Moonphase
+1stdibs-omega-008,omega,,Constellation 36mm 18K Yellow Gold Diamond Dial Bezel Automatic Watch,watches,18K Yellow Gold/Diamonds,34500,,,pre-owned,5,1stDibs,,dealer,false,false,false,2026-01-23,,Diamond Constellation

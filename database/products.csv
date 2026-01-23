@@ -1,0 +1,82 @@
+product_id,brand_id,collection,product_name,category,material_primary,material_secondary,retail_price_usd,size_options,reference_number,source_url,date_captured,date_updated,is_active,notes
+cartier-love-001,cartier,Love,Love Unlimited Bracelet Flexible,bracelets,yellow gold,,9400,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,
+cartier-love-002,cartier,Love,Love Unlimited Bracelet Flexible,bracelets,white gold,,9900,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,
+cartier-love-003,cartier,Love,Love Unlimited Bracelet Flexible,bracelets,rose gold,,9400,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,
+cartier-love-004,cartier,Love,Love Unlimited Ring,rings,yellow gold,,2670,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,
+cartier-love-005,cartier,Love,Love Unlimited Ring,rings,white gold,,2860,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,
+cartier-love-006,cartier,Love,Love Unlimited Ring,rings,rose gold,,2670,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,
+cartier-love-007,cartier,Love,Love Bracelet Medium Model Paved,bracelets,white gold,diamonds,38520,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,Full pave diamonds
+cartier-love-008,cartier,Love,Love Bracelet Medium Model Paved,bracelets,rose gold,diamonds,36000,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,Full pave diamonds
+cartier-love-009,cartier,Love,Love Bracelet Medium Model Paved,bracelets,yellow gold,diamonds,36000,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,Full pave diamonds
+cartier-love-010,cartier,Love,Love Bracelet Medium Model 4 Diamonds,bracelets,white gold,diamonds,11770,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,4 diamond version
+cartier-love-011,cartier,Love,Love Bracelet Medium Model 4 Diamonds,bracelets,rose gold,diamonds,11000,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,4 diamond version
+cartier-love-012,cartier,Love,Love Bracelet Medium Model,bracelets,yellow gold,,6630,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,Plain medium model
+cartier-love-013,cartier,Love,Love Bracelet Medium Model,bracelets,rose gold,,6630,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,Plain medium model
+cartier-love-014,cartier,Love,Love Bracelet Medium Model,bracelets,white gold,,7100,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,Plain medium model
+cartier-love-015,cartier,Love,Love Bracelet Classic Model,bracelets,yellow gold,,7950,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,Classic screw design
+cartier-love-016,cartier,Love,Love Bracelet Classic Model 4 Diamonds,bracelets,yellow gold,diamonds,13100,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,4 diamond classic
+cartier-love-017,cartier,Love,Love Ring Small Model,rings,yellow gold,,1420,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/love/,2026-01-23,2026-01-23,true,Small model ring
+cartier-juste-001,cartier,Juste un Clou,Juste un Clou Torque Necklace Small Model,necklaces,yellow gold,diamonds,28700,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/juste-un-clou/,2026-01-23,2026-01-23,true,Reverse-Set Diamonds
+cartier-juste-002,cartier,Juste un Clou,Juste un Clou Torque Necklace Small Model,necklaces,rose gold,diamonds,28700,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/juste-un-clou/,2026-01-23,2026-01-23,true,Reverse-Set Diamonds
+cartier-juste-003,cartier,Juste un Clou,Juste un Clou Bracelet Small Model,bracelets,yellow gold,diamonds,7350,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/juste-un-clou/,2026-01-23,2026-01-23,true,Reverse-Set Diamonds
+cartier-juste-004,cartier,Juste un Clou,Juste un Clou Bracelet Small Model,bracelets,rose gold,diamonds,7350,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/juste-un-clou/,2026-01-23,2026-01-23,true,Reverse-Set Diamonds
+cartier-juste-005,cartier,Juste un Clou,Juste un Clou Bracelet Small Model,bracelets,white gold,diamonds,7850,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/juste-un-clou/,2026-01-23,2026-01-23,true,Reverse-Set Diamonds
+cartier-juste-006,cartier,Juste un Clou,Juste un Clou Single Hoop Earring Mini,earrings,rose gold,,1080,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/juste-un-clou/,2026-01-23,2026-01-23,true,
+cartier-juste-007,cartier,Juste un Clou,Juste un Clou Bracelet Classic Model,bracelets,yellow gold,,8700,,N/A,https://www.cartier.com/en-us/jewelry/all-collections/juste-un-clou/,2026-01-23,2026-01-23,true,Classic nail design
+vca-alhambra-001,van-cleef-arpels,Alhambra,Vintage Alhambra pendant,necklaces,yellow gold,mother-of-pearl,3100,,VCARA45900,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,+5 stone variations
+vca-alhambra-002,van-cleef-arpels,Alhambra,Vintage Alhambra pendant,necklaces,yellow gold,,4150,,VCARP4KL00,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,Plain yellow gold
+vca-alhambra-003,van-cleef-arpels,Alhambra,Vintage Alhambra pendant,necklaces,yellow gold,malachite,3650,,N/A,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,Malachite variant
+vca-alhambra-004,van-cleef-arpels,Alhambra,Vintage Alhambra pendant,necklaces,rose gold,diamonds,8450,,N/A,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,Diamond variant
+vca-alhambra-005,van-cleef-arpels,Alhambra,Vintage Alhambra bracelet 5 motifs,bracelets,yellow gold,mother-of-pearl,5050,,N/A,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,+6 stone variations
+vca-alhambra-006,van-cleef-arpels,Alhambra,Vintage Alhambra bracelet 5 motifs,bracelets,yellow gold,diamonds,16900,,VCARP4KN00,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,Diamond pave version
+vca-alhambra-007,van-cleef-arpels,Alhambra,Vintage Alhambra necklace 10 motifs,necklaces,yellow gold,mother-of-pearl,9650,,N/A,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,+6 stone variations
+vca-alhambra-008,van-cleef-arpels,Alhambra,Vintage Alhambra earrings,earrings,yellow gold,mother-of-pearl,4500,,N/A,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,+6 stone variations
+vca-alhambra-009,van-cleef-arpels,Alhambra,Vintage Alhambra Reversible Ring,rings,rose gold,carnelian/diamonds,6350,,N/A,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,+3 stone variations
+vca-alhambra-010,van-cleef-arpels,Alhambra,Magic Alhambra transformable long necklace,necklaces,rose gold,mother-of-pearl,35000,,N/A,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,15 motifs
+vca-perlee-001,van-cleef-arpels,Perlee,Ludo Secret watch,watches,yellow gold,diamonds/mother-of-pearl,96500,,VCARPBM300,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,High jewelry watch
+vca-perlee-002,van-cleef-arpels,Perlee,Perlee sweet clovers bracelet medium,bracelets,yellow gold,diamonds,17700,,VCARP6X600,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,Diamond pave
+vca-perlee-003,van-cleef-arpels,Perlee,Perlee sweet clovers bracelet,bracelets,rose gold,diamonds,17700,,N/A,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,
+vca-perlee-004,van-cleef-arpels,Perlee,Perlee signature bracelet,bracelets,yellow gold,,7250,,N/A,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,Medium model
+vca-perlee-005,van-cleef-arpels,Perlee,Perlee signature bracelet,bracelets,rose gold,,7250,,N/A,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,Medium model
+vca-perlee-006,van-cleef-arpels,Perlee,Perlee clovers bracelet,bracelets,white gold,diamonds,31500,,N/A,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,
+vca-perlee-007,van-cleef-arpels,Perlee,Perlee pearls of gold bracelet,bracelets,rose gold,,5150,,N/A,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,
+vca-perlee-008,van-cleef-arpels,Perlee,Perlee clovers bracelet,bracelets,yellow gold,diamonds,29700,,N/A,https://www.vancleefarpels.com/,2026-01-23,2026-01-23,true,
+tiffany-t-001,tiffany,Tiffany T,T Smile Pendant Small,necklaces,yellow gold,,1400,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-t-002,tiffany,Tiffany T,T Wire Bracelet,bracelets,yellow gold,,3500,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-t-003,tiffany,Tiffany T,T Narrow Wire Bracelet,bracelets,yellow gold,,2500,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-t-004,tiffany,Tiffany T,T Wire Ring,rings,yellow gold,,1525,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-t-005,tiffany,Tiffany T,T Smile Bracelet on Blue Cord,bracelets,rose gold,diamonds,1050,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-t-006,tiffany,Tiffany T,T Smile Medium Pendant,necklaces,white gold,diamonds,4200,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-hw-001,tiffany,Tiffany HardWear,HardWear Medium Link Earrings,earrings,yellow gold,,3600,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-hw-002,tiffany,Tiffany HardWear,HardWear Micro Link Bracelet,bracelets,yellow gold,,4200,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-hw-003,tiffany,Tiffany HardWear,HardWear Small Link Bracelet,bracelets,sterling silver,,1350,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-knot-001,tiffany,Tiffany Knot,Knot Pendant,necklaces,yellow gold,diamonds,5900,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-knot-002,tiffany,Tiffany Knot,Knot Ring,rings,yellow gold,diamonds,3200,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-lock-001,tiffany,Tiffany Lock,Lock Bangle Half Pave,bracelets,yellow/white gold,diamonds,18500,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-lock-002,tiffany,Tiffany Lock,Lock Small Earrings,earrings,yellow gold,diamonds,5700,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-ep-001,tiffany,Elsa Peretti,Open Heart Pendant 11mm,necklaces,yellow gold,,1400,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-ep-002,tiffany,Elsa Peretti,Open Heart Earrings,earrings,yellow gold,,1100,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-1837-001,tiffany,Tiffany 1837,Interlocking Circles Pendant Small,necklaces,sterling silver,,625,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+tiffany-1837-002,tiffany,Tiffany 1837,Interlocking Circles Chain Bracelet,bracelets,sterling silver,,550,,N/A,https://www.tiffany.com/,2026-01-23,2026-01-23,true,
+bulgari-bzero1-001,bulgari,B.zero1,B.zero1 Earrings,earrings,yellow gold,diamonds,5950,,N/A,https://www.bulgari.com/,2026-01-23,2026-01-23,true,
+bulgari-bzero1-002,bulgari,B.zero1,B.zero1 Ring,rings,yellow gold,diamonds,6900,,N/A,https://www.bulgari.com/,2026-01-23,2026-01-23,true,
+bulgari-bzero1-003,bulgari,B.zero1,B.zero1 Ring,rings,rose gold,diamonds,6900,,N/A,https://www.bulgari.com/,2026-01-23,2026-01-23,true,Special edition
+bulgari-bzero1-004,bulgari,B.zero1,B.zero1 Earrings,earrings,rose gold,diamonds,5950,,N/A,https://www.bulgari.com/,2026-01-23,2026-01-23,true,Special edition
+bulgari-serpenti-001,bulgari,Serpenti Viper,Serpenti Viper Necklace,necklaces,rose gold,rubies,5100,,N/A,https://www.bulgari.com/,2026-01-23,2026-01-23,true,Special edition
+bulgari-serpenti-002,bulgari,Serpenti Viper,Serpenti Viper Bracelet,bracelets,rose gold,rubies,11700,,N/A,https://www.bulgari.com/,2026-01-23,2026-01-23,true,Special edition
+bulgari-serpenti-003,bulgari,Serpenti Viper,Serpenti Viper Necklace,necklaces,white gold,diamonds,6350,,N/A,https://www.bulgari.com/,2026-01-23,2026-01-23,true,
+bulgari-serpenti-004,bulgari,Serpenti Viper,Serpenti Viper Earrings,earrings,white gold,diamonds,5900,,N/A,https://www.bulgari.com/,2026-01-23,2026-01-23,true,
+dy-madison-001,david-yurman,DY Madison,Heart Toggle Chain Bracelet 3mm,bracelets,sterling silver,,325,,N/A,https://www.davidyurman.com/,2026-01-23,2026-01-23,true,Entry level
+dy-madison-002,david-yurman,DY Madison,Heart Toggle Chain Bracelet 3mm,bracelets,sterling silver,18K yellow gold,495,,N/A,https://www.davidyurman.com/,2026-01-23,2026-01-23,true,Two-tone
+dy-madison-003,david-yurman,DY Madison,Heart Toggle Chain Bracelet 3mm,bracelets,sterling silver,diamonds,995,,N/A,https://www.davidyurman.com/,2026-01-23,2026-01-23,true,Diamond accent
+dy-madison-004,david-yurman,DY Madison,Pave Toggle Chain Bracelet 3mm,bracelets,18K yellow gold,diamonds,3250,,N/A,https://www.davidyurman.com/,2026-01-23,2026-01-23,true,
+dy-cable-001,david-yurman,Micro Cable Flex,Heart Station Bracelet 2.6mm,bracelets,sterling silver,14K yellow gold,395,,N/A,https://www.davidyurman.com/,2026-01-23,2026-01-23,true,
+dy-cable-002,david-yurman,Micro Cable Flex,Bracelet 2.6mm,bracelets,sterling silver,14K yellow gold,395,,N/A,https://www.davidyurman.com/,2026-01-23,2026-01-23,true,
+dy-cable-003,david-yurman,Micro Cable Flex,X Bracelet 2.6mm,bracelets,sterling silver,14K yellow gold,395,,N/A,https://www.davidyurman.com/,2026-01-23,2026-01-23,true,
+dy-cable-004,david-yurman,Micro Cable Flex,Bracelet 2.6mm with Diamonds,bracelets,sterling silver,diamonds,495,,N/A,https://www.davidyurman.com/,2026-01-23,2026-01-23,true,
+dy-cablespira-001,david-yurman,Micro Cablespira,Flex Bracelet 2.6mm,bracelets,18K yellow gold,,1750,,N/A,https://www.davidyurman.com/,2026-01-23,2026-01-23,true,
+dy-cablespira-002,david-yurman,Classic Cablespira,Bracelet 3mm,bracelets,18K yellow gold,diamonds,2550,,N/A,https://www.davidyurman.com/,2026-01-23,2026-01-23,true,
+dy-cablespira-003,david-yurman,Cablespira,Flex Bracelet 4mm,bracelets,18K yellow gold,,3200,,N/A,https://www.davidyurman.com/,2026-01-23,2026-01-23,true,
+dy-cablespira-004,david-yurman,Cablespira,Flex Bracelet 6mm,bracelets,18K yellow gold,,4600,,N/A,https://www.davidyurman.com/,2026-01-23,2026-01-23,true,
+dy-sculpted-001,david-yurman,Sculpted Cable,Bangle Bracelet 4.6mm,bracelets,18K yellow gold,diamonds,9900,,N/A,https://www.davidyurman.com/,2026-01-23,2026-01-23,true,
+dy-sculpted-002,david-yurman,Sculpted Cable,Bangle Bracelet 6.2mm,bracelets,18K yellow gold,diamonds,13200,,N/A,https://www.davidyurman.com/,2026-01-23,2026-01-23,true,

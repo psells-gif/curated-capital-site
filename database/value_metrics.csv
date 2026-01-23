@@ -1,0 +1,27 @@
+metric_id,brand_id,collection,category,avg_retail_price,avg_secondary_price,value_retention_pct,price_range_low,price_range_high,sample_size,confidence_level,demand_index,last_calculated
+vm-cartier-love-bracelets,cartier,Love,bracelets,16815,47340,281,5375,47340,2,low,5.0,2026-01-23
+vm-cartier-juste-un-clou-bracelets,cartier,Juste un Clou,bracelets,12170,,,,7500,15000,0,low,,2026-01-23
+vm-cartier-panthere-rings,cartier,Panthère,rings,,,,,28050,75000,3,medium,6.3,2026-01-23
+vm-cartier-panthere-bracelets,cartier,Panthère,bracelets,,112200,,,21000,225000,5,medium,5.6,2026-01-23
+vm-cartier-all-jewelry,cartier,,jewelry,11677,71852,,21000,277128,33,high,5.5,2026-01-23
+vm-cartier-all-watches,cartier,,watches,,32480,,,23040,52250,4,medium,7.5,2026-01-23
+vm-vca-alhambra-necklaces,van-cleef-arpels,Alhambra,necklaces,18775,39369,210,23000,79848,5,medium,5.8,2026-01-23
+vm-vca-alhambra-bracelets,van-cleef-arpels,Alhambra,bracelets,7088,37500,,37500,37500,1,low,5.0,2026-01-23
+vm-vca-perlee-bracelets,van-cleef-arpels,Perlée,bracelets,14844,,,,,,0,low,,2026-01-23
+vm-vca-all-jewelry,van-cleef-arpels,,jewelry,25567,72725,284,22000,320000,11,medium,5.5,2026-01-23
+vm-tiffany-t-bracelets,tiffany,T,bracelets,5200,,,,,,0,low,,2026-01-23
+vm-tiffany-hardwear-necklaces,tiffany,HardWear,necklaces,6367,,,,,,0,low,,2026-01-23
+vm-tiffany-all-jewelry,tiffany,,jewelry,5083,73688,,27500,198500,10,medium,6.3,2026-01-23
+vm-bulgari-bzero1-bracelets,bulgari,B.zero1,bracelets,7225,,,,,,0,low,,2026-01-23
+vm-bulgari-serpenti-bracelets,bulgari,Serpenti Viper,bracelets,8663,,,,,,0,low,,2026-01-23
+vm-bulgari-all-jewelry,bulgari,,jewelry,8344,255595,,21573,899999,6,low,6.3,2026-01-23
+vm-david-yurman-cable-bracelets,david-yurman,Cable,bracelets,3650,,,,,,0,low,,2026-01-23
+vm-david-yurman-all-jewelry,david-yurman,,jewelry,4027,,,,,,0,low,,2026-01-23
+vm-rolex-daytona-watches,rolex,Daytona,watches,,121612,,,27344,281647,4,medium,8.3,2026-01-23
+vm-rolex-datejust-watches,rolex,Datejust,watches,,21300,,,21300,21300,1,low,6.0,2026-01-23
+vm-rolex-day-date-watches,rolex,Day-Date,watches,,28118,,,28118,28118,1,low,5.0,2026-01-23
+vm-rolex-all-watches,rolex,,watches,,80258,,21300,281647,7,medium,7.1,2026-01-23
+vm-ap-royal-oak-watches,audemars-piguet,Royal Oak,watches,,124800,,,124800,124800,1,low,8.0,2026-01-23
+vm-piaget-all-watches,piaget,,watches,,22750,,,22000,23500,2,low,5.0,2026-01-23
+vm-omega-speedmaster-watches,omega,Speedmaster,watches,7900,6000,76,5000,7000,0,low,,2026-01-23
+vm-patek-nautilus-watches,patek-philippe,Nautilus,watches,77400,108500,140,80000,137000,0,low,,2026-01-23

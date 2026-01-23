@@ -262,18 +262,114 @@ Recommend separate research phase if category is pursued.
 
 ---
 
+## Automation Platforms
+
+### Apify
+- **URL**: https://apify.com
+- **Type**: Scraper marketplace ("Actors")
+- **Pricing**: $5 free/month, then $0.25–$0.40 per compute unit
+- **Model**: Community-built scrapers; pay per compute usage
+
+**Available Scrapers:**
+| Marketplace | Scraper Status | Notes |
+|-------------|----------------|-------|
+| Chrono24 | ✅ Multiple available | [Chrono24 Watch Price Scraper](https://apify.com/misterkhan/chrono24-search-scraper) recommended; some older ones deprecated |
+| Vestiaire Collective | ✅ Available | [Vestiaire Scraper](https://apify.com/parseforge/vestiairecollective-scraper) — free tier limited to 100 items/run |
+| eBay | ✅ Multiple available | Robust options for sold listings |
+| StockX/GOAT | ✅ Available | Useful if sneakers added later |
+| TheRealReal | ❌ Not found | Would need custom build |
+| 1stDibs | ❌ Not found | Would need custom build |
+| WatchCharts | ❌ Not found | Would need custom build |
+
+**Pros:**
+- Large ecosystem (14,000+ scrapers)
+- Transparent pricing
+- Can build custom scrapers or hire developers
+- Free tier sufficient for testing
+
+**Cons:**
+- Deprecation risk (saw 3 deprecated Chrono24 scrapers)
+- No ready-made scrapers for key jewelry sources
+- More complex than simple API calls
+- Proxy costs can add up for heavy usage
+
+**Evaluation Scores:**
+| Criteria | Score | Notes |
+|----------|-------|-------|
+| Watch coverage | 4 | Chrono24 good; no WatchCharts |
+| Jewelry coverage | 2 | Only Vestiaire; missing TheRealReal, 1stDibs |
+| Pricing clarity | 5 | Transparent compute unit model |
+| Ease of use | 3 | Learning curve for Actors/CUs |
+| Reliability | 3 | Community-maintained; deprecation risk |
+| **Total** | **17/25** | |
+
+---
+
+### Retailed.io
+- **URL**: https://retailed.io
+- **Type**: Curated API wrappers
+- **Pricing**: 50 free requests, then contact sales
+- **Model**: Pre-built REST APIs for specific marketplaces
+
+**Available APIs:**
+| Marketplace | API Status | Notes |
+|-------------|------------|-------|
+| Chrono24 | ✅ Available | Product and Search endpoints |
+| eBay | ✅ Available | Integrated |
+| StockX | ✅ Available | Strong coverage |
+| GOAT | ✅ Available | Sneaker focus |
+| TheRealReal | ❓ Unknown | Not confirmed in research |
+| 1stDibs | ❓ Unknown | Not confirmed in research |
+| Vestiaire | ❓ Unknown | Not confirmed in research |
+
+**Pros:**
+- Simple REST API interface
+- They handle maintenance/updates
+- Free trial to test
+- Good for watches and sneakers
+
+**Cons:**
+- Pricing opaque beyond free tier
+- Appears narrower than Apify (watches/sneakers focus)
+- Jewelry sources unconfirmed
+- Potential ToS concerns (scraping Chrono24)
+
+**Evaluation Scores:**
+| Criteria | Score | Notes |
+|----------|-------|-------|
+| Watch coverage | 4 | Chrono24 good; no WatchCharts |
+| Jewelry coverage | 2 | Unconfirmed for key sources |
+| Pricing clarity | 2 | Must contact sales for paid tiers |
+| Ease of use | 5 | Simple REST API |
+| Reliability | 4 | Maintained by company |
+| **Total** | **17/25** | |
+
+---
+
 ## Automation Considerations
 
 **Barriers Identified:**
 - Direct site fetching blocked for some domains (Chrono24, WatchCharts)
 - No public APIs identified for jewelry sources
 - Anti-bot protections likely on high-traffic marketplaces
+- Neither automation platform has TheRealReal or 1stDibs scrapers
 
 **Recommended Approach:**
-1. Investigate WatchCharts partnership/API licensing — they've already built the aggregation layer
-2. For jewelry, The RealReal partnership would provide authenticated data at scale
-3. Web search results contain sufficient data for MVP validation; production system would need proper data agreements
-4. Consider building relationships with 2-3 key sources rather than scraping many
+
+**For Watches:**
+1. Test Apify's Chrono24 scraper (free tier)
+2. If successful, use for listing-level data
+3. Still pursue WatchCharts partnership for aggregated pricing
+
+**For Jewelry:**
+1. Test Apify's Vestiaire Collective scraper
+2. For TheRealReal/1stDibs, options are:
+   - Build custom Apify Actor
+   - Pursue direct data partnership
+   - Manual research for MVP, automate later
+
+**Platform Recommendation:**
+Start with **Apify** — more transparent pricing, larger ecosystem, and ability to build custom scrapers if needed. Retailed.io is simpler but narrower.
 
 ---
 
