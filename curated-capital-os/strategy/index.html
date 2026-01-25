@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategy | Curated Capital OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-deep: #0a0a14;
+            --navy: #12121f;
+            --navy-light: #1a1a2e;
+            --gold: #d4af37;
+            --gold-light: #f5e6a3;
+            --gold-dim: rgba(212, 175, 55, 0.6);
+            --cream: #f5f5f0;
+            --cream-dim: rgba(245, 245, 240, 0.7);
+            --cream-muted: rgba(245, 245, 240, 0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-light) 50%, var(--navy-deep) 100%);
+            color: var(--cream);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .texture-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.025;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header {
+            padding: 24px 48px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            background: rgba(10, 10, 20, 0.8);
+            backdrop-filter: blur(20px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            font-size: 12px;
+            color: var(--cream-muted);
+        }
+
+        .breadcrumb a {
+            color: var(--gold-dim);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover { color: var(--gold); }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 48px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--cream-muted);
+            font-size: 15px;
+            margin-bottom: 48px;
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .doc-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 32px;
+            text-decoration: none;
+            color: var(--cream);
+            transition: all 0.3s ease;
+        }
+
+        .doc-card:hover {
+            background: rgba(212, 175, 55, 0.05);
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .doc-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .doc-card p {
+            font-size: 13px;
+            color: var(--cream-muted);
+            margin-bottom: 16px;
+        }
+
+        .doc-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: var(--cream-muted);
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .doc-type {
+            color: var(--gold-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="texture-overlay"></div>
+
+    <header>
+        <div class="header-inner">
+            <div class="breadcrumb">
+                <a href="../">OS</a> / Strategy
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1>Strategy</h1>
+        <p class="subtitle">Product roadmap, brand guidelines, competitive analysis, and long-term planning.</p>
+
+        <div class="doc-grid">
+            <a href="roadmap.html" class="doc-card">
+                <h3>Product Roadmap</h3>
+                <p>4-phase plan from Foundation through Lending, with Gantt chart and detailed milestones.</p>
+                <div class="doc-meta">
+                    <span class="doc-type">HTML</span>
+                    <span>Updated Jan 2026</span>
+                </div>
+            </a>
+
+            <a href="brand-guidelines.md" class="doc-card">
+                <h3>Brand Guidelines v2.0</h3>
+                <p>Visual identity, color palette, typography, voice, and Portfolio app extension.</p>
+                <div class="doc-meta">
+                    <span class="doc-type">Markdown</span>
+                    <span>Updated Jan 2026</span>
+                </div>
+            </a>
+
+            <a href="competitive-analysis.md" class="doc-card" style="opacity: 0.5; pointer-events: none;">
+                <h3>Competitive Analysis</h3>
+                <p>Market positioning against pawn shops, banks, auction houses, and tracking apps.</p>
+                <div class="doc-meta">
+                    <span class="doc-type">Coming Soon</span>
+                    <span>—</span>
+                </div>
+            </a>
+        </div>
+    </main>
+</body>
+</html>
