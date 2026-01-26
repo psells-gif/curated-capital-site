@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strategy | Curated Capital OS</title>
+    <title>Strategy & Product | Curated Capital OS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -21,8 +21,12 @@
             --text-muted: rgba(255, 255, 255, 0.5);
             --border-color: rgba(212, 175, 55, 0.2);
             --success: #4ade80;
+            --success-muted: rgba(74, 222, 128, 0.15);
             --warning: #fbbf24;
+            --warning-muted: rgba(251, 191, 36, 0.15);
             --danger: #f87171;
+            --blue: #3b82f6;
+            --blue-muted: rgba(59, 130, 246, 0.15);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,6 +41,7 @@
 
         h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
 
+        /* Header */
         .header {
             background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
             border-bottom: 1px solid var(--border-color);
@@ -99,13 +104,11 @@
         .breadcrumb a:hover { color: var(--gold); }
         .breadcrumb-current { color: var(--gold); }
 
+        /* Main Content */
         .main {
             max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
-            display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 2rem;
         }
 
         .page-header { margin-bottom: 2rem; }
@@ -122,12 +125,12 @@
         .page-description {
             color: var(--text-secondary);
             font-size: 1rem;
-            max-width: 600px;
         }
 
+        /* Stats Row */
         .stats-row {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 1rem;
             margin-bottom: 2rem;
         }
@@ -136,23 +139,54 @@
             background: var(--navy);
             border: 1px solid var(--border-color);
             border-radius: 10px;
-            padding: 1rem 1.25rem;
+            padding: 1.25rem;
             text-align: center;
         }
 
         .stat-value {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 600;
             color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .stat-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
             margin-top: 0.25rem;
         }
 
-        .card {
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 0.6rem 1.25rem;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .tab:hover { border-color: var(--gold); color: var(--text-primary); }
+        .tab.active { background: var(--gold); color: var(--navy-deep); border-color: var(--gold); }
+
+        /* Tab Content */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Section Cards */
+        .section {
             background: var(--navy);
             border: 1px solid var(--border-color);
             border-radius: 12px;
@@ -160,227 +194,284 @@
             margin-bottom: 1.5rem;
         }
 
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .section-title {
+            font-size: 1.25rem;
+            color: var(--gold);
             margin-bottom: 1rem;
             padding-bottom: 0.75rem;
             border-bottom: 1px solid var(--border-color);
         }
 
-        .card-title { font-size: 1.1rem; color: var(--gold); }
-
-        .doc-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+        .section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 1.5rem 0 0.75rem;
         }
 
-        .doc-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.875rem 1rem;
+        .section h4 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 1.25rem 0 0.5rem;
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .section ul {
+            color: var(--text-secondary);
+            margin-left: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .section li { margin-bottom: 0.5rem; }
+
+        /* Callouts */
+        .callout {
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .callout-gold {
+            background: var(--gold-muted);
+            border-left: 4px solid var(--gold);
+        }
+
+        .callout-navy {
+            background: var(--navy-light);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-primary);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+        }
+
+        th {
+            background: var(--navy-light);
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-secondary);
+        }
+
+        tr:hover td { background: rgba(255,255,255,0.02); }
+
+        /* Status badges */
+        .status {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .status-complete { background: var(--success-muted); color: var(--success); }
+        .status-progress { background: var(--blue-muted); color: var(--blue); }
+        .status-pending { background: rgba(255,255,255,0.1); color: var(--text-muted); }
+        .status-gated { background: var(--warning-muted); color: var(--warning); }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .metric-card {
             background: var(--navy-light);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            transition: all 0.2s ease;
+            padding: 1.25rem;
+            text-align: center;
         }
 
-        .doc-item:hover {
-            border-color: var(--gold);
-            transform: translateX(4px);
+        .metric-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--gold);
         }
 
-        .doc-info {
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Gantt Chart */
+        .gantt-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .gantt {
+            min-width: 800px;
+        }
+
+        .gantt-header {
+            display: grid;
+            grid-template-columns: 160px repeat(8, 1fr);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .gantt-header-label {
+            padding: 0.75rem 0.5rem;
+            font-weight: 600;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .gantt-header-label:first-child { text-align: left; }
+
+        .gantt-row {
+            display: grid;
+            grid-template-columns: 160px repeat(8, 1fr);
+            align-items: center;
+            min-height: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .gantt-row:hover { background: rgba(255,255,255,0.02); }
+
+        .gantt-label {
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .gantt-bar-container {
+            grid-column: span 8;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            padding: 0.25rem 0;
+        }
+
+        .gantt-bar {
+            height: 24px;
+            border-radius: 4px;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            flex: 1;
+            padding: 0 0.5rem;
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
         }
 
-        .doc-icon {
-            width: 36px;
-            height: 36px;
-            background: var(--gold-muted);
-            border-radius: 6px;
+        .gantt-bar-phase1 { background: linear-gradient(90deg, #1e3a5f 0%, #2d5a8c 100%); grid-column: 1 / 3; }
+        .gantt-bar-phase2 { background: linear-gradient(90deg, var(--blue) 0%, #60a5fa 100%); grid-column: 3 / 5; }
+        .gantt-bar-phase3 { background: linear-gradient(90deg, var(--success) 0%, #34d399 100%); grid-column: 5 / 8; }
+        .gantt-bar-phase4 { background: linear-gradient(90deg, #8b7355 0%, var(--gold) 100%); grid-column: 8 / 9; }
+        .gantt-bar-occc { background: rgba(255,255,255,0.2); grid-column: 2 / 3; justify-content: center; }
+        .gantt-bar-occc-approval { background: var(--warning); grid-column: 8 / 9; justify-content: center; color: var(--navy-deep); }
+
+        .gantt-section-label {
+            background: var(--navy-light);
+            font-weight: 600;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        .gantt-milestone {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
-            flex-shrink: 0;
         }
 
-        .doc-details { flex: 1; min-width: 0; }
-
-        .doc-name {
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            font-weight: 500;
+        .gantt-milestone::before {
+            content: '\u25C6';
+            color: var(--gold);
+            font-size: 12px;
         }
 
-        .doc-meta {
-            font-size: 0.75rem;
-            color: var(--text-muted);
+        /* Flow Diagram */
+        .flow {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            margin-top: 0.2rem;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+            font-size: 0.8rem;
         }
 
-        .doc-actions { display: flex; gap: 0.5rem; }
+        .flow-step {
+            background: var(--navy-light);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
 
-        .doc-btn {
-            padding: 0.4rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
+        .flow-arrow { color: var(--text-muted); }
+
+        /* Buttons */
+        .btn-row {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
             font-weight: 500;
             text-decoration: none;
+            cursor: pointer;
             transition: all 0.2s;
             border: none;
-            cursor: pointer;
             font-family: 'Outfit', sans-serif;
         }
 
-        .doc-btn-primary {
+        .btn-primary {
             background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
             color: var(--navy-deep);
         }
 
-        .doc-btn-secondary {
-            background: var(--navy-lighter);
-            color: var(--text-secondary);
+        .btn-primary:hover { opacity: 0.9; }
+
+        .btn-secondary {
+            background: transparent;
             border: 1px solid var(--border-color);
+            color: var(--text-secondary);
         }
 
-        .doc-btn-secondary:hover {
-            border-color: var(--gold);
-            color: var(--text-primary);
-        }
-
-        .status-badge {
-            font-size: 0.65rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .status-current { background: rgba(74, 222, 128, 0.15); color: var(--success); }
-        .status-draft { background: rgba(251, 191, 36, 0.15); color: var(--warning); }
-
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .task-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .task-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.65rem 0.75rem;
-            background: var(--navy-light);
-            border-radius: 6px;
-            border-left: 3px solid var(--gold);
-        }
-
-        .task-checkbox {
-            width: 16px;
-            height: 16px;
-            border: 2px solid var(--border-color);
-            border-radius: 4px;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-
-        .task-text { flex: 1; font-size: 0.85rem; }
-
-        .time-stat {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem;
-            background: var(--navy-light);
-            border-radius: 8px;
-            margin-bottom: 0.5rem;
-        }
-
-        .time-stat-label { font-size: 0.85rem; color: var(--text-secondary); }
-        .time-stat-value { font-size: 1rem; font-weight: 600; color: var(--gold); }
-
-        .time-bar {
-            height: 6px;
-            background: var(--navy-lighter);
-            border-radius: 3px;
-            overflow: hidden;
-            margin-top: 0.5rem;
-        }
-
-        .time-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
-            border-radius: 3px;
-        }
-
-        .quick-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-
-        .quick-link {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.6rem 0.75rem;
-            background: var(--navy-light);
-            border-radius: 6px;
-            text-decoration: none;
-            color: var(--text-primary);
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
-        }
-
-        .quick-link:hover {
-            background: var(--navy-lighter);
-            transform: translateX(4px);
-        }
-
-        .quick-link-icon { color: var(--gold); font-size: 0.9rem; }
-
-        /* Vision Statement */
-        .vision-box {
-            background: linear-gradient(135deg, var(--gold-muted) 0%, transparent 100%);
-            border: 1px solid var(--gold);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .vision-label {
-            font-size: 0.75rem;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .vision-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            font-style: italic;
-        }
+        .btn-secondary:hover { border-color: var(--gold); color: var(--text-primary); }
 
         /* Login */
         .login-overlay {
@@ -449,11 +540,15 @@
         .app-content.visible { display: block; }
 
         @media (max-width: 1200px) {
-            .main { grid-template-columns: 1fr; }
-            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .stats-row { grid-template-columns: repeat(3, 1fr); }
+            .metrics-grid { grid-template-columns: repeat(3, 1fr); }
         }
         @media (max-width: 768px) {
             .main { padding: 1rem; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .tabs { gap: 0.35rem; }
+            .tab { padding: 0.5rem 0.75rem; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -474,225 +569,459 @@
     <div class="app-content" id="appContent">
         <header class="header">
             <div class="header-content">
-                <a href="/" class="logo">
+                <a href="/curated-capital-os/" class="logo">
                     <div class="logo-icon">CC</div>
                     <div class="logo-text">Curated Capital <span>OS</span></div>
                 </a>
                 <div class="breadcrumb">
-                    <a href="/">Dashboard</a>
+                    <a href="/curated-capital-os/">Dashboard</a>
                     <span>/</span>
-                    <span class="breadcrumb-current">Strategy</span>
+                    <span class="breadcrumb-current">Strategy & Product</span>
                 </div>
             </div>
         </header>
 
         <main class="main">
-            <div class="content">
-                <div class="page-header">
-                    <h1 class="page-title">
-                        <span>📊</span>
-                        Strategy
-                    </h1>
-                    <p class="page-description">Vision, mission, roadmap, and strategic planning documents for Curated Capital.</p>
+            <div class="page-header">
+                <h1 class="page-title">
+                    <span>📊</span>
+                    Strategy & Product
+                </h1>
+                <p class="page-description">Vision, product roadmap, and execution timeline for Curated Capital.</p>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-value">6 mo</div>
+                    <div class="stat-label">Validation Window</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1,000</div>
+                    <div class="stat-label">Target Subscribers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">$20K</div>
+                    <div class="stat-label">Target MRR</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">Aug '26</div>
+                    <div class="stat-label">OCCC Target</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">$25M+</div>
+                    <div class="stat-label">Portfolio Value</div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('overview')">Overview</button>
+                <button class="tab" onclick="showTab('timeline')">Timeline</button>
+                <button class="tab" onclick="showTab('product')">Product Specs</button>
+                <button class="tab" onclick="showTab('gtm')">Go-to-Market</button>
+                <button class="tab" onclick="showTab('risks')">Risks & Decisions</button>
+            </div>
+
+            <!-- OVERVIEW TAB -->
+            <div class="tab-content active" id="tab-overview">
+                <div class="section">
+                    <h2 class="section-title">Executive Summary</h2>
+                    <p>The Curated Capital Platform is a subscription-based web application that provides real-time valuations and portfolio tracking for luxury asset collectors.</p>
+
+                    <div class="callout callout-gold">
+                        <p><strong>The Opportunity:</strong> Curated Capital is building a lending business focused on a relatively untapped asset class - ultra high value personal property (watches, jewelry, art, gold, collectibles). This market is underserved by traditional lenders who won't accept these assets as collateral, and poorly served by pawn shops that offer unfair valuations and a stigmatized experience.</p>
+                    </div>
+
+                    <h3>The Vision</h3>
+                    <p>Build a $500M+ loan book providing liquidity against ultra high value items, plus a secondary line of business in buying/selling these items from the same customer base.</p>
+
+                    <h3>The Strategic Insight</h3>
+                    <p>Instead of only meeting customers at their moment of need (like competitor Borro.com does), we believe we can build long-term, sticky relationships by solving a problem they have <em>today</em>: the lack of visibility into what their collection is worth and the difficulty of transacting (lending/selling).</p>
+
+                    <h3>Platform Strategy Benefits</h3>
+                    <ul>
+                        <li>A large, qualified customer base (we know what they own)</li>
+                        <li>High-margin subscription revenue</li>
+                        <li>Sticky customer relationships</li>
+                        <li>The trusted lender/buyer of choice when they need liquidity</li>
+                    </ul>
+
+                    <div class="callout callout-navy">
+                        "Your collection is capital."
+                    </div>
                 </div>
 
-                <div class="stats-row">
-                    <div class="stat-card">
-                        <div class="stat-value">3</div>
-                        <div class="stat-label">Documents</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">2026</div>
-                        <div class="stat-label">Planning Year</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">Q1</div>
-                        <div class="stat-label">Current Quarter</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">3</div>
-                        <div class="stat-label">Year Roadmap</div>
-                    </div>
-                </div>
+                <div class="section">
+                    <h2 class="section-title">Validation Thesis</h2>
+                    <p>If we can acquire <strong>1,000 paying subscribers</strong> during the OCCC licensing period (Feb-Aug 2026), we have validated product-market fit and should scale aggressively post-license.</p>
 
-                <!-- Vision Statement -->
-                <div class="vision-box">
-                    <div class="vision-label">Our Vision</div>
-                    <div class="vision-text">"Elevating liquidity for creators and collectors through curated capital solutions."</div>
-                </div>
-
-                <!-- Strategic Documents -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">📋 Strategic Documents</h2>
-                    </div>
-                    <div class="doc-list">
-                        <div class="doc-item">
-                            <div class="doc-info">
-                                <div class="doc-icon">📄</div>
-                                <div class="doc-details">
-                                    <div class="doc-name">Project Indigo Business Summary</div>
-                                    <div class="doc-meta">
-                                        <span class="status-badge status-current">Current</span>
-                                        <span>Business overview</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doc-actions">
-                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                            </div>
+                    <h3>Success Metrics</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">1,000</div>
+                            <div class="metric-label">Paid Subscribers</div>
                         </div>
-                        <div class="doc-item">
-                            <div class="doc-info">
-                                <div class="doc-icon">📄</div>
-                                <div class="doc-details">
-                                    <div class="doc-name">Naming Taxonomy</div>
-                                    <div class="doc-meta">
-                                        <span class="status-badge status-current">v1.0</span>
-                                        <span>File organization guide</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doc-actions">
-                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                            </div>
+                        <div class="metric-card">
+                            <div class="metric-value">5,000</div>
+                            <div class="metric-label">Free Users</div>
                         </div>
-                        <div class="doc-item">
-                            <div class="doc-info">
-                                <div class="doc-icon">📄</div>
-                                <div class="doc-details">
-                                    <div class="doc-name">General Information</div>
-                                    <div class="doc-meta">
-                                        <span>Reference document</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doc-actions">
-                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                            </div>
+                        <div class="metric-card">
+                            <div class="metric-value">10,000+</div>
+                            <div class="metric-label">Assets Tracked</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Task Tracker -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">✅ Task Tracker</h2>
-                    </div>
-                    <div class="doc-list">
-                        <div class="doc-item">
-                            <div class="doc-info">
-                                <div class="doc-icon">📊</div>
-                                <div class="doc-details">
-                                    <div class="doc-name">Master Task Tracker</div>
-                                    <div class="doc-meta">
-                                        <span class="status-badge status-current">Active</span>
-                                        <span>All tasks across departments</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doc-actions">
-                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                            </div>
+                        <div class="metric-card">
+                            <div class="metric-value">$25M+</div>
+                            <div class="metric-label">Portfolio Value</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">$20K</div>
+                            <div class="metric-label">MRR</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Roadmap Preview -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">🗺️ 2026 Roadmap</h2>
-                    </div>
-                    <div style="padding: 1rem 0;">
-                        <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
-                            <div style="flex: 1; padding: 1rem; background: var(--navy-light); border-radius: 8px; border-left: 3px solid var(--success);">
-                                <div style="font-size: 0.75rem; color: var(--success); text-transform: uppercase; margin-bottom: 0.5rem;">Q1 2026</div>
-                                <div style="font-size: 0.9rem; color: var(--text-primary);">Foundation & Licensing</div>
-                                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">NMLS application, policies, OS setup</div>
-                            </div>
-                            <div style="flex: 1; padding: 1rem; background: var(--navy-light); border-radius: 8px; border-left: 3px solid var(--warning);">
-                                <div style="font-size: 0.75rem; color: var(--warning); text-transform: uppercase; margin-bottom: 0.5rem;">Q2 2026</div>
-                                <div style="font-size: 0.9rem; color: var(--text-primary);">Product Launch</div>
-                                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Client portal, first loans</div>
-                            </div>
-                        </div>
-                        <div style="display: flex; gap: 1rem;">
-                            <div style="flex: 1; padding: 1rem; background: var(--navy-light); border-radius: 8px; border-left: 3px solid var(--text-muted);">
-                                <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem;">Q3 2026</div>
-                                <div style="font-size: 0.9rem; color: var(--text-primary);">Growth & Scale</div>
-                                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Expand client base, partnerships</div>
-                            </div>
-                            <div style="flex: 1; padding: 1rem; background: var(--navy-light); border-radius: 8px; border-left: 3px solid var(--text-muted);">
-                                <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem;">Q4 2026</div>
-                                <div style="font-size: 0.9rem; color: var(--text-primary);">Optimization</div>
-                                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Process refinement, year review</div>
-                            </div>
-                        </div>
+                <div class="section">
+                    <h2 class="section-title">Strategic Value</h2>
+                    <table>
+                        <thead>
+                            <tr><th>Value</th><th>Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Customer Acquisition</strong></td><td>Users who track assets become borrowers/sellers when they need liquidity</td></tr>
+                            <tr><td><strong>Pre-Qualified Pipeline</strong></td><td>We know what they own, what it's worth, and their contact info</td></tr>
+                            <tr><td><strong>Data Moat</strong></td><td>Aggregate valuation data improves our lending/buying decisions</td></tr>
+                            <tr><td><strong>Recurring Revenue</strong></td><td>$19.99/mo subscriptions provide baseline revenue</td></tr>
+                            <tr><td><strong>Relationship Moat</strong></td><td>Ongoing engagement vs. transactional competitors</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="btn-row">
+                        <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="btn btn-primary">
+                            📁 Strategy Docs in GDrive
+                        </a>
+                        <button onclick="window.print()" class="btn btn-secondary">
+                            🖨️ Print
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <aside class="sidebar">
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">🎯 Strategy Tasks</h2>
-                    </div>
-                    <div class="task-list">
-                        <div class="task-item">
-                            <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Finalize Q1 goals</span>
-                        </div>
-                        <div class="task-item">
-                            <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Update 3-year projections</span>
-                        </div>
-                        <div class="task-item">
-                            <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Review competitive landscape</span>
+            <!-- TIMELINE TAB -->
+            <div class="tab-content" id="tab-timeline">
+                <div class="section">
+                    <h2 class="section-title">Visual Timeline</h2>
+                    <div class="gantt-container">
+                        <div class="gantt">
+                            <div class="gantt-header">
+                                <div class="gantt-header-label"></div>
+                                <div class="gantt-header-label">JAN</div>
+                                <div class="gantt-header-label">FEB</div>
+                                <div class="gantt-header-label">MAR</div>
+                                <div class="gantt-header-label">APR</div>
+                                <div class="gantt-header-label">MAY</div>
+                                <div class="gantt-header-label">JUN</div>
+                                <div class="gantt-header-label">JUL</div>
+                                <div class="gantt-header-label">AUG+</div>
+                            </div>
+
+                            <div class="gantt-row gantt-section-label"><div class="gantt-label">REGULATORY</div></div>
+                            <div class="gantt-row">
+                                <div class="gantt-label">OCCC Application</div>
+                                <div class="gantt-bar-container"><div class="gantt-bar gantt-bar-occc">Submit Feb 1</div></div>
+                            </div>
+                            <div class="gantt-row">
+                                <div class="gantt-label">OCCC Approval</div>
+                                <div class="gantt-bar-container"><div class="gantt-bar gantt-bar-occc-approval">Target</div></div>
+                            </div>
+
+                            <div class="gantt-row gantt-section-label"><div class="gantt-label">DEVELOPMENT</div></div>
+                            <div class="gantt-row">
+                                <div class="gantt-label">Phase 1: Foundation</div>
+                                <div class="gantt-bar-container"><div class="gantt-bar gantt-bar-phase1">Infrastructure & Beta</div></div>
+                            </div>
+                            <div class="gantt-row">
+                                <div class="gantt-label">Phase 2: MVP Launch</div>
+                                <div class="gantt-bar-container"><div class="gantt-bar gantt-bar-phase2">Public Launch</div></div>
+                            </div>
+                            <div class="gantt-row">
+                                <div class="gantt-label">Phase 3: Growth</div>
+                                <div class="gantt-bar-container"><div class="gantt-bar gantt-bar-phase3">Scale to 1,000 Subscribers</div></div>
+                            </div>
+                            <div class="gantt-row">
+                                <div class="gantt-label">Phase 4: Lending</div>
+                                <div class="gantt-bar-container"><div class="gantt-bar gantt-bar-phase4">Enable</div></div>
+                            </div>
+
+                            <div class="gantt-row gantt-section-label"><div class="gantt-label">MILESTONES</div></div>
+                            <div class="gantt-row">
+                                <div class="gantt-label">Key Gates</div>
+                                <div class="gantt-bar-container">
+                                    <div class="gantt-milestone" style="grid-column: 1;" title="Waitlist Live"></div>
+                                    <div class="gantt-milestone" style="grid-column: 2;" title="OCCC Submitted"></div>
+                                    <div class="gantt-milestone" style="grid-column: 3;" title="Public Launch"></div>
+                                    <div class="gantt-milestone" style="grid-column: 4;" title="50 Paid"></div>
+                                    <div class="gantt-milestone" style="grid-column: 7;" title="1,000 Paid"></div>
+                                    <div class="gantt-milestone" style="grid-column: 8;" title="OCCC Approved"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">⏱️ Time This Week</h2>
-                    </div>
-                    <div class="time-stat">
-                        <span class="time-stat-label">Strategy</span>
-                        <span class="time-stat-value" id="strategyTimeWeek">0m</span>
-                    </div>
-                    <div class="time-bar">
-                        <div class="time-bar-fill" id="strategyTimeBar" style="width: 0%;"></div>
-                    </div>
-                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; text-align: right;">
-                        of total: <span id="totalTimeWeek">0h</span>
-                    </div>
+                <div class="section">
+                    <h2 class="section-title">Key Dates</h2>
+                    <table>
+                        <thead><tr><th>Date</th><th>Milestone</th></tr></thead>
+                        <tbody>
+                            <tr><td>Jan 15, 2026</td><td>Phase 1 development begins</td></tr>
+                            <tr><td>Feb 1, 2026</td><td>OCCC application submitted</td></tr>
+                            <tr><td>Feb 28, 2026</td><td>Phase 1 complete (beta-ready)</td></tr>
+                            <tr><td>Mar 15, 2026</td><td>Public launch (MVP)</td></tr>
+                            <tr><td>Apr 30, 2026</td><td>Gate 2: 500 free users, 50 paid</td></tr>
+                            <tr><td>Jul 31, 2026</td><td>Gate 3: 1,000 paid subscribers (VALIDATION)</td></tr>
+                            <tr><td>Aug 2026</td><td>OCCC approval (target)</td></tr>
+                            <tr><td>Aug 2026+</td><td>Phase 4: Lending features enabled</td></tr>
+                        </tbody>
+                    </table>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">⚡ Quick Links</h2>
-                    </div>
-                    <div class="quick-links">
-                        <a href="/" class="quick-link">
-                            <span class="quick-link-icon">🏠</span>
-                            Dashboard
-                        </a>
-                        <a href="/finance" class="quick-link">
-                            <span class="quick-link-icon">💰</span>
-                            Finance
-                        </a>
-                        <a href="/operations" class="quick-link">
-                            <span class="quick-link-icon">⚙️</span>
-                            Operations
-                        </a>
-                        <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="quick-link">
-                            <span class="quick-link-icon">📁</span>
-                            Google Drive
-                        </a>
-                    </div>
+                <div class="section">
+                    <h2 class="section-title">Phase Gates</h2>
+                    <table>
+                        <thead><tr><th>Gate</th><th>Criteria</th><th>Decision</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Gate 1: Launch</strong></td><td>MVP complete, 100 beta users</td><td>Open to public</td></tr>
+                            <tr><td><strong>Gate 2: Traction</strong></td><td>500 free users, 50 paid</td><td>Increase ad spend</td></tr>
+                            <tr><td><strong>Gate 3: Validation</strong></td><td>1,000 paid subscribers</td><td>Prepare for lending launch</td></tr>
+                            <tr><td><strong>Gate 4: Lending</strong></td><td>OCCC approved</td><td>Enable borrowing features</td></tr>
+                        </tbody>
+                    </table>
                 </div>
-            </aside>
+            </div>
+
+            <!-- PRODUCT SPECS TAB -->
+            <div class="tab-content" id="tab-product">
+                <div class="section">
+                    <h2 class="section-title">Asset Entry Flow</h2>
+                    <h4>User Flow</h4>
+                    <div class="flow">
+                        <span class="flow-step">[+ Add Asset]</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">Select Category</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">Enter Details</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">Upload Photos</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">Upload Docs</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">Save</span>
+                    </div>
+
+                    <h3>Asset Categories</h3>
+                    <p>Watch | Jewelry | Art | Gold/Precious Metals</p>
+
+                    <h3>Common Fields (All Categories)</h3>
+                    <table>
+                        <thead><tr><th>Field</th><th>Type</th><th>Required</th></tr></thead>
+                        <tbody>
+                            <tr><td>Name/Title</td><td>Text</td><td>Yes</td></tr>
+                            <tr><td>Brand/Maker</td><td>Text</td><td>Yes</td></tr>
+                            <tr><td>Purchase Date</td><td>Date</td><td>No</td></tr>
+                            <tr><td>Purchase Price</td><td>Currency</td><td>No</td></tr>
+                            <tr><td>Condition</td><td>Dropdown</td><td>No</td></tr>
+                            <tr><td>Location</td><td>Dropdown</td><td>No</td></tr>
+                            <tr><td>Notes</td><td>Textarea</td><td>No</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">MVP Features</h2>
+                    <table>
+                        <thead><tr><th>Feature</th><th>Description</th><th>Status</th></tr></thead>
+                        <tbody>
+                            <tr><td>User registration & login</td><td>Email/password, email verification</td><td><span class="status status-pending">Pending</span></td></tr>
+                            <tr><td>Asset entry (manual)</td><td>Full entry flow per spec</td><td><span class="status status-pending">Pending</span></td></tr>
+                            <tr><td>Photo upload</td><td>Up to 6 photos per asset</td><td><span class="status status-pending">Pending</span></td></tr>
+                            <tr><td>Document upload</td><td>PDFs for COAs, receipts, appraisals</td><td><span class="status status-pending">Pending</span></td></tr>
+                            <tr><td>Portfolio dashboard</td><td>Total value, category breakdown</td><td><span class="status status-pending">Pending</span></td></tr>
+                            <tr><td>Automated valuations</td><td>Pull from market sources</td><td><span class="status status-pending">Pending</span></td></tr>
+                            <tr><td>Subscription paywall</td><td>Free: 3 assets / Paid: unlimited</td><td><span class="status status-pending">Pending</span></td></tr>
+                            <tr><td>Stripe integration</td><td>Payment processing</td><td><span class="status status-pending">Pending</span></td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Gated Features (Post-OCCC)</h3>
+                    <table>
+                        <thead><tr><th>Feature</th><th>Description</th><th>Gate</th></tr></thead>
+                        <tbody>
+                            <tr><td>Borrowing capacity display</td><td>Show LTV and $ available</td><td><span class="status status-gated">OCCC Approval</span></td></tr>
+                            <tr><td>"Borrow against this asset" CTA</td><td>Route to loan application</td><td><span class="status status-gated">OCCC Approval</span></td></tr>
+                            <tr><td>Loan application flow</td><td>In-app loan request</td><td><span class="status status-gated">OCCC Approval</span></td></tr>
+                            <tr><td>Loan status tracking</td><td>View active loans</td><td><span class="status status-gated">OCCC Approval</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Pricing Model</h2>
+                    <table>
+                        <thead><tr><th>Tier</th><th>Price</th><th>Features</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Free</strong></td><td>$0</td><td>3 assets with valuations, basic dashboard</td></tr>
+                            <tr><td><strong>Premium</strong></td><td>$19.99/mo</td><td>Unlimited assets, full valuations, priority support</td></tr>
+                            <tr><td><strong>Premium Annual</strong></td><td>$199/year</td><td>Same as Premium, ~17% discount</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Technical Stack</h2>
+                    <table>
+                        <thead><tr><th>Layer</th><th>Technology</th></tr></thead>
+                        <tbody>
+                            <tr><td>Frontend</td><td>Django Templates + Tailwind CSS</td></tr>
+                            <tr><td>Backend</td><td>Django</td></tr>
+                            <tr><td>Database</td><td>PostgreSQL</td></tr>
+                            <tr><td>Auth</td><td>Django built-in (Okta at scale)</td></tr>
+                            <tr><td>Payments</td><td>Stripe</td></tr>
+                            <tr><td>File Storage</td><td>AWS S3</td></tr>
+                            <tr><td>Mobile</td><td>Capacitor (web → native wrap)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- GTM TAB -->
+            <div class="tab-content" id="tab-gtm">
+                <div class="section">
+                    <h2 class="section-title">Target Personas</h2>
+                    <h3>Primary: The Established Collector</h3>
+                    <ul>
+                        <li><strong>Age:</strong> 45-60</li>
+                        <li><strong>Net worth:</strong> $2M-$10M</li>
+                        <li><strong>Collection value:</strong> $250K-$500K+</li>
+                        <li><strong>Pain:</strong> No single view of what collection is worth today</li>
+                    </ul>
+
+                    <h3>Secondary: The Serious Enthusiast</h3>
+                    <ul>
+                        <li><strong>Age:</strong> 35-50</li>
+                        <li><strong>Net worth:</strong> $500K-$2M</li>
+                        <li><strong>Collection value:</strong> $50K-$250K</li>
+                        <li><strong>Pain:</strong> Wants to track performance, justify purchases</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Pre-Launch Tactics</h2>
+                    <table>
+                        <thead><tr><th>Tactic</th><th>Goal</th><th>Status</th></tr></thead>
+                        <tbody>
+                            <tr><td>Waitlist page</td><td>Capture early interest</td><td><span class="status status-complete">Live</span></td></tr>
+                            <tr><td>Typeform signup</td><td>Collect lead data</td><td><span class="status status-complete">Live</span></td></tr>
+                            <tr><td>Homepage teaser</td><td>Drive waitlist signups</td><td><span class="status status-complete">Live</span></td></tr>
+                            <tr><td>LinkedIn posts</td><td>Build anticipation</td><td><span class="status status-pending">Not Started</span></td></tr>
+                            <tr><td>Waitlist nurture emails</td><td>Keep leads warm</td><td><span class="status status-pending">Not Started</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Launch Budget (Month 1)</h2>
+                    <table>
+                        <thead><tr><th>Tactic</th><th>Budget</th><th>Goal</th></tr></thead>
+                        <tbody>
+                            <tr><td>Waitlist activation emails</td><td>$0</td><td>Convert waitlist to users</td></tr>
+                            <tr><td>Google Ads (watch keywords)</td><td>$1,500</td><td>Drive registrations</td></tr>
+                            <tr><td>Meta Ads (collector audiences)</td><td>$1,000</td><td>Drive registrations</td></tr>
+                            <tr><td>Patrick LinkedIn content</td><td>$0</td><td>Thought leadership</td></tr>
+                            <tr><td>Collector forum posts</td><td>$0</td><td>Community seeding</td></tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Target Month 1:</strong> 500 registrations, 50 paid subscribers</p>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Growth Budget (Months 2-6)</h2>
+                    <table>
+                        <thead><tr><th>Tactic</th><th>Budget/mo</th><th>Goal</th></tr></thead>
+                        <tbody>
+                            <tr><td>Google Ads (scaled)</td><td>$2,000-4,000</td><td>Sustained acquisition</td></tr>
+                            <tr><td>Meta Ads (scaled)</td><td>$1,000-2,000</td><td>Sustained acquisition</td></tr>
+                            <tr><td>Referral program</td><td>$0 (credits)</td><td>Viral growth</td></tr>
+                            <tr><td>Dealer partnerships (DFW)</td><td>$0</td><td>Local credibility</td></tr>
+                            <tr><td>Email marketing</td><td>$50</td><td>Retention, upsell</td></tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Target Month 6:</strong> 5,000 registrations, 1,000 paid subscribers</p>
+                </div>
+            </div>
+
+            <!-- RISKS TAB -->
+            <div class="tab-content" id="tab-risks">
+                <div class="section">
+                    <h2 class="section-title">Risks & Mitigations</h2>
+                    <table>
+                        <thead><tr><th>Risk</th><th>Impact</th><th>Likelihood</th><th>Mitigation</th></tr></thead>
+                        <tbody>
+                            <tr><td>Valuation data unavailable</td><td>Core feature broken</td><td>Medium</td><td>Multiple sources, manual fallback</td></tr>
+                            <tr><td>Low conversion free → paid</td><td>Revenue shortfall</td><td>Medium</td><td>Optimize paywall, test pricing</td></tr>
+                            <tr><td>OCCC delayed beyond Aug</td><td>Lending launch delayed</td><td>Low</td><td>Platform is viable standalone</td></tr>
+                            <tr><td>Competitor launches similar</td><td>Market share loss</td><td>Medium</td><td>Speed, lending integration moat</td></tr>
+                            <tr><td>Krister availability</td><td>Development slowed</td><td>Low</td><td>AI augmentation, clear priorities</td></tr>
+                            <tr><td>Ad costs too high</td><td>CAC exceeds LTV</td><td>Medium</td><td>Organic channels, referral program</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Open Questions</h2>
+                    <h3>Product</h3>
+                    <table>
+                        <thead><tr><th>Question</th><th>Options</th><th>Decision By</th></tr></thead>
+                        <tbody>
+                            <tr><td>Platform name?</td><td>"Client Portal," "Portfolio," "Vault"</td><td>Phase 2</td></tr>
+                            <tr><td>Free tier limit?</td><td>3 assets, 5 assets, or time-limited?</td><td>Phase 2</td></tr>
+                            <tr><td>Annual pricing?</td><td>$199/year or $179/year?</td><td>Phase 2</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Technical</h3>
+                    <table>
+                        <thead><tr><th>Question</th><th>Options</th><th>Decision By</th></tr></thead>
+                        <tbody>
+                            <tr><td>Valuation update frequency?</td><td>Real-time, daily, weekly?</td><td>Phase 2</td></tr>
+                            <tr><td>Manual enrichment workflow?</td><td>Django admin or separate tool?</td><td>Phase 2</td></tr>
+                            <tr><td>Mobile app timing?</td><td>Capacitor wrap Phase 3 or later?</td><td>Phase 3</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Go-to-Market</h3>
+                    <table>
+                        <thead><tr><th>Question</th><th>Options</th><th>Decision By</th></tr></thead>
+                        <tbody>
+                            <tr><td>Launch geography?</td><td>DFW only or national?</td><td>Phase 2</td></tr>
+                            <tr><td>Ad creative approach?</td><td>Video, static images, UGC?</td><td>Phase 2</td></tr>
+                            <tr><td>Influencer/ambassador?</td><td>Watch YouTubers, IG collectors?</td><td>Phase 3</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Document History</h2>
+                    <table>
+                        <thead><tr><th>Version</th><th>Date</th><th>Changes</th></tr></thead>
+                        <tbody>
+                            <tr><td>1.0</td><td>Jan 25, 2026</td><td>Initial roadmap</td></tr>
+                            <tr><td>1.1</td><td>Jan 25, 2026</td><td>Added strategic context, Gantt chart, detailed product specs</td></tr>
+                            <tr><td>1.2</td><td>Jan 26, 2026</td><td>Integrated into OS as Strategy & Product page</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </main>
     </div>
 
@@ -733,39 +1062,14 @@
             document.getElementById('appContent').classList.add('visible');
         }
 
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById('tab-' + tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
         checkAuth();
-
-        function formatDuration(seconds) {
-            const hrs = Math.floor(seconds / 3600);
-            const mins = Math.floor((seconds % 3600) / 60);
-            return hrs > 0 ? `${hrs}h ${mins}m` : `${mins}m`;
-        }
-
-        function updateTimeDisplay() {
-            const entries = JSON.parse(localStorage.getItem('timeTrackerEntries') || '[]');
-            const oneWeekAgo = new Date();
-            oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-
-            let deptSeconds = 0;
-            let totalSeconds = 0;
-
-            entries.forEach(entry => {
-                const entryDate = new Date(entry.date);
-                if (entryDate >= oneWeekAgo) {
-                    totalSeconds += entry.seconds;
-                    if (entry.category === 'Strategy') {
-                        deptSeconds += entry.seconds;
-                    }
-                }
-            });
-
-            document.getElementById('strategyTimeWeek').textContent = formatDuration(deptSeconds);
-            document.getElementById('totalTimeWeek').textContent = formatDuration(totalSeconds);
-            const percent = totalSeconds > 0 ? (deptSeconds / totalSeconds) * 100 : 0;
-            document.getElementById('strategyTimeBar').style.width = `${percent}%`;
-        }
-
-        updateTimeDisplay();
     </script>
 </body>
 </html>
