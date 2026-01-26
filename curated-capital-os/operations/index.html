@@ -435,6 +435,135 @@
         @media (max-width: 768px) {
             .main { padding: 1rem; }
         }
+
+        /* Floating Time Tracker */
+        .floating-tracker {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--navy);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            min-width: 200px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .floating-tracker.collapsed {
+            min-width: auto;
+            padding: 0.75rem 1rem;
+        }
+
+        .floating-tracker.collapsed .tracker-body {
+            display: none;
+        }
+
+        .tracker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .tracker-title {
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .tracker-toggle {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0;
+            transition: transform 0.3s;
+        }
+
+        .floating-tracker.collapsed .tracker-toggle {
+            transform: rotate(180deg);
+        }
+
+        .tracker-body {
+            margin-top: 0.75rem;
+        }
+
+        .tracker-display {
+            text-align: center;
+            padding: 0.75rem;
+            background: var(--navy-light);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }
+
+        .tracker-time {
+            font-family: 'Outfit', monospace;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .tracker-category-display {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .tracker-select {
+            width: 100%;
+            padding: 0.5rem;
+            background: var(--navy-light);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tracker-select:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .tracker-select option {
+            background: var(--navy);
+        }
+
+        .tracker-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .tracker-btn {
+            flex: 1;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tracker-btn-start {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--navy-deep);
+        }
+
+        .tracker-btn-stop {
+            background: var(--danger);
+            color: white;
+        }
+
+        .tracker-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -782,6 +911,34 @@
                 </div>
             </aside>
         </main>
+
+        <!-- Floating Time Tracker -->
+        <div class="floating-tracker" id="floatingTracker">
+            <div class="tracker-header" onclick="toggleFloatingTracker()">
+                <span class="tracker-title">⏱️ Time Tracker</span>
+                <button class="tracker-toggle">▼</button>
+            </div>
+            <div class="tracker-body">
+                <div class="tracker-display">
+                    <div class="tracker-time" id="floatingTimerDisplay">00:00:00</div>
+                    <div class="tracker-category-display" id="floatingCategory">Select category</div>
+                </div>
+                <select class="tracker-select" id="floatingCategorySelect" onchange="updateFloatingCategory()">
+                    <option value="">-- Select Category --</option>
+                    <option value="Strategy">📊 Strategy</option>
+                    <option value="Operations" selected>⚙️ Operations</option>
+                    <option value="Finance">💰 Finance</option>
+                    <option value="Product">🚀 Product</option>
+                    <option value="Marketing">📣 Marketing</option>
+                    <option value="Legal">⚖️ Legal</option>
+                    <option value="Admin">📁 Admin</option>
+                </select>
+                <div class="tracker-buttons">
+                    <button class="tracker-btn tracker-btn-start" id="floatingStartBtn" onclick="startFloatingTimer()">▶ Start</button>
+                    <button class="tracker-btn tracker-btn-stop" id="floatingStopBtn" onclick="stopFloatingTimer()" disabled>⏹ Stop</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -854,6 +1011,129 @@
         }
 
         updateTimeDisplay();
+
+        // Floating Time Tracker
+        const TIMER_STATE_KEY = 'ccosTimerState';
+        let floatingTimerInterval = null;
+        let floatingElapsedSeconds = 0;
+        let floatingIsRunning = false;
+        let floatingCurrentCategory = 'Operations';
+
+        document.getElementById('floatingCategory').textContent = floatingCurrentCategory;
+        restoreFloatingTimerState();
+
+        function toggleFloatingTracker() {
+            document.getElementById('floatingTracker').classList.toggle('collapsed');
+        }
+
+        function updateFloatingCategory() {
+            const select = document.getElementById('floatingCategorySelect');
+            floatingCurrentCategory = select.value;
+            document.getElementById('floatingCategory').textContent = floatingCurrentCategory || 'Select category';
+        }
+
+        function formatFloatingTime(seconds) {
+            const hrs = Math.floor(seconds / 3600);
+            const mins = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function saveFloatingTimerState() {
+            const state = {
+                isRunning: floatingIsRunning,
+                category: floatingCurrentCategory,
+                startTime: floatingIsRunning ? Date.now() - (floatingElapsedSeconds * 1000) : null,
+                elapsedSeconds: floatingElapsedSeconds
+            };
+            localStorage.setItem(TIMER_STATE_KEY, JSON.stringify(state));
+        }
+
+        function restoreFloatingTimerState() {
+            const savedState = localStorage.getItem(TIMER_STATE_KEY);
+            if (!savedState) return;
+
+            try {
+                const state = JSON.parse(savedState);
+                const today = new Date().toDateString();
+
+                if (state.startTime) {
+                    const startDate = new Date(state.startTime).toDateString();
+                    if (startDate !== today) {
+                        localStorage.removeItem(TIMER_STATE_KEY);
+                        return;
+                    }
+                }
+
+                if (state.isRunning && state.startTime) {
+                    floatingCurrentCategory = state.category;
+                    floatingElapsedSeconds = Math.floor((Date.now() - state.startTime) / 1000);
+
+                    document.getElementById('floatingCategorySelect').value = floatingCurrentCategory;
+                    document.getElementById('floatingCategory').textContent = floatingCurrentCategory;
+                    document.getElementById('floatingTimerDisplay').textContent = formatFloatingTime(floatingElapsedSeconds);
+
+                    floatingIsRunning = true;
+                    document.getElementById('floatingStartBtn').disabled = true;
+                    document.getElementById('floatingStopBtn').disabled = false;
+                    document.getElementById('floatingCategorySelect').disabled = true;
+
+                    floatingTimerInterval = setInterval(() => {
+                        floatingElapsedSeconds++;
+                        document.getElementById('floatingTimerDisplay').textContent = formatFloatingTime(floatingElapsedSeconds);
+                        saveFloatingTimerState();
+                    }, 1000);
+                }
+            } catch (e) {
+                console.error('Error restoring timer state:', e);
+                localStorage.removeItem(TIMER_STATE_KEY);
+            }
+        }
+
+        function startFloatingTimer() {
+            if (!floatingCurrentCategory) {
+                alert('Please select a category first!');
+                return;
+            }
+
+            floatingIsRunning = true;
+            document.getElementById('floatingStartBtn').disabled = true;
+            document.getElementById('floatingStopBtn').disabled = false;
+            document.getElementById('floatingCategorySelect').disabled = true;
+
+            saveFloatingTimerState();
+
+            floatingTimerInterval = setInterval(() => {
+                floatingElapsedSeconds++;
+                document.getElementById('floatingTimerDisplay').textContent = formatFloatingTime(floatingElapsedSeconds);
+                saveFloatingTimerState();
+            }, 1000);
+        }
+
+        function stopFloatingTimer() {
+            if (!floatingIsRunning) return;
+
+            clearInterval(floatingTimerInterval);
+            floatingIsRunning = false;
+
+            if (floatingElapsedSeconds > 0) {
+                const entries = JSON.parse(localStorage.getItem('timeTrackerEntries') || '[]');
+                entries.push({
+                    category: floatingCurrentCategory,
+                    seconds: floatingElapsedSeconds,
+                    date: new Date().toISOString()
+                });
+                localStorage.setItem('timeTrackerEntries', JSON.stringify(entries));
+            }
+
+            localStorage.removeItem(TIMER_STATE_KEY);
+
+            floatingElapsedSeconds = 0;
+            document.getElementById('floatingTimerDisplay').textContent = '00:00:00';
+            document.getElementById('floatingStartBtn').disabled = false;
+            document.getElementById('floatingStopBtn').disabled = true;
+            document.getElementById('floatingCategorySelect').disabled = false;
+        }
     </script>
 </body>
 </html>
