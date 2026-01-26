@@ -129,6 +129,17 @@
             color: var(--gold);
         }
 
+        .card-link {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .card-link:hover {
+            color: var(--gold);
+        }
+
         /* Status Cards */
         .status-grid {
             display: grid;
@@ -1133,6 +1144,7 @@
             <div class="card">
                 <div class="card-header">
                     <h2 class="card-title">📋 Task Tracker</h2>
+                    <a href="/tasks/" class="card-link">View All →</a>
                 </div>
 
                 <!-- Add Task Input -->
@@ -1228,6 +1240,10 @@
                     <h2 class="card-title">⚡ Quick Access</h2>
                 </div>
                 <div class="quick-links">
+                    <a href="/tasks/" class="quick-link">
+                        <span class="quick-link-icon">📋</span>
+                        Task Manager
+                    </a>
                     <a href="/strategy/index.html" class="quick-link">
                         <span class="quick-link-icon">📍</span>
                         Product Roadmap
