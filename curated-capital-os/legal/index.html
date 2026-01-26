@@ -94,7 +94,6 @@
         .breadcrumb a {
             color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.2s;
         }
 
         .breadcrumb a:hover { color: var(--gold); }
@@ -170,21 +169,7 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .card-title {
-            font-size: 1.1rem;
-            color: var(--gold);
-        }
-
-        .doc-category { margin-bottom: 1.5rem; }
-
-        .doc-category-title {
-            font-size: 1rem;
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+        .card-title { font-size: 1.1rem; color: var(--gold); }
 
         .doc-list {
             display: flex;
@@ -258,11 +243,6 @@
             font-family: 'Outfit', sans-serif;
         }
 
-        .doc-btn-primary {
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-            color: var(--navy-deep);
-        }
-
         .doc-btn-secondary {
             background: var(--navy-lighter);
             color: var(--text-secondary);
@@ -283,9 +263,10 @@
             letter-spacing: 0.5px;
         }
 
-        .status-complete { background: rgba(74, 222, 128, 0.15); color: var(--success); }
-        .status-draft { background: rgba(251, 191, 36, 0.15); color: var(--warning); }
-        .status-filed { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
+        .status-filed { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+        .status-executed { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+        .status-pending { background: rgba(251, 191, 36, 0.15); color: var(--warning); }
+        .status-active { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
 
         .sidebar {
             display: flex;
@@ -445,7 +426,6 @@
         }
         @media (max-width: 768px) {
             .main { padding: 1rem; }
-            .stats-row { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
@@ -485,166 +465,42 @@
                         <span>⚖️</span>
                         Legal
                     </h1>
-                    <p class="page-description">Corporate formation documents, licenses, trademarks, and regulatory filings for Curated Capital.</p>
+                    <p class="page-description">Entity formation, licensing, trademarks, and legal documentation for Curated Capital.</p>
                 </div>
 
                 <div class="stats-row">
                     <div class="stat-card">
-                        <div class="stat-value">12</div>
-                        <div class="stat-label">Documents</div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">Entities</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">2</div>
+                        <div class="stat-value">3</div>
                         <div class="stat-label">DBAs</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">2</div>
+                        <div class="stat-value">1</div>
                         <div class="stat-label">Trademarks</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-value">1</div>
-                        <div class="stat-label">Pending</div>
+                        <div class="stat-label">Licenses</div>
                     </div>
                 </div>
 
                 <!-- Entity Formation -->
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">🏛️ Entity Formation</h2>
+                        <h2 class="card-title">🏢 Entity Formation</h2>
                     </div>
-
-                    <div class="doc-category">
-                        <div class="doc-category-title">📜 Formation Documents</div>
-                        <div class="doc-list">
-                            <div class="doc-item">
-                                <div class="doc-info">
-                                    <div class="doc-icon">📄</div>
-                                    <div class="doc-details">
-                                        <div class="doc-name">Certificate of Formation</div>
-                                        <div class="doc-meta">
-                                            <span class="status-badge status-filed">Filed</span>
-                                            <span>TX Secretary of State</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="doc-actions">
-                                    <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                                </div>
-                            </div>
-                            <div class="doc-item">
-                                <div class="doc-info">
-                                    <div class="doc-icon">📄</div>
-                                    <div class="doc-details">
-                                        <div class="doc-name">Operating Agreement</div>
-                                        <div class="doc-meta">
-                                            <span class="status-badge status-complete">Executed</span>
-                                            <span>Project Indigo LLC</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="doc-actions">
-                                    <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                                </div>
-                            </div>
-                            <div class="doc-item">
-                                <div class="doc-info">
-                                    <div class="doc-icon">📄</div>
-                                    <div class="doc-details">
-                                        <div class="doc-name">EIN Confirmation</div>
-                                        <div class="doc-meta">
-                                            <span class="status-badge status-filed">Filed</span>
-                                            <span>IRS</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="doc-actions">
-                                    <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                                </div>
-                            </div>
-                            <div class="doc-item">
-                                <div class="doc-info">
-                                    <div class="doc-icon">📄</div>
-                                    <div class="doc-details">
-                                        <div class="doc-name">Consent to Serve as Registered Agent</div>
-                                        <div class="doc-meta">
-                                            <span class="status-badge status-complete">Executed</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="doc-actions">
-                                    <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="doc-category">
-                        <div class="doc-category-title">🏷️ DBAs (Doing Business As)</div>
-                        <div class="doc-list">
-                            <div class="doc-item">
-                                <div class="doc-info">
-                                    <div class="doc-icon">📄</div>
-                                    <div class="doc-details">
-                                        <div class="doc-name">DBA - Curated Capital</div>
-                                        <div class="doc-meta">
-                                            <span class="status-badge status-filed">Filed</span>
-                                            <span>TX Secretary of State</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="doc-actions">
-                                    <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                                </div>
-                            </div>
-                            <div class="doc-item">
-                                <div class="doc-info">
-                                    <div class="doc-icon">📄</div>
-                                    <div class="doc-details">
-                                        <div class="doc-name">DBA - Kreative Capital</div>
-                                        <div class="doc-meta">
-                                            <span class="status-badge status-filed">Filed</span>
-                                            <span>TX Secretary of State</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="doc-actions">
-                                    <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Trademarks & IP -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">™️ Trademarks & IP</h2>
-                    </div>
-
                     <div class="doc-list">
                         <div class="doc-item">
                             <div class="doc-info">
-                                <div class="doc-icon">™️</div>
+                                <div class="doc-icon">📄</div>
                                 <div class="doc-details">
-                                    <div class="doc-name">Trademark - Curated Capital</div>
+                                    <div class="doc-name">Project Indigo LLC - Certificate of Formation</div>
                                     <div class="doc-meta">
-                                        <span class="status-badge status-draft">Pending</span>
-                                        <span>USPTO Application</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doc-actions">
-                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                            </div>
-                        </div>
-                        <div class="doc-item">
-                            <div class="doc-info">
-                                <div class="doc-icon">™️</div>
-                                <div class="doc-details">
-                                    <div class="doc-name">Trademark - Elevated Liquidity</div>
-                                    <div class="doc-meta">
-                                        <span class="status-badge status-draft">Pending</span>
-                                        <span>USPTO Application</span>
+                                        <span class="status-badge status-filed">Filed</span>
+                                        <span>Texas • Primary operating entity</span>
                                     </div>
                                 </div>
                             </div>
@@ -656,9 +512,25 @@
                             <div class="doc-info">
                                 <div class="doc-icon">📄</div>
                                 <div class="doc-details">
-                                    <div class="doc-name">USPTO Trademark Filing Guide</div>
+                                    <div class="doc-name">Project Indigo LLC - Company Agreement</div>
                                     <div class="doc-meta">
-                                        <span>Reference document</span>
+                                        <span class="status-badge status-executed">Executed</span>
+                                        <span>Operating agreement</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">The Sells Group LLC - Certificate of Formation</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-filed">Filed</span>
+                                        <span>Texas • Holding company</span>
                                     </div>
                                 </div>
                             </div>
@@ -669,21 +541,113 @@
                     </div>
                 </div>
 
-                <!-- Licensing -->
+                <!-- DBAs -->
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">📋 Licensing & Regulatory</h2>
+                        <h2 class="card-title">📝 Assumed Names (DBAs)</h2>
                     </div>
-
                     <div class="doc-list">
                         <div class="doc-item">
                             <div class="doc-info">
                                 <div class="doc-icon">📋</div>
                                 <div class="doc-details">
+                                    <div class="doc-name">Curated Capital</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-filed">Filed</span>
+                                        <span>Project Indigo LLC • Primary brand</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📋</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Curated Pawn</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-filed">Filed</span>
+                                        <span>Project Indigo LLC</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📋</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Curated Lending</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-filed">Filed</span>
+                                        <span>Project Indigo LLC</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trademarks -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">™️ Trademarks</h2>
+                    </div>
+                    <div class="doc-list">
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">™️</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">CURATED CAPITAL</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-pending">Pending</span>
+                                        <span>USPTO application</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NMLS Licensing -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">🏛️ NMLS Licensing</h2>
+                    </div>
+                    <div class="doc-list">
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📜</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Texas Regulated Lender License</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-active">Active</span>
+                                        <span>Chapter 342-E • NMLS #2abornd</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-details">
                                     <div class="doc-name">NMLS Application Package</div>
                                     <div class="doc-meta">
-                                        <span class="status-badge status-draft">In Progress</span>
-                                        <span>Regulated Lender License</span>
+                                        <span class="status-badge status-executed">Submitted</span>
+                                        <span>MU1, MU2, supporting docs</span>
                                     </div>
                                 </div>
                             </div>
@@ -695,24 +659,10 @@
                             <div class="doc-info">
                                 <div class="doc-icon">📄</div>
                                 <div class="doc-details">
-                                    <div class="doc-name">Model Contract (342E)</div>
+                                    <div class="doc-name">Surety Bond</div>
                                     <div class="doc-meta">
-                                        <span>NMLS requirement</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doc-actions">
-                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                            </div>
-                        </div>
-                        <div class="doc-item">
-                            <div class="doc-info">
-                                <div class="doc-icon">📄</div>
-                                <div class="doc-details">
-                                    <div class="doc-name">Franchise Tax Account Status</div>
-                                    <div class="doc-meta">
-                                        <span class="status-badge status-complete">Current</span>
-                                        <span>TX Comptroller</span>
+                                        <span class="status-badge status-executed">Executed</span>
+                                        <span>$25,000 bond</span>
                                     </div>
                                 </div>
                             </div>
@@ -732,15 +682,15 @@
                     <div class="task-list">
                         <div class="task-item">
                             <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Complete NMLS application</span>
-                        </div>
-                        <div class="task-item">
-                            <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Check trademark status</span>
+                            <span class="task-text">Monitor trademark application</span>
                         </div>
                         <div class="task-item">
                             <input type="checkbox" class="task-checkbox">
                             <span class="task-text">Annual report filing</span>
+                        </div>
+                        <div class="task-item">
+                            <input type="checkbox" class="task-checkbox">
+                            <span class="task-text">Review insurance coverage</span>
                         </div>
                     </div>
                 </div>

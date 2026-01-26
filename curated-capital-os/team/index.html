@@ -171,6 +171,82 @@
 
         .card-title { font-size: 1.1rem; color: var(--gold); }
 
+        /* Team Member Card */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .team-member {
+            background: var(--navy-light);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .team-member:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: var(--navy-deep);
+            font-weight: 700;
+        }
+
+        .member-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .member-title {
+            font-size: 0.85rem;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .member-roles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            justify-content: center;
+        }
+
+        .role-badge {
+            font-size: 0.65rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background: var(--gold-muted);
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .member-contact {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .member-email {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
         .doc-list {
             display: flex;
             flex-direction: column;
@@ -264,6 +340,25 @@
         }
 
         .status-current { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+        .status-draft { background: rgba(251, 191, 36, 0.15); color: var(--warning); }
+        .status-planned { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+            opacity: 0.5;
+        }
+
+        .empty-state-text {
+            font-size: 0.9rem;
+        }
 
         .sidebar {
             display: flex;
@@ -351,73 +446,6 @@
 
         .quick-link-icon { color: var(--gold); font-size: 0.9rem; }
 
-        /* Team Member Card */
-        .team-member {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.25rem;
-            background: var(--navy-light);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            margin-bottom: 1rem;
-        }
-
-        .team-avatar {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--navy-deep);
-            flex-shrink: 0;
-        }
-
-        .team-info { flex: 1; }
-
-        .team-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .team-role {
-            font-size: 0.9rem;
-            color: var(--gold);
-            margin-bottom: 0.25rem;
-        }
-
-        .team-email {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 3rem 2rem;
-            color: var(--text-muted);
-        }
-
-        .empty-state-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .empty-state-text {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .empty-state-subtext {
-            font-size: 0.85rem;
-        }
-
         /* Login */
         .login-overlay {
             position: fixed;
@@ -490,6 +518,7 @@
         }
         @media (max-width: 768px) {
             .main { padding: 1rem; }
+            .team-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -529,58 +558,91 @@
                         <span>👥</span>
                         Team
                     </h1>
-                    <p class="page-description">Team members, HR documents, training materials, and employee resources.</p>
+                    <p class="page-description">Team members, organizational structure, training, and HR documentation for Curated Capital.</p>
                 </div>
 
                 <div class="stats-row">
                     <div class="stat-card">
-                        <div class="stat-value">1</div>
-                        <div class="stat-label">Team Member</div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">Team Members</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">1</div>
-                        <div class="stat-label">Training Doc</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">0</div>
-                        <div class="stat-label">Onboarding</div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">Founders</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-value">0</div>
-                        <div class="stat-label">Benefits</div>
+                        <div class="stat-label">Employees</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">Q2</div>
+                        <div class="stat-label">First Hire Target</div>
                     </div>
                 </div>
 
                 <!-- Team Members -->
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">👤 Team Members</h2>
+                        <h2 class="card-title">🏆 Leadership Team</h2>
                     </div>
-
-                    <div class="team-member">
-                        <div class="team-avatar">PS</div>
-                        <div class="team-info">
-                            <div class="team-name">Patrick Sells</div>
-                            <div class="team-role">Founder & CEO</div>
-                            <div class="team-email">psells@sellsgroup.com</div>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="member-avatar">PS</div>
+                            <div class="member-name">Patrick Sells</div>
+                            <div class="member-title">Founder & CEO</div>
+                            <div class="member-roles">
+                                <span class="role-badge">President</span>
+                                <span class="role-badge">Credit Officer</span>
+                                <span class="role-badge">Compliance Officer</span>
+                            </div>
+                            <div class="member-contact">
+                                <div class="member-email">patrick@curatedcapital.com</div>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-avatar">KS</div>
+                            <div class="member-name">Krystal Sells</div>
+                            <div class="member-title">Co-Founder & Secretary</div>
+                            <div class="member-roles">
+                                <span class="role-badge">Secretary</span>
+                                <span class="role-badge">Lending Committee</span>
+                            </div>
+                            <div class="member-contact">
+                                <div class="member-email">krystal@curatedcapital.com</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Training -->
+                <!-- Organizational Documents -->
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">📚 Training & Compliance</h2>
+                        <h2 class="card-title">📋 Organizational Documents</h2>
                     </div>
                     <div class="doc-list">
                         <div class="doc-item">
                             <div class="doc-info">
                                 <div class="doc-icon">📄</div>
                                 <div class="doc-details">
-                                    <div class="doc-name">Employee Compliance Training Program</div>
+                                    <div class="doc-name">Company Agreement</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-current">Executed</span>
+                                        <span>Roles & responsibilities</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Org Chart</div>
                                     <div class="doc-meta">
                                         <span class="status-badge status-current">Current</span>
-                                        <span>Required training</span>
+                                        <span>Organizational structure</span>
                                     </div>
                                 </div>
                             </div>
@@ -591,27 +653,79 @@
                     </div>
                 </div>
 
-                <!-- Onboarding -->
+                <!-- Training & Compliance -->
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">🚀 Onboarding</h2>
+                        <h2 class="card-title">📚 Training & Compliance</h2>
+                    </div>
+                    <div class="doc-list">
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">🎓</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Fair Lending Training</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-current">Required</span>
+                                        <span>Annual completion</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">🎓</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">OFAC/AML Training</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-current">Required</span>
+                                        <span>Annual completion</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">🎓</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Complaint Handling Training</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-current">Required</span>
+                                        <span>Annual completion</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HR / Onboarding -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">📝 Onboarding & HR</h2>
                     </div>
                     <div class="empty-state">
                         <div class="empty-state-icon">📋</div>
-                        <div class="empty-state-text">No onboarding documents yet</div>
-                        <div class="empty-state-subtext">Add documents as the team grows</div>
+                        <div class="empty-state-text">Onboarding materials will be created before first hire (Q2 2026)</div>
                     </div>
                 </div>
 
                 <!-- Benefits -->
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">🎁 Benefits & Policies</h2>
+                        <h2 class="card-title">🏥 Benefits & Policies</h2>
                     </div>
                     <div class="empty-state">
-                        <div class="empty-state-icon">📑</div>
-                        <div class="empty-state-text">No benefits documents yet</div>
-                        <div class="empty-state-subtext">Add employee handbook, benefits info, etc.</div>
+                        <div class="empty-state-icon">📦</div>
+                        <div class="empty-state-text">Benefits packages will be established as team grows</div>
                     </div>
                 </div>
             </div>
@@ -619,20 +733,20 @@
             <aside class="sidebar">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">🎯 HR Tasks</h2>
+                        <h2 class="card-title">🎯 Team Tasks</h2>
                     </div>
                     <div class="task-list">
                         <div class="task-item">
                             <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Complete compliance training</span>
+                            <span class="task-text">Complete annual training</span>
                         </div>
                         <div class="task-item">
                             <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Create employee handbook</span>
+                            <span class="task-text">Draft employee handbook</span>
                         </div>
                         <div class="task-item">
                             <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Set up benefits</span>
+                            <span class="task-text">Create job descriptions</span>
                         </div>
                     </div>
                 </div>
@@ -642,11 +756,11 @@
                         <h2 class="card-title">⏱️ Time This Week</h2>
                     </div>
                     <div class="time-stat">
-                        <span class="time-stat-label">Admin</span>
-                        <span class="time-stat-value" id="adminTimeWeek">0m</span>
+                        <span class="time-stat-label">Team/HR</span>
+                        <span class="time-stat-value" id="teamTimeWeek">0m</span>
                     </div>
                     <div class="time-bar">
-                        <div class="time-bar-fill" id="adminTimeBar" style="width: 0%;"></div>
+                        <div class="time-bar-fill" id="teamTimeBar" style="width: 0%;"></div>
                     </div>
                     <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; text-align: right;">
                         of total: <span id="totalTimeWeek">0h</span>
@@ -737,16 +851,16 @@
                 const entryDate = new Date(entry.date);
                 if (entryDate >= oneWeekAgo) {
                     totalSeconds += entry.seconds;
-                    if (entry.category === 'Admin') {
+                    if (entry.category === 'Team') {
                         deptSeconds += entry.seconds;
                     }
                 }
             });
 
-            document.getElementById('adminTimeWeek').textContent = formatDuration(deptSeconds);
+            document.getElementById('teamTimeWeek').textContent = formatDuration(deptSeconds);
             document.getElementById('totalTimeWeek').textContent = formatDuration(totalSeconds);
             const percent = totalSeconds > 0 ? (deptSeconds / totalSeconds) * 100 : 0;
-            document.getElementById('adminTimeBar').style.width = `${percent}%`;
+            document.getElementById('teamTimeBar').style.width = `${percent}%`;
         }
 
         updateTimeDisplay();

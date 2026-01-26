@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketing | Curated Capital OS</title>
+    <title>Finance | Curated Capital OS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -265,75 +265,46 @@
 
         .status-current { background: rgba(74, 222, 128, 0.15); color: var(--success); }
         .status-draft { background: rgba(251, 191, 36, 0.15); color: var(--warning); }
-        .status-live { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
+        .status-active { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
 
-        /* Brand Colors Preview */
-        .color-palette {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        .color-swatch {
-            flex: 1;
-            text-align: center;
-        }
-
-        .swatch-preview {
-            height: 48px;
-            border-radius: 8px;
-            margin-bottom: 0.5rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .swatch-name {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        .swatch-hex {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            font-family: monospace;
-        }
-
-        /* Asset Grid */
-        .asset-grid {
+        /* Expense Summary Grid */
+        .expense-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
             margin-top: 1rem;
         }
 
-        .asset-item {
+        .expense-item {
             background: var(--navy-light);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 1rem;
             text-align: center;
-            transition: all 0.2s ease;
         }
 
-        .asset-item:hover {
-            border-color: var(--gold);
-        }
-
-        .asset-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .asset-name {
-            font-size: 0.85rem;
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        .asset-format {
-            font-size: 0.7rem;
+        .expense-category {
+            font-size: 0.75rem;
             color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .expense-amount {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .expense-change {
+            font-size: 0.7rem;
             margin-top: 0.25rem;
         }
+
+        .expense-change.up { color: var(--danger); }
+        .expense-change.down { color: var(--success); }
+        .expense-change.neutral { color: var(--text-muted); }
 
         .sidebar {
             display: flex;
@@ -490,12 +461,11 @@
         @media (max-width: 1200px) {
             .main { grid-template-columns: 1fr; }
             .stats-row { grid-template-columns: repeat(2, 1fr); }
-            .asset-grid { grid-template-columns: repeat(2, 1fr); }
+            .expense-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
             .main { padding: 1rem; }
-            .color-palette { flex-wrap: wrap; }
-            .color-swatch { min-width: 80px; }
+            .expense-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -523,7 +493,7 @@
                 <div class="breadcrumb">
                     <a href="/">Dashboard</a>
                     <span>/</span>
-                    <span class="breadcrumb-current">Marketing</span>
+                    <span class="breadcrumb-current">Finance</span>
                 </div>
             </div>
         </header>
@@ -532,45 +502,45 @@
             <div class="content">
                 <div class="page-header">
                     <h1 class="page-title">
-                        <span>📣</span>
-                        Marketing
+                        <span>💰</span>
+                        Finance
                     </h1>
-                    <p class="page-description">Brand assets, guidelines, marketing collateral, and campaign materials for Curated Capital.</p>
+                    <p class="page-description">Financial models, accounting records, expense tracking, and budget management for Curated Capital.</p>
                 </div>
 
                 <div class="stats-row">
                     <div class="stat-card">
-                        <div class="stat-value">1</div>
-                        <div class="stat-label">Website</div>
+                        <div class="stat-value">$50K</div>
+                        <div class="stat-label">Initial Capital</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">2</div>
-                        <div class="stat-label">Domains</div>
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Models</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">5</div>
-                        <div class="stat-label">Brand Assets</div>
+                        <div class="stat-value">Q1</div>
+                        <div class="stat-label">Current Period</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">Pre</div>
-                        <div class="stat-label">Launch Phase</div>
+                        <div class="stat-value">2026</div>
+                        <div class="stat-label">Fiscal Year</div>
                     </div>
                 </div>
 
-                <!-- Brand Identity -->
+                <!-- Financial Models -->
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">🎨 Brand Identity</h2>
+                        <h2 class="card-title">📊 Financial Models</h2>
                     </div>
                     <div class="doc-list">
                         <div class="doc-item">
                             <div class="doc-info">
-                                <div class="doc-icon">📄</div>
+                                <div class="doc-icon">📈</div>
                                 <div class="doc-details">
-                                    <div class="doc-name">Brand Guidelines</div>
+                                    <div class="doc-name">Curated Capital Financial Model</div>
                                     <div class="doc-meta">
-                                        <span class="status-badge status-current">v1.0</span>
-                                        <span>Logo usage, colors, typography</span>
+                                        <span class="status-badge status-current">v2.0</span>
+                                        <span>3-year projections</span>
                                     </div>
                                 </div>
                             </div>
@@ -580,188 +550,159 @@
                         </div>
                         <div class="doc-item">
                             <div class="doc-info">
-                                <div class="doc-icon">🖼️</div>
+                                <div class="doc-icon">📈</div>
                                 <div class="doc-details">
-                                    <div class="doc-name">Logo Package</div>
+                                    <div class="doc-name">Loan Portfolio Model</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-current">Active</span>
+                                        <span>Deal-level tracking</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📈</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Pricing Calculator</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-active">Tool</span>
+                                        <span>Interest rate / fee modeling</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accounting -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">📒 Accounting</h2>
+                    </div>
+                    <div class="doc-list">
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📗</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">QuickBooks Online</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-active">Connected</span>
+                                        <span>Primary accounting system</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://quickbooks.intuit.com" target="_blank" class="doc-btn doc-btn-secondary">Open QBO</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">🏦</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Chase Business Checking</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-active">Primary</span>
+                                        <span>Operating account</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://chase.com/business" target="_blank" class="doc-btn doc-btn-secondary">Chase</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Chart of Accounts</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-current">Current</span>
+                                        <span>Account structure</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expense Tracking -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">💳 January 2026 Expenses</h2>
+                    </div>
+                    <div class="expense-grid">
+                        <div class="expense-item">
+                            <div class="expense-category">Software</div>
+                            <div class="expense-amount">$487</div>
+                            <div class="expense-change neutral">Recurring</div>
+                        </div>
+                        <div class="expense-item">
+                            <div class="expense-category">Legal</div>
+                            <div class="expense-amount">$1,250</div>
+                            <div class="expense-change neutral">One-time</div>
+                        </div>
+                        <div class="expense-item">
+                            <div class="expense-category">Insurance</div>
+                            <div class="expense-amount">$425</div>
+                            <div class="expense-change neutral">Monthly</div>
+                        </div>
+                        <div class="expense-item">
+                            <div class="expense-category">Marketing</div>
+                            <div class="expense-amount">$150</div>
+                            <div class="expense-change neutral">Domain/hosting</div>
+                        </div>
+                        <div class="expense-item">
+                            <div class="expense-category">Licensing</div>
+                            <div class="expense-amount">$875</div>
+                            <div class="expense-change neutral">NMLS fees</div>
+                        </div>
+                        <div class="expense-item">
+                            <div class="expense-category">Total</div>
+                            <div class="expense-amount" style="color: var(--gold);">$3,187</div>
+                            <div class="expense-change neutral">MTD</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Budget Documents -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">📋 Budget & Planning</h2>
+                    </div>
+                    <div class="doc-list">
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">2026 Operating Budget</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-current">Approved</span>
+                                        <span>Annual budget</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Startup Cost Analysis</div>
                                     <div class="doc-meta">
                                         <span class="status-badge status-current">Complete</span>
-                                        <span>SVG, PNG, variations</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doc-actions">
-                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Brand Colors -->
-                    <div class="color-palette">
-                        <div class="color-swatch">
-                            <div class="swatch-preview" style="background: #0a0a14;"></div>
-                            <div class="swatch-name">Navy Deep</div>
-                            <div class="swatch-hex">#0a0a14</div>
-                        </div>
-                        <div class="color-swatch">
-                            <div class="swatch-preview" style="background: #12121f;"></div>
-                            <div class="swatch-name">Navy</div>
-                            <div class="swatch-hex">#12121f</div>
-                        </div>
-                        <div class="color-swatch">
-                            <div class="swatch-preview" style="background: #1a1a2e;"></div>
-                            <div class="swatch-name">Navy Light</div>
-                            <div class="swatch-hex">#1a1a2e</div>
-                        </div>
-                        <div class="color-swatch">
-                            <div class="swatch-preview" style="background: linear-gradient(135deg, #d4af37 0%, #e8c762 100%);"></div>
-                            <div class="swatch-name">Gold</div>
-                            <div class="swatch-hex">#d4af37</div>
-                        </div>
-                        <div class="color-swatch">
-                            <div class="swatch-preview" style="background: #ffffff;"></div>
-                            <div class="swatch-name">White</div>
-                            <div class="swatch-hex">#ffffff</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Digital Presence -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">🌐 Digital Presence</h2>
-                    </div>
-                    <div class="doc-list">
-                        <div class="doc-item">
-                            <div class="doc-info">
-                                <div class="doc-icon">🌐</div>
-                                <div class="doc-details">
-                                    <div class="doc-name">curatedcapital.com</div>
-                                    <div class="doc-meta">
-                                        <span class="status-badge status-live">Live</span>
-                                        <span>Primary website</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doc-actions">
-                                <a href="https://curatedcapital.com" target="_blank" class="doc-btn doc-btn-secondary">Visit</a>
-                            </div>
-                        </div>
-                        <div class="doc-item">
-                            <div class="doc-info">
-                                <div class="doc-icon">🔧</div>
-                                <div class="doc-details">
-                                    <div class="doc-name">ops.curatedcapital.com</div>
-                                    <div class="doc-meta">
-                                        <span class="status-badge status-live">Live</span>
-                                        <span>Internal OS (this site)</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doc-actions">
-                                <a href="https://ops.curatedcapital.com" target="_blank" class="doc-btn doc-btn-secondary">Visit</a>
-                            </div>
-                        </div>
-                        <div class="doc-item">
-                            <div class="doc-info">
-                                <div class="doc-icon">📧</div>
-                                <div class="doc-details">
-                                    <div class="doc-name">Google Workspace</div>
-                                    <div class="doc-meta">
-                                        <span class="status-badge status-live">Active</span>
-                                        <span>@curatedcapital.com email</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doc-actions">
-                                <a href="https://workspace.google.com" target="_blank" class="doc-btn doc-btn-secondary">Admin</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Brand Assets -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">📦 Brand Assets</h2>
-                    </div>
-                    <div class="asset-grid">
-                        <div class="asset-item">
-                            <div class="asset-icon">🏷️</div>
-                            <div class="asset-name">Primary Logo</div>
-                            <div class="asset-format">SVG / PNG</div>
-                        </div>
-                        <div class="asset-item">
-                            <div class="asset-icon">⬜</div>
-                            <div class="asset-name">Logo - Light</div>
-                            <div class="asset-format">For dark backgrounds</div>
-                        </div>
-                        <div class="asset-item">
-                            <div class="asset-icon">⬛</div>
-                            <div class="asset-name">Logo - Dark</div>
-                            <div class="asset-format">For light backgrounds</div>
-                        </div>
-                        <div class="asset-item">
-                            <div class="asset-icon">🔲</div>
-                            <div class="asset-name">Icon Only</div>
-                            <div class="asset-format">CC monogram</div>
-                        </div>
-                        <div class="asset-item">
-                            <div class="asset-icon">📐</div>
-                            <div class="asset-name">Favicon</div>
-                            <div class="asset-format">ICO / PNG</div>
-                        </div>
-                        <div class="asset-item">
-                            <div class="asset-icon">📱</div>
-                            <div class="asset-name">Social Kit</div>
-                            <div class="asset-format">Profile / Cover</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Collateral -->
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">📑 Marketing Collateral</h2>
-                    </div>
-                    <div class="doc-list">
-                        <div class="doc-item">
-                            <div class="doc-info">
-                                <div class="doc-icon">📄</div>
-                                <div class="doc-details">
-                                    <div class="doc-name">One-Pager</div>
-                                    <div class="doc-meta">
-                                        <span class="status-badge status-draft">Draft</span>
-                                        <span>Company overview</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doc-actions">
-                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                            </div>
-                        </div>
-                        <div class="doc-item">
-                            <div class="doc-info">
-                                <div class="doc-icon">📊</div>
-                                <div class="doc-details">
-                                    <div class="doc-name">Pitch Deck</div>
-                                    <div class="doc-meta">
-                                        <span class="status-badge status-draft">Draft</span>
-                                        <span>Investor presentation</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doc-actions">
-                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                            </div>
-                        </div>
-                        <div class="doc-item">
-                            <div class="doc-info">
-                                <div class="doc-icon">✉️</div>
-                                <div class="doc-details">
-                                    <div class="doc-name">Email Templates</div>
-                                    <div class="doc-meta">
-                                        <span class="status-badge status-draft">Planned</span>
-                                        <span>Client communications</span>
+                                        <span>Pre-launch expenses</span>
                                     </div>
                                 </div>
                             </div>
@@ -776,24 +717,24 @@
             <aside class="sidebar">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">🎯 Marketing Tasks</h2>
+                        <h2 class="card-title">🎯 Finance Tasks</h2>
                     </div>
                     <div class="task-list">
                         <div class="task-item">
                             <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Finalize brand guidelines</span>
+                            <span class="task-text">Reconcile January transactions</span>
                         </div>
                         <div class="task-item">
                             <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Create one-pager</span>
+                            <span class="task-text">Update financial model</span>
                         </div>
                         <div class="task-item">
                             <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Design email templates</span>
+                            <span class="task-text">Review Q1 projections</span>
                         </div>
                         <div class="task-item">
                             <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Social media setup</span>
+                            <span class="task-text">Set up expense categories</span>
                         </div>
                     </div>
                 </div>
@@ -803,11 +744,11 @@
                         <h2 class="card-title">⏱️ Time This Week</h2>
                     </div>
                     <div class="time-stat">
-                        <span class="time-stat-label">Marketing</span>
-                        <span class="time-stat-value" id="marketingTimeWeek">0m</span>
+                        <span class="time-stat-label">Finance</span>
+                        <span class="time-stat-value" id="financeTimeWeek">0m</span>
                     </div>
                     <div class="time-bar">
-                        <div class="time-bar-fill" id="marketingTimeBar" style="width: 0%;"></div>
+                        <div class="time-bar-fill" id="financeTimeBar" style="width: 0%;"></div>
                     </div>
                     <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; text-align: right;">
                         of total: <span id="totalTimeWeek">0h</span>
@@ -823,13 +764,13 @@
                             <span class="quick-link-icon">🏠</span>
                             Dashboard
                         </a>
-                        <a href="https://curatedcapital.com" target="_blank" class="quick-link">
-                            <span class="quick-link-icon">🌐</span>
-                            Main Website
+                        <a href="https://quickbooks.intuit.com" target="_blank" class="quick-link">
+                            <span class="quick-link-icon">📗</span>
+                            QuickBooks
                         </a>
-                        <a href="https://vercel.com" target="_blank" class="quick-link">
-                            <span class="quick-link-icon">▲</span>
-                            Vercel
+                        <a href="https://chase.com/business" target="_blank" class="quick-link">
+                            <span class="quick-link-icon">🏦</span>
+                            Chase Bank
                         </a>
                         <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="quick-link">
                             <span class="quick-link-icon">📁</span>
@@ -898,16 +839,16 @@
                 const entryDate = new Date(entry.date);
                 if (entryDate >= oneWeekAgo) {
                     totalSeconds += entry.seconds;
-                    if (entry.category === 'Marketing') {
+                    if (entry.category === 'Finance') {
                         deptSeconds += entry.seconds;
                     }
                 }
             });
 
-            document.getElementById('marketingTimeWeek').textContent = formatDuration(deptSeconds);
+            document.getElementById('financeTimeWeek').textContent = formatDuration(deptSeconds);
             document.getElementById('totalTimeWeek').textContent = formatDuration(totalSeconds);
             const percent = totalSeconds > 0 ? (deptSeconds / totalSeconds) * 100 : 0;
-            document.getElementById('marketingTimeBar').style.width = `${percent}%`;
+            document.getElementById('financeTimeBar').style.width = `${percent}%`;
         }
 
         updateTimeDisplay();
