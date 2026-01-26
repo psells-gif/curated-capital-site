@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fair Lending Policy | Curated Capital OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-deep: #0a0a14;
+            --navy: #12121f;
+            --navy-light: #1a1a2e;
+            --gold: #d4af37;
+            --gold-light: #e5c76b;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6a6a7a;
+            --border-color: rgba(212, 175, 55, 0.2);
+            --card-bg: rgba(26, 26, 46, 0.6);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--navy-deep);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--navy);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover { color: var(--gold); }
+        .breadcrumb span { color: var(--text-muted); }
+        .breadcrumb .current { color: var(--text-primary); }
+
+        .header-actions { display: flex; gap: 1rem; }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            border: 1px solid var(--gold);
+            color: var(--navy-deep);
+        }
+
+        .btn-primary:hover { background: var(--gold-light); }
+
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .doc-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .doc-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .doc-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .doc-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .doc-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .doc-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3rem;
+        }
+
+        .company-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .company-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+
+        .company-header .dba {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .company-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .company-header .confidential {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(220, 38, 38, 0.15);
+            color: #ef4444;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+        }
+
+        .section { margin-bottom: 2.5rem; }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .subsection-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .doc-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .doc-content ul, .doc-content ol {
+            color: var(--text-secondary);
+            margin: 1rem 0 1rem 1.5rem;
+        }
+
+        .doc-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .policy-owner {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid var(--gold);
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+        }
+
+        .policy-owner span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .policy-owner strong { color: var(--text-primary); }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--navy);
+            color: var(--gold);
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .highlight-box p { margin: 0; font-size: 0.9rem; }
+
+        .warning-box {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box p { margin: 0; font-size: 0.9rem; color: #fca5a5; }
+
+        .signature-block {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .signature-block h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .signature-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .signature-item { flex: 1; }
+
+        .signature-item .line {
+            border-bottom: 1px solid var(--text-muted);
+            margin-bottom: 0.5rem;
+            height: 2rem;
+        }
+
+        .signature-item label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .header, .btn { display: none; }
+            .doc-content { background: white; border: none; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <nav class="breadcrumb">
+                <a href="/">Dashboard</a>
+                <span>/</span>
+                <a href="/operations/">Operations</a>
+                <span>/</span>
+                <span class="current">Fair Lending Policy</span>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline" onclick="window.print()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                        <rect x="6" y="14" width="12" height="8"/>
+                    </svg>
+                    Print
+                </button>
+                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="btn btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    Open in GDrive
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="doc-header">
+            <span class="doc-badge">Complete</span>
+            <h1 class="doc-title">Fair Lending Policy</h1>
+            <p class="doc-subtitle">Equal Credit Opportunity Act (ECOA) & Regulation B Compliance</p>
+            <div class="doc-meta">
+                <span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    Version 2.0
+                </span>
+                <span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    Policy Owner: Compliance Officer
+                </span>
+            </div>
+        </div>
+
+        <div class="doc-content">
+            <div class="company-header">
+                <h1>PROJECT INDIGO LLC</h1>
+                <p class="dba">d/b/a</p>
+                <h2>CURATED CAPITAL</h2>
+                <p style="margin-top: 0.5rem; font-weight: 600; color: var(--text-primary);">FAIR LENDING POLICY</p>
+                <span class="confidential">Confidential</span>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">1. Purpose and Commitment</h2>
+                <p>Project Indigo LLC d/b/a Curated Capital ("Curated Capital" or "Company"), a Texas regulated lender operating under Texas Finance Code Chapter 342, Subchapter E, is committed to providing fair, equal, and compliant access to credit for all qualified applicants. The Company will not discriminate against any applicant on a prohibited basis in any aspect of a credit transaction.</p>
+                <p>This policy establishes the standards and procedures Curated Capital will follow to ensure compliance with the Equal Credit Opportunity Act (ECOA), Regulation B, and other applicable fair lending laws. All employees involved in any aspect of the credit process are expected to understand and comply with this policy.</p>
+                <div class="policy-owner">
+                    <span>Policy Owner:</span> <strong>Compliance Officer</strong><br>
+                    <span>Reporting:</span> <strong>Executive Committee</strong>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">2. Legal Framework</h2>
+
+                <h3 class="subsection-title">2.1 Equal Credit Opportunity Act (ECOA)</h3>
+                <p>The Equal Credit Opportunity Act (15 U.S.C. § 1691 et seq.) and its implementing regulation, Regulation B (12 C.F.R. Part 1002), prohibit creditors from discriminating against credit applicants on the basis of race, color, religion, national origin, sex, marital status, age (provided the applicant has the capacity to contract), because all or part of the applicant's income derives from any public assistance program, or because the applicant has in good faith exercised any right under the Consumer Credit Protection Act.</p>
+
+                <h3 class="subsection-title">2.2 Prohibited Bases</h3>
+                <p>Curated Capital shall not discriminate against any applicant with respect to any aspect of a credit transaction on the basis of:</p>
+                <ul>
+                    <li>Race</li>
+                    <li>Color</li>
+                    <li>Religion</li>
+                    <li>National origin</li>
+                    <li>Sex</li>
+                    <li>Marital status</li>
+                    <li>Age (provided the applicant has the capacity to contract)</li>
+                    <li>Receipt of income from any public assistance program</li>
+                    <li>Good faith exercise of any right under the Consumer Credit Protection Act</li>
+                </ul>
+
+                <h3 class="subsection-title">2.3 Types of Discrimination</h3>
+                <p>Fair lending laws prohibit both intentional discrimination and practices that have a discriminatory effect:</p>
+                <ul>
+                    <li><strong>Overt Discrimination:</strong> Openly discriminating on a prohibited basis (e.g., refusing to lend to applicants of a certain religion).</li>
+                    <li><strong>Disparate Treatment:</strong> Treating applicants differently based on a prohibited basis, even without explicit discriminatory statements (e.g., requiring additional documentation only from applicants of a certain national origin).</li>
+                    <li><strong>Disparate Impact:</strong> Applying facially neutral policies that have a disproportionately negative effect on a protected class without a legitimate business justification.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">3. Credit Decision Standards</h2>
+
+                <h3 class="subsection-title">3.1 Permissible Factors</h3>
+                <p>All credit decisions shall be based solely on legitimate, non-discriminatory factors related to creditworthiness and collateral quality. Permissible factors for Curated Capital's lending decisions include:</p>
+                <ul>
+                    <li>Collateral type, condition, and authenticity</li>
+                    <li>Collateral value based on objective appraisal methodology</li>
+                    <li>Loan-to-value ratio</li>
+                    <li>Collateral provenance and documentation quality</li>
+                    <li>Ease of liquidation and market depth for collateral</li>
+                    <li>Loan amount and term</li>
+                    <li>Borrower's prior history with Curated Capital</li>
+                    <li>OFAC screening results</li>
+                    <li>Verification of identity and, for entities, authorization to transact</li>
+                </ul>
+
+                <h3 class="subsection-title">3.2 Prohibited Considerations</h3>
+                <div class="warning-box">
+                    <p><strong>The following factors shall never be considered in any credit decision:</strong></p>
+                    <ul style="margin-top: 0.5rem; color: #fca5a5;">
+                        <li>Any of the prohibited bases listed in Section 2.2</li>
+                        <li>Neighborhood demographics or location of borrower's residence</li>
+                        <li>Assumptions or stereotypes about any group</li>
+                        <li>Personal relationships or subjective impressions unrelated to creditworthiness or collateral</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">4. Fair Pricing Practices</h2>
+
+                <h3 class="subsection-title">4.1 Risk-Based Pricing</h3>
+                <p>Curated Capital uses risk-based pricing, with interest rates and origination fees determined by the underwriting algorithm based on objective, non-discriminatory factors. The algorithm considers loan size, collateral type, loan-to-value ratio, ease of liquidation, borrower history, and documentation quality.</p>
+
+                <h3 class="subsection-title">4.2 Pricing Discretion</h3>
+                <p><strong>Authority:</strong> Only Lending Committee members (Patrick Sells and Krystal Sells) may exercise discretion to deviate from the algorithm's pricing output. Future employees, including loan officers, may not independently adjust pricing without Lending Committee approval.</p>
+
+                <p><strong>Documentation Requirement:</strong> Whenever discretion is exercised to deviate from the algorithm's pricing output, the Lending Committee member must document the business reason for the deviation in the loan file. Acceptable business reasons include:</p>
+                <ul>
+                    <li>Competitive factors (e.g., matching a competitor's offer)</li>
+                    <li>Relationship considerations (e.g., repeat borrower with excellent payment history)</li>
+                    <li>Collateral-specific factors not fully captured by the algorithm</li>
+                    <li>Market conditions or liquidity considerations</li>
+                    <li>Bundled transactions (multiple collateral items from same borrower)</li>
+                </ul>
+
+                <div class="warning-box">
+                    <p><strong>Prohibited Reasons:</strong> Pricing adjustments may never be based, directly or indirectly, on any prohibited basis. The documented business reason must be legitimate, verifiable, and unrelated to any protected characteristic.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">5. Policy Exceptions</h2>
+                <p>Exceptions to the Lending Policy and Underwriting Guidelines may be granted by the Lending Committee on a case-by-case basis. All exceptions must be:</p>
+                <ul>
+                    <li>Approved by the Lending Committee</li>
+                    <li>Documented in writing in the loan file</li>
+                    <li>Supported by a legitimate, non-discriminatory business justification</li>
+                    <li>Applied consistently to similarly situated applicants</li>
+                </ul>
+                <p>The Lending Committee shall periodically review exception patterns to ensure exceptions are not being granted in a manner that results in disparate treatment or disparate impact on any protected class.</p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">6. Adverse Action Notices</h2>
+
+                <h3 class="subsection-title">6.1 When Required</h3>
+                <p>Under ECOA and Regulation B, Curated Capital must notify an applicant of action taken on an application within 30 days of receiving a completed application. If the action is adverse (denial, or approval at less favorable terms than requested), the Company must provide an adverse action notice.</p>
+
+                <h3 class="subsection-title">6.2 Content Requirements</h3>
+                <p>Adverse action notices must include:</p>
+                <ul>
+                    <li>A statement of the action taken</li>
+                    <li>The name and address of the creditor</li>
+                    <li>The ECOA notice (statement of applicant's rights)</li>
+                    <li>The name and address of the federal agency that administers compliance (Consumer Financial Protection Bureau)</li>
+                    <li>Either: (a) a statement of specific reasons for the action, or (b) a disclosure of the applicant's right to request a statement of reasons within 60 days and the name and contact information for the person who can provide such statement</li>
+                </ul>
+
+                <h3 class="subsection-title">6.3 Specific Reasons</h3>
+                <p>The reasons provided must be specific, accurate, and based on the actual factors that led to the adverse action. Examples of acceptable reasons include:</p>
+                <ul>
+                    <li>Collateral value insufficient to support requested loan amount</li>
+                    <li>Collateral type not accepted</li>
+                    <li>Unable to verify collateral authenticity</li>
+                    <li>Insufficient provenance documentation</li>
+                    <li>Prior default with Curated Capital</li>
+                    <li>Unable to verify borrower identity</li>
+                    <li>Borrower concentration limit exceeded</li>
+                    <li>OFAC screening concern</li>
+                </ul>
+                <p>Curated Capital will use a compliant adverse action notice form that meets all Regulation B requirements.</p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">7. Fair Lending Monitoring</h2>
+
+                <h3 class="subsection-title">7.1 Ongoing Review</h3>
+                <p>The Compliance Officer shall periodically review loan decisions and pricing to identify any patterns that may suggest potential fair lending concerns. At current scale, this review will be qualitative and based on review of loan files and exception logs.</p>
+
+                <h3 class="subsection-title">7.2 Scalable Monitoring</h3>
+                <p>As loan volume grows, Curated Capital will implement more formal fair lending monitoring, which may include statistical analysis of approval rates, pricing, and exceptions across demographic groups. The Company will evaluate the appropriate level of monitoring annually and enhance procedures as the portfolio matures.</p>
+
+                <h3 class="subsection-title">7.3 Complaint Review</h3>
+                <p>Any complaint alleging discrimination shall be immediately escalated to the Compliance Officer for investigation. The Compliance Officer shall notify the Executive Committee of any such complaints. The investigation and resolution shall be documented, and any identified issues shall be promptly remediated.</p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">8. Training</h2>
+                <p>All employees involved in loan origination, underwriting, pricing, or customer interaction shall receive fair lending training, including:</p>
+                <ul>
+                    <li>Overview of ECOA and Regulation B requirements</li>
+                    <li>Prohibited bases and types of discrimination</li>
+                    <li>Permissible and impermissible factors in credit decisions</li>
+                    <li>Documentation requirements for discretionary decisions and exceptions</li>
+                    <li>Adverse action notice requirements</li>
+                    <li>How to recognize and report potential fair lending concerns</li>
+                    <li>Overview of applicable consumer protection requirements</li>
+                </ul>
+                <p>Training shall be provided at onboarding for new employees and refreshed annually. The Compliance Officer shall maintain records of training completion.</p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">9. Recordkeeping</h2>
+                <p>Curated Capital shall retain records related to fair lending compliance consistent with the Company's document retention policy and Regulation B requirements:</p>
+                <table>
+                    <tr>
+                        <th>Record Type</th>
+                        <th>Retention Period</th>
+                    </tr>
+                    <tr>
+                        <td>Loan applications and supporting documentation</td>
+                        <td>5 years from loan date or 2 years from final entry, whichever is later</td>
+                    </tr>
+                    <tr>
+                        <td>Adverse action notices (consumer)</td>
+                        <td>25 months</td>
+                    </tr>
+                    <tr>
+                        <td>Adverse action notices (business)</td>
+                        <td>12 months</td>
+                    </tr>
+                    <tr>
+                        <td>Documentation of pricing discretion and exceptions</td>
+                        <td>Retained with loan file</td>
+                    </tr>
+                    <tr>
+                        <td>Fair lending training records</td>
+                        <td>3 years</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">10. Policy Review</h2>
+                <p>This policy shall be reviewed at least annually and updated as necessary to reflect changes in law, regulation, or Company practices. The Compliance Officer is responsible for monitoring regulatory developments and recommending updates to the Executive Committee.</p>
+            </div>
+
+            <div class="signature-block">
+                <h3>11. Approval</h3>
+                <p>This Fair Lending Policy is hereby adopted by the Executive Committee of Project Indigo LLC d/b/a Curated Capital.</p>
+                <div class="signature-line">
+                    <div class="signature-item">
+                        <div class="line"></div>
+                        <label>Patrick Sells, President</label>
+                    </div>
+                    <div class="signature-item">
+                        <div class="line"></div>
+                        <label>Date</label>
+                    </div>
+                </div>
+                <div class="signature-line">
+                    <div class="signature-item">
+                        <div class="line"></div>
+                        <label>Krystal Sells, Secretary</label>
+                    </div>
+                    <div class="signature-item">
+                        <div class="line"></div>
+                        <label>Date</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

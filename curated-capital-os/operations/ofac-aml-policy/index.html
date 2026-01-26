@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OFAC/AML Policy | Curated Capital OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-deep: #0a0a14;
+            --navy: #12121f;
+            --navy-light: #1a1a2e;
+            --gold: #d4af37;
+            --gold-light: #e5c76b;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6a6a7a;
+            --border-color: rgba(212, 175, 55, 0.2);
+            --card-bg: rgba(26, 26, 46, 0.6);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--navy-deep);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--navy);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover { color: var(--gold); }
+        .breadcrumb span { color: var(--text-muted); }
+        .breadcrumb .current { color: var(--text-primary); }
+
+        .header-actions { display: flex; gap: 1rem; }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            border: 1px solid var(--gold);
+            color: var(--navy-deep);
+        }
+
+        .btn-primary:hover { background: var(--gold-light); }
+
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .doc-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .doc-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .doc-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .doc-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .doc-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .doc-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3rem;
+        }
+
+        .company-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .company-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+
+        .company-header .dba {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .company-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .company-header .confidential {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(220, 38, 38, 0.15);
+            color: #ef4444;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+        }
+
+        .section { margin-bottom: 2.5rem; }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .subsection-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .doc-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .doc-content ul, .doc-content ol {
+            color: var(--text-secondary);
+            margin: 1rem 0 1rem 1.5rem;
+        }
+
+        .doc-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .policy-owner {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid var(--gold);
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+        }
+
+        .policy-owner span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .policy-owner strong { color: var(--text-primary); }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--navy);
+            color: var(--gold);
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .highlight-box p { margin: 0; font-size: 0.9rem; }
+
+        .info-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .info-box p { margin: 0; font-size: 0.9rem; color: #93c5fd; }
+
+        .warning-box {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box p { margin: 0; font-size: 0.9rem; color: #fca5a5; }
+
+        .signature-block {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .signature-block h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .signature-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .signature-item { flex: 1; }
+
+        .signature-item .line {
+            border-bottom: 1px solid var(--text-muted);
+            margin-bottom: 0.5rem;
+            height: 2rem;
+        }
+
+        .signature-item label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .link-box {
+            background: var(--navy);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .link-box a {
+            color: var(--gold);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .link-box a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .header, .btn { display: none; }
+            .doc-content { background: white; border: none; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <nav class="breadcrumb">
+                <a href="/">Dashboard</a>
+                <span>/</span>
+                <a href="/operations/">Operations</a>
+                <span>/</span>
+                <span class="current">OFAC/AML Policy</span>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline" onclick="window.print()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                        <rect x="6" y="14" width="12" height="8"/>
+                    </svg>
+                    Print
+                </button>
+                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="btn btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    Open in GDrive
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="doc-header">
+            <span class="doc-badge">Complete</span>
+            <h1 class="doc-title">OFAC/AML Compliance Policy</h1>
+            <p class="doc-subtitle">Office of Foreign Assets Control & Anti-Money Laundering Procedures</p>
+            <div class="doc-meta">
+                <span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    Version 2.0
+                </span>
+                <span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    Policy Owner: BSA/AML Compliance Officer
+                </span>
+            </div>
+        </div>
+
+        <div class="doc-content">
+            <div class="company-header">
+                <h1>PROJECT INDIGO LLC</h1>
+                <p class="dba">d/b/a</p>
+                <h2>CURATED CAPITAL</h2>
+                <p style="margin-top: 0.5rem; font-weight: 600; color: var(--text-primary);">OFAC/AML COMPLIANCE POLICY</p>
+                <span class="confidential">Confidential</span>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">1. Purpose and Scope</h2>
+                <p>This policy establishes the procedures and controls that Project Indigo LLC d/b/a Curated Capital ("Curated Capital" or "Company"), a Texas regulated lender operating under Texas Finance Code Chapter 342, Subchapter E, will follow to comply with the regulations administered by the U.S. Department of the Treasury's Office of Foreign Assets Control ("OFAC") and to maintain an appropriate and compliant anti-money laundering ("AML") posture.</p>
+                <p>OFAC administers and enforces economic sanctions programs against targeted foreign countries, terrorists, international narcotics traffickers, and those engaged in activities related to the proliferation of weapons of mass destruction. All U.S. persons and businesses are prohibited from conducting business with individuals or entities on OFAC's Specially Designated Nationals and Blocked Persons List ("SDN List").</p>
+                <p>While Curated Capital, as a non-bank consumer lender, is not subject to the full Bank Secrecy Act (BSA) requirements applicable to depository institutions, the Company is committed to maintaining appropriate controls to prevent its services from being used to facilitate money laundering or terrorist financing.</p>
+                <div class="policy-owner">
+                    <span>Policy Owner:</span> <strong>BSA/AML Compliance Officer</strong><br>
+                    <span>Reporting:</span> <strong>Executive Committee</strong>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">2. Compliance Officer</h2>
+                <p>Patrick Sells, President, serves as the BSA/AML Compliance Officer and is responsible for:</p>
+                <ul>
+                    <li>Implementing and maintaining this policy</li>
+                    <li>Ensuring all borrowers are screened against the OFAC SDN List</li>
+                    <li>Investigating potential OFAC matches</li>
+                    <li>Training employees on OFAC/AML procedures</li>
+                    <li>Maintaining records of all screening activities</li>
+                    <li>Updating this policy as regulations or business practices change</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">3. OFAC Screening Procedures</h2>
+
+                <h3 class="subsection-title">3.1 When Screening is Required</h3>
+                <p>OFAC screening shall be conducted at the following points:</p>
+                <table>
+                    <tr>
+                        <th>Event</th>
+                        <th>Screening Required</th>
+                    </tr>
+                    <tr>
+                        <td>New Loan Origination</td>
+                        <td>Yes - all borrowers and authorized signers</td>
+                    </tr>
+                    <tr>
+                        <td>Loan Renewal</td>
+                        <td>Yes - re-screen borrower</td>
+                    </tr>
+                    <tr>
+                        <td>Entity Borrowers</td>
+                        <td>Yes - screen entity + all beneficial owners (25%+)</td>
+                    </tr>
+                </table>
+                <p>Given the short duration of Curated Capital's loans (maximum 6 months with mandatory renewal), screening at origination and renewal provides adequate coverage. Separate periodic batch screening is not required.</p>
+
+                <h3 class="subsection-title">3.2 Screening Method</h3>
+                <p>Curated Capital will use the official OFAC Sanctions List Search tool maintained by the U.S. Department of the Treasury:</p>
+                <div class="link-box">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    <a href="https://sanctionssearch.ofac.treas.gov/" target="_blank">https://sanctionssearch.ofac.treas.gov/</a>
+                </div>
+
+                <p><strong>Screening Process:</strong></p>
+                <ol>
+                    <li>Access the OFAC Sanctions List Search website</li>
+                    <li>Enter the borrower's full legal name (for individuals: first and last name; for entities: full legal entity name)</li>
+                    <li>For entity borrowers, also search each authorized signer's name and beneficial owners (25%+ ownership)</li>
+                    <li>Capture a screenshot or print the search results showing the date, search terms, and results</li>
+                    <li>Save the screenshot/printout to the borrower's loan file</li>
+                    <li>If no matches are found, proceed with loan processing; if potential matches are found, follow Section 3.3</li>
+                </ol>
+
+                <h3 class="subsection-title">3.3 Handling Potential Matches</h3>
+                <p>If an OFAC search returns a potential match, the BSA/AML Compliance Officer shall investigate to determine whether the match is a true positive or a false positive (e.g., common name, different date of birth, different address).</p>
+
+                <p><strong>Investigation Steps:</strong></p>
+                <ol>
+                    <li>Compare all available identifying information (full name, date of birth, address, nationality) against the SDN List entry</li>
+                    <li>Request additional documentation from the applicant if needed to resolve ambiguity</li>
+                    <li>Document the investigation and conclusion in writing</li>
+                </ol>
+
+                <p><strong>Decision:</strong></p>
+                <ul>
+                    <li>If the match is clearly resolved as a false positive, document the resolution and proceed with loan processing</li>
+                    <li>If the match cannot be clearly resolved as a false positive, the loan application shall be denied. The Company is under no obligation to lend to any applicant, and an unresolved potential OFAC match is a legitimate basis for denial.</li>
+                </ul>
+
+                <div class="warning-box">
+                    <p><strong>Escalation:</strong> Any confirmed true positive match must be immediately escalated to the Executive Committee and, if required by OFAC regulations, reported to OFAC. The Company shall not proceed with any transaction involving a confirmed SDN.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">4. Know Your Customer (KYC)</h2>
+                <p>Curated Capital's KYC procedures are designed to verify the identity of borrowers and ensure the Company understands with whom it is doing business. KYC requirements are detailed in the Lending Policy and Underwriting Guidelines and include:</p>
+                <ul>
+                    <li>Government-issued photo identification (passport or state ID) for all individual borrowers and authorized signers</li>
+                    <li>Proof of Texas residency where required</li>
+                    <li>For entity borrowers: Certificate of Formation, Certificate of Good Standing from Texas Secretary of State, and Operating Agreement or Corporate Resolution identifying authorized signers</li>
+                    <li>Proof of collateral ownership and provenance documentation where available</li>
+                </ul>
+                <p>These procedures ensure that Curated Capital can verify borrower identity, confirm legal authority for entity borrowers, and maintain appropriate documentation for regulatory examination.</p>
+
+                <h3 class="subsection-title">4.1 Beneficial Ownership (Entity Borrowers)</h3>
+                <p>While Curated Capital is not a "covered financial institution" subject to FinCEN's Beneficial Ownership Rule, the Company voluntarily collects beneficial ownership information for entity borrowers as a sound AML practice. For entity borrowers, the Company will collect and verify the following:</p>
+                <ul>
+                    <li>The name, address, date of birth, and identification number (SSN or passport) of each individual who owns 25% or more of the equity interests of the entity</li>
+                    <li>The name, address, date of birth, and identification number of at least one individual with significant responsibility to control, manage, or direct the entity (e.g., CEO, CFO, Managing Member)</li>
+                    <li>OFAC screening shall be conducted on all identified beneficial owners and control persons</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">5. Accepted Payment Methods</h2>
+                <p>To reduce the risk of money laundering and maintain an auditable payment trail, Curated Capital accepts the following payment methods only:</p>
+                <table>
+                    <tr>
+                        <th>Payment Method</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td>Wire Transfer</td>
+                        <td style="color: #22c55e;">✓ Accepted</td>
+                    </tr>
+                    <tr>
+                        <td>ACH Transfer</td>
+                        <td style="color: #22c55e;">✓ Accepted</td>
+                    </tr>
+                    <tr>
+                        <td>Certified Check / Cashier's Check</td>
+                        <td style="color: #22c55e;">✓ Accepted</td>
+                    </tr>
+                    <tr>
+                        <td>Cash</td>
+                        <td style="color: #ef4444;">✗ Not Accepted</td>
+                    </tr>
+                </table>
+                <div class="info-box">
+                    <p><strong>Note:</strong> Cash is not accepted. Given the high-value nature of Curated Capital's loans, cash transactions present unacceptable AML risk and operational burden.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">6. Red Flags for Suspicious Activity</h2>
+                <p>Employees shall be alert to the following red flags that may indicate potential money laundering, fraud, or other suspicious activity. The presence of one or more red flags does not automatically disqualify an applicant but warrants additional scrutiny and documentation.</p>
+
+                <h3 class="subsection-title">6.1 Identity and Documentation Red Flags</h3>
+                <ul>
+                    <li>Borrower is unable or unwilling to provide valid government-issued identification</li>
+                    <li>Identification documents appear altered, forged, or inconsistent</li>
+                    <li>Borrower provides inconsistent or evasive answers to basic questions</li>
+                    <li>Borrower is reluctant to provide information normally required for the transaction</li>
+                </ul>
+
+                <h3 class="subsection-title">6.2 Collateral Red Flags</h3>
+                <ul>
+                    <li>Collateral has unclear, missing, or suspicious provenance</li>
+                    <li>Borrower cannot adequately explain how they acquired high-value collateral</li>
+                    <li>Collateral appears to be stolen, counterfeit, or misrepresented</li>
+                    <li>Collateral value is inconsistent with the borrower's apparent financial situation</li>
+                </ul>
+
+                <h3 class="subsection-title">6.3 Transaction Red Flags</h3>
+                <ul>
+                    <li>Borrower attempts to structure transactions to avoid documentation requirements</li>
+                    <li>Borrower requests unusual transaction structures without clear business rationale</li>
+                    <li>Borrower shows unusual concern about compliance reporting or recordkeeping</li>
+                    <li>Borrower insists on paying off loan immediately after origination without clear reason</li>
+                    <li>Third party attempts to make payments or redeem collateral on borrower's behalf without proper authorization</li>
+                </ul>
+
+                <h3 class="subsection-title">6.4 Response to Red Flags</h3>
+                <p>When a red flag is identified, employees shall document the concern and escalate to the BSA/AML Compliance Officer. The Compliance Officer will determine appropriate next steps, which may include:</p>
+                <ul>
+                    <li>Requesting additional documentation or information from the applicant</li>
+                    <li>Conducting enhanced due diligence</li>
+                    <li>Declining the loan application</li>
+                    <li>Escalating to the Executive Committee for review</li>
+                    <li>Consulting legal counsel if warranted</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">7. Recordkeeping</h2>
+                <p>Curated Capital shall maintain records of all OFAC screening activities and AML-related documentation for a minimum of five (5) years from the date of the loan or two (2) years from the final entry, whichever is later. This is consistent with the Company's general document retention policy.</p>
+                <p>Records to be retained include:</p>
+                <ul>
+                    <li>OFAC screening results (screenshots or printouts) for each borrower at origination and renewal</li>
+                    <li>Documentation of any potential match investigations and resolutions</li>
+                    <li>Copies of identification documents collected</li>
+                    <li>Beneficial ownership information for entity borrowers</li>
+                    <li>Documentation of any red flags identified and actions taken</li>
+                    <li>Records of all payments received, including method and source</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">8. Training</h2>
+                <p>All employees involved in loan origination, underwriting, or customer interaction shall receive training on this policy, including:</p>
+                <ul>
+                    <li>Overview of OFAC regulations and the SDN List</li>
+                    <li>How to conduct OFAC screening using the Treasury's Sanctions List Search tool</li>
+                    <li>Recognition of red flags for suspicious activity</li>
+                    <li>Beneficial ownership requirements for entity borrowers</li>
+                    <li>Escalation procedures</li>
+                    <li>Recordkeeping requirements</li>
+                    <li>Overview of applicable AML and consumer protection requirements</li>
+                </ul>
+                <p>Training shall be provided at onboarding for new employees and refreshed annually. The BSA/AML Compliance Officer shall maintain records of training completion.</p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">9. Policy Review and Updates</h2>
+                <p>This policy shall be reviewed at least annually and updated as necessary to reflect changes in OFAC regulations, Company operations, or industry best practices. The BSA/AML Compliance Officer is responsible for monitoring regulatory developments and recommending updates to the Executive Committee.</p>
+            </div>
+
+            <div class="signature-block">
+                <h3>10. Approval</h3>
+                <p>This OFAC/AML Compliance Policy is hereby adopted by the Executive Committee of Project Indigo LLC d/b/a Curated Capital.</p>
+                <div class="signature-line">
+                    <div class="signature-item">
+                        <div class="line"></div>
+                        <label>Patrick Sells, President</label>
+                    </div>
+                    <div class="signature-item">
+                        <div class="line"></div>
+                        <label>Date</label>
+                    </div>
+                </div>
+                <div class="signature-line">
+                    <div class="signature-item">
+                        <div class="line"></div>
+                        <label>Krystal Sells, Secretary</label>
+                    </div>
+                    <div class="signature-item">
+                        <div class="line"></div>
+                        <label>Date</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

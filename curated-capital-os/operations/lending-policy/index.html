@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lending Policy | Curated Capital OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-deep: #0a0a14;
+            --navy: #12121f;
+            --navy-light: #1a1a2e;
+            --gold: #d4af37;
+            --gold-light: #e5c76b;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6a6a7a;
+            --border-color: rgba(212, 175, 55, 0.2);
+            --card-bg: rgba(26, 26, 46, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--navy-deep);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: var(--navy);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--gold);
+        }
+
+        .breadcrumb span {
+            color: var(--text-muted);
+        }
+
+        .breadcrumb .current {
+            color: var(--text-primary);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            border: 1px solid var(--gold);
+            color: var(--navy-deep);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Document Header */
+        .doc-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .doc-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .doc-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .doc-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .doc-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Document Content */
+        .doc-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3rem;
+        }
+
+        .company-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .company-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+
+        .company-header .dba {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .company-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .company-header .subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .company-header .confidential {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(220, 38, 38, 0.15);
+            color: #ef4444;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .subsection-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .doc-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .doc-content ul, .doc-content ol {
+            color: var(--text-secondary);
+            margin: 1rem 0 1rem 1.5rem;
+        }
+
+        .doc-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .policy-owner {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid var(--gold);
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+        }
+
+        .policy-owner span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .policy-owner strong {
+            color: var(--text-primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--navy);
+            color: var(--gold);
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Signature Block */
+        .signature-block {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .signature-block h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .signature-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .signature-item {
+            flex: 1;
+        }
+
+        .signature-item .line {
+            border-bottom: 1px solid var(--text-muted);
+            margin-bottom: 0.5rem;
+            height: 2rem;
+        }
+
+        .signature-item label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .header, .btn {
+                display: none;
+            }
+
+            .doc-content {
+                background: white;
+                border: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <nav class="breadcrumb">
+                <a href="/">Dashboard</a>
+                <span>/</span>
+                <a href="/operations/">Operations</a>
+                <span>/</span>
+                <span class="current">Lending Policy</span>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline" onclick="window.print()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                        <rect x="6" y="14" width="12" height="8"/>
+                    </svg>
+                    Print
+                </button>
+                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="btn btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    Open in GDrive
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="doc-header">
+            <span class="doc-badge">Complete</span>
+            <h1 class="doc-title">Lending Policy & Underwriting Guidelines</h1>
+            <p class="doc-subtitle">Texas Finance Code Chapter 342, Subchapter E - Regulated Lender</p>
+            <div class="doc-meta">
+                <span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    Version 2.0
+                </span>
+                <span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    Policy Owner: Credit Officer
+                </span>
+            </div>
+        </div>
+
+        <div class="doc-content">
+            <div class="company-header">
+                <h1>PROJECT INDIGO LLC</h1>
+                <p class="dba">d/b/a</p>
+                <h2>CURATED CAPITAL</h2>
+                <p class="subtitle">Texas Finance Code Chapter 342, Subchapter E<br>Regulated Lender</p>
+                <p class="subtitle" style="margin-top: 0.5rem; font-weight: 600;">LENDING POLICY AND UNDERWRITING GUIDELINES</p>
+                <span class="confidential">Confidential</span>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">1. Purpose and Scope</h2>
+                <p>This Lending Policy and Underwriting Guidelines document establishes the standards, procedures, and requirements governing all lending activities conducted by Project Indigo LLC d/b/a Curated Capital ("Curated Capital" or "Lender") under its Texas Finance Code Chapter 342, Subchapter E regulated lender license.</p>
+                <p>Curated Capital provides luxury asset-backed loans to individuals and entities using high-value personal property as collateral. The Lender offers sophisticated borrowers a discrete, professional lending experience—providing elevated liquidity solutions backed by fine jewelry, precious metals, art, and other valuable assets.</p>
+                <p>All lending decisions shall be made in accordance with this policy, applicable Texas law, federal regulations including the Truth in Lending Act (TILA) and Regulation Z, and the rules promulgated by the Texas Office of Consumer Credit Commissioner (OCCC).</p>
+                <div class="policy-owner">
+                    <span>Policy Owner:</span> <strong>Credit Officer</strong><br>
+                    <span>Reporting:</span> <strong>Lending Committee</strong>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">2. Loan Product Parameters</h2>
+
+                <h3 class="subsection-title">2.1 Loan Amounts</h3>
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Minimum Loan Amount</td>
+                        <td>$10,000</td>
+                    </tr>
+                    <tr>
+                        <td>Maximum Loan Amount</td>
+                        <td>No fixed maximum (subject to collateral value and concentration limits)</td>
+                    </tr>
+                </table>
+
+                <h3 class="subsection-title">2.2 Loan Terms</h3>
+                <p><strong>Renewal Terms:</strong> At renewal, if the loan-to-value (LTV) ratio has deteriorated due to decline in collateral value, the borrower must pay down principal to restore the original LTV. If collateral has appreciated materially, the borrower may request additional funds based on updated distressed liquidation value. The origination fee may be waived at Lender election for renewals.</p>
+
+                <h3 class="subsection-title">2.3 Interest Rate Structure</h3>
+                <p>Curated Capital employs risk-based pricing. Interest rates are determined by the underwriting algorithm based on multiple factors and shall comply with all statutory ceilings under Texas Finance Code Chapter 342, Subchapter E and the alternative interest rate ceiling under Chapter 303.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Pricing Factors (Algorithm Inputs):</strong></p>
+                    <ul style="margin-top: 0.5rem;">
+                        <li>Loan size</li>
+                        <li>Collateral type and category</li>
+                        <li>Requested loan-to-value ratio</li>
+                        <li>Ease of liquidation / market depth</li>
+                        <li>Borrower history with Curated Capital</li>
+                        <li>Documentation quality and provenance</li>
+                        <li>Lender discretion based on deal dynamics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">3. Fee Structure</h2>
+                <table>
+                    <tr>
+                        <th>Fee Type</th>
+                        <th>Amount</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Origination Fee</td>
+                        <td>2-5%</td>
+                        <td>Based on loan size and complexity</td>
+                    </tr>
+                    <tr>
+                        <td>Late Fee</td>
+                        <td>Per OCCC guidelines</td>
+                        <td>After grace period</td>
+                    </tr>
+                    <tr>
+                        <td>Prepayment Penalty</td>
+                        <td>None</td>
+                        <td>No penalty for early payoff</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">4. Collateral Policy</h2>
+
+                <h3 class="subsection-title">4.1 Accepted Asset Categories (Tier 1 – Launch)</h3>
+                <p>At launch, Curated Capital will accept the following collateral categories:</p>
+                <ul>
+                    <li>Fine Jewelry (diamonds, gemstones, designer pieces)</li>
+                    <li>Luxury Watches (Rolex, Patek Philippe, Audemars Piguet, etc.)</li>
+                    <li>Precious Metals (gold, silver, platinum coins and bullion)</li>
+                    <li>Fine Art</li>
+                    <li>Collectibles (sports memorabilia, trading cards, etc.)</li>
+                    <li>Luxury Automobiles</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Precious Metals Note:</strong> Unlike other collateral categories, gold coins, silver coins, and bullion may be pledged as multiple items under a single loan contract, provided the aggregate value meets the $10,000 minimum and all items are documented on the collateral schedule.</p>
+                </div>
+
+                <h3 class="subsection-title">4.2 Appraisal Standards</h3>
+                <ul>
+                    <li><strong>Methodology:</strong> Hybrid approach using in-house expertise as primary, with third-party appraisers engaged as needed.</li>
+                    <li><strong>Valuation Basis:</strong> Liquidity-adjusted fair market value based on blended secondary market pricing from five or more platforms (e.g., eBay, Amazon, The RealReal, 1stDibs, auction houses), weighted toward the bottom 40th percentile or lowest three of five comparable sales.</li>
+                    <li><strong>Independent Verification:</strong> Required for all loans exceeding $100,000. Exceptions require Lending Committee approval.</li>
+                    <li><strong>Appraisal Waiver:</strong> A current appraisal may be waived for loans at or below 30% LTV where strong documentation exists (receipt, certificate of authenticity). Appraisal is required for higher LTVs.</li>
+                    <li><strong>Provenance Adjustment:</strong> Missing or incomplete provenance documentation results in reduced LTV (10% – 20% reduction) and/or interest rate increase at Lender discretion.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">5. Borrower Eligibility and Know Your Customer (KYC)</h2>
+
+                <h3 class="subsection-title">5.1 General Requirements and KYC</h3>
+                <p>The following requirements apply to all borrowers and constitute Curated Capital's Know Your Customer (KYC) program for identity verification and fraud prevention:</p>
+                <ul>
+                    <li>Must be 18 years or older</li>
+                    <li>Must provide valid government-issued photo ID</li>
+                    <li>Must provide proof of Texas residency (if not evident from ID)</li>
+                    <li>Must own the collateral being pledged free and clear</li>
+                </ul>
+
+                <h3 class="subsection-title">5.2 Entity Borrowers</h3>
+                <ul>
+                    <li>Valid formation documents and good standing with Texas Secretary of State required</li>
+                    <li>Authorized signer verification via operating agreement, corporate resolution, or equivalent</li>
+                    <li>Beneficial ownership information collected per OFAC/AML Compliance Policy</li>
+                    <li>Entity loans are non-recourse (no personal guaranty required)</li>
+                </ul>
+
+                <h3 class="subsection-title">5.3 Prohibited Borrowers</h3>
+                <ul>
+                    <li>Individuals or entities on the OFAC Specially Designated Nationals (SDN) list</li>
+                    <li>Prior defaulters at Curated Capital (unless cured and approved by Lending Committee)</li>
+                </ul>
+
+                <h3 class="subsection-title">5.4 Insider and Related-Party Loans</h3>
+                <p>Loans to members, officers, employees, or their immediate family members are permitted with Lending Committee approval. Such loans must be made on substantially the same terms as arm's-length transactions.</p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">6. Underwriting Process</h2>
+
+                <h3 class="subsection-title">6.1 Decision Authority</h3>
+                <table>
+                    <tr>
+                        <th>Loan Amount</th>
+                        <th>Approval Authority</th>
+                    </tr>
+                    <tr>
+                        <td>Up to $50,000</td>
+                        <td>Credit Officer</td>
+                    </tr>
+                    <tr>
+                        <td>$50,001 - $250,000</td>
+                        <td>Credit Officer + 1 Lending Committee Member</td>
+                    </tr>
+                    <tr>
+                        <td>Over $250,000</td>
+                        <td>Full Lending Committee</td>
+                    </tr>
+                </table>
+
+                <h3 class="subsection-title">6.2 Documentation Requirements</h3>
+                <p><strong>Individual Borrowers:</strong></p>
+                <ul>
+                    <li>Government-issued photo ID (passport or state ID)</li>
+                    <li>Proof of Texas residency (if not evident from ID)</li>
+                    <li>Proof of ownership / provenance documentation (if available)</li>
+                    <li>Signed loan agreement and disclosure documents</li>
+                </ul>
+
+                <p><strong>Entity Borrowers (in addition to above):</strong></p>
+                <ul>
+                    <li>Certificate of Formation or equivalent</li>
+                    <li>Certificate of Good Standing from Texas Secretary of State</li>
+                    <li>Operating Agreement, Corporate Resolution, or Partnership Agreement authorizing the transaction</li>
+                    <li>Government-issued photo ID for authorized signer</li>
+                    <li>Beneficial ownership certification</li>
+                </ul>
+
+                <p><strong>Collateral-Specific Documentation:</strong></p>
+                <ul>
+                    <li><strong>Precious Metals:</strong> Purity verification (XRF testing or assay certificate)</li>
+                    <li><strong>Collectibles:</strong> Third-party grading/authentication certificate (PSA, BGS, JSA, etc.)</li>
+                    <li><strong>Automobiles:</strong> Clear title, all keys, vehicle registration</li>
+                    <li><strong>Fine Art:</strong> Provenance documentation, prior appraisals, certificates of authenticity</li>
+                </ul>
+
+                <h3 class="subsection-title">6.3 Turnaround Time Targets</h3>
+                <table>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Target Time</th>
+                    </tr>
+                    <tr>
+                        <td>Initial Quote</td>
+                        <td>Same day</td>
+                    </tr>
+                    <tr>
+                        <td>Collateral Evaluation</td>
+                        <td>1-3 business days</td>
+                    </tr>
+                    <tr>
+                        <td>Final Approval</td>
+                        <td>1-2 business days after evaluation</td>
+                    </tr>
+                    <tr>
+                        <td>Funding</td>
+                        <td>Same day as approval (if docs complete)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">7. Default and Collections</h2>
+
+                <h3 class="subsection-title">7.1 Default Triggers</h3>
+                <p>A loan shall be deemed in default upon occurrence of any of the following:</p>
+                <ul>
+                    <li><strong>Non-payment:</strong> Failure to pay amounts due within 30 days of the original due date (including 10-day grace period and 20-day cure period)</li>
+                    <li>Failure to fund renewal interest reserve when electing to renew</li>
+                    <li>Borrower becomes listed on OFAC SDN list</li>
+                    <li>Death of individual borrower (estate may cure within cure period)</li>
+                    <li>Bankruptcy filing by borrower</li>
+                    <li>Fraud or material misrepresentation by borrower</li>
+                    <li>Material impairment of collateral</li>
+                </ul>
+
+                <h3 class="subsection-title">7.2 Grace and Cure Periods</h3>
+                <table>
+                    <tr>
+                        <th>Period</th>
+                        <th>Duration</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>Grace Period</td>
+                        <td>10 days</td>
+                        <td>No late fee assessed</td>
+                    </tr>
+                    <tr>
+                        <td>Cure Period</td>
+                        <td>20 additional days</td>
+                        <td>Late fee applies; borrower may cure</td>
+                    </tr>
+                </table>
+
+                <h3 class="subsection-title">7.3 Collection Process (High-Touch)</h3>
+                <p>Curated Capital employs a high-touch collection process emphasizing communication and resolution over aggressive collection tactics.</p>
+
+                <h3 class="subsection-title">7.4 Collateral Liquidation</h3>
+                <p>Upon default, Lender shall liquidate collateral through commercially reasonable channels selected at Lender's discretion based on collateral type, LTV, and market conditions.</p>
+
+                <p><strong>Liquidation Channels:</strong></p>
+                <ul>
+                    <li>Online marketplaces (eBay, Chrono24, 1stDibs)</li>
+                    <li>Private sale to dealers or collectors</li>
+                    <li>Consignment (The RealReal, specialty dealers)</li>
+                    <li>Auction houses (Heritage Auctions, Sotheby's, RM Sotheby's)</li>
+                </ul>
+
+                <p><strong>Decision Matrix:</strong></p>
+                <ul>
+                    <li><strong>High LTV / Commodity Items:</strong> Fast liquidation to minimize exposure</li>
+                    <li><strong>Low LTV / Unique Items:</strong> Patient liquidation to maximize recovery</li>
+                </ul>
+
+                <p><strong>Surplus Proceeds:</strong> If liquidation proceeds exceed the outstanding loan balance, accrued interest, fees, and liquidation costs, the surplus shall be returned to the borrower within 30 days of final sale.</p>
+
+                <h3 class="subsection-title">7.5 Deficiency Balance</h3>
+                <div class="highlight-box">
+                    <p><strong>Non-Recourse:</strong> All loans are non-recourse. Lender will not pursue deficiency balances from borrowers. Lender's sole remedy upon default is liquidation of pledged collateral.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">8. Compliance and Recordkeeping</h2>
+
+                <h3 class="subsection-title">8.1 Required Disclosures</h3>
+                <p>All loans shall include disclosures required by Texas Finance Code Chapter 342, the Truth in Lending Act (TILA), and Regulation Z, including but not limited to:</p>
+                <ul>
+                    <li>Annual Percentage Rate (APR)</li>
+                    <li>Finance charge</li>
+                    <li>Amount financed</li>
+                    <li>Total of payments</li>
+                    <li>Payment schedule</li>
+                    <li>Late fee terms</li>
+                    <li>Prepayment policy (no penalty)</li>
+                    <li>Security interest disclosure (collateral description)</li>
+                    <li>Default terms and consequences</li>
+                </ul>
+
+                <h3 class="subsection-title">8.2 Document Retention</h3>
+                <p><strong>Record Format:</strong> Digital copies are acceptable and shall be the primary method of record retention. Records must be prepared and maintained in accordance with generally accepted accounting principles and available for OCCC inspection upon request.</p>
+
+                <h3 class="subsection-title">8.3 Compliance Officer</h3>
+                <p>Patrick Sells, President, shall serve as Compliance Officer responsible for ensuring adherence to all applicable laws, regulations, and this policy. A dedicated compliance professional may be hired as the business scales.</p>
+
+                <h3 class="subsection-title">8.4 Regulatory Commitment</h3>
+                <p>Curated Capital is committed to full compliance with all applicable federal and state laws, including the Texas Finance Code, OCCC rules, Truth in Lending Act, Equal Credit Opportunity Act, and applicable anti-money laundering requirements. The Lender shall cooperate fully with all OCCC examinations and promptly address any findings or recommendations.</p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">9. Policy Administration</h2>
+
+                <h3 class="subsection-title">9.1 Lending Committee</h3>
+                <p>The Lending Committee consists of Patrick Sells (President) and Krystal Sells (Secretary). The Lending Committee has authority to approve all loans, exceptions, and amendments to this policy.</p>
+
+                <h3 class="subsection-title">9.2 Policy Review</h3>
+                <p>This policy shall be reviewed at least annually and updated as necessary to reflect changes in law, regulation, market conditions, or business strategy. All amendments require Lending Committee approval.</p>
+
+                <h3 class="subsection-title">9.3 Exceptions</h3>
+                <p>Exceptions to this policy may be granted by the Lending Committee on a case-by-case basis. All exceptions must be documented in the loan file with written justification.</p>
+            </div>
+
+            <div class="signature-block">
+                <h3>Approval and Adoption</h3>
+                <p>This Lending Policy and Underwriting Guidelines is hereby adopted by the Lending Committee of Project Indigo LLC d/b/a Curated Capital.</p>
+                <div class="signature-line">
+                    <div class="signature-item">
+                        <div class="line"></div>
+                        <label>Patrick Sells, President</label>
+                    </div>
+                    <div class="signature-item">
+                        <div class="line"></div>
+                        <label>Date</label>
+                    </div>
+                </div>
+                <div class="signature-line">
+                    <div class="signature-item">
+                        <div class="line"></div>
+                        <label>Krystal Sells, Secretary</label>
+                    </div>
+                    <div class="signature-item">
+                        <div class="line"></div>
+                        <label>Date</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

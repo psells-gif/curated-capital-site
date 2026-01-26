@@ -25,11 +25,7 @@
             --danger: #f87171;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Outfit', sans-serif;
@@ -39,12 +35,8 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-        }
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
 
-        /* Header */
         .header {
             background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
             border-bottom: 1px solid var(--border-color);
@@ -89,9 +81,7 @@
             color: var(--text-primary);
         }
 
-        .logo-text span {
-            color: var(--gold);
-        }
+        .logo-text span { color: var(--gold); }
 
         .breadcrumb {
             display: flex;
@@ -104,18 +94,11 @@
         .breadcrumb a {
             color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.2s;
         }
 
-        .breadcrumb a:hover {
-            color: var(--gold);
-        }
+        .breadcrumb a:hover { color: var(--gold); }
+        .breadcrumb-current { color: var(--gold); }
 
-        .breadcrumb-current {
-            color: var(--gold);
-        }
-
-        /* Main Layout */
         .main {
             max-width: 1400px;
             margin: 0 auto;
@@ -125,10 +108,7 @@
             gap: 2rem;
         }
 
-        /* Page Header */
-        .page-header {
-            margin-bottom: 2rem;
-        }
+        .page-header { margin-bottom: 2rem; }
 
         .page-title {
             font-size: 2.25rem;
@@ -139,17 +119,12 @@
             gap: 0.75rem;
         }
 
-        .page-title-icon {
-            font-size: 2rem;
-        }
-
         .page-description {
             color: var(--text-secondary);
             font-size: 1rem;
             max-width: 600px;
         }
 
-        /* Stats Row */
         .stats-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -177,7 +152,6 @@
             margin-top: 0.25rem;
         }
 
-        /* Cards */
         .card {
             background: var(--navy);
             border: 1px solid var(--border-color);
@@ -195,24 +169,7 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .card-title {
-            font-size: 1.1rem;
-            color: var(--gold);
-        }
-
-        /* Document List */
-        .doc-category {
-            margin-bottom: 1.5rem;
-        }
-
-        .doc-category-title {
-            font-size: 1rem;
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+        .card-title { font-size: 1.1rem; color: var(--gold); }
 
         .doc-list {
             display: flex;
@@ -255,18 +212,12 @@
             flex-shrink: 0;
         }
 
-        .doc-details {
-            flex: 1;
-            min-width: 0;
-        }
+        .doc-details { flex: 1; min-width: 0; }
 
         .doc-name {
             font-size: 0.9rem;
             color: var(--text-primary);
             font-weight: 500;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
         .doc-meta {
@@ -278,10 +229,7 @@
             margin-top: 0.2rem;
         }
 
-        .doc-actions {
-            display: flex;
-            gap: 0.5rem;
-        }
+        .doc-actions { display: flex; gap: 0.5rem; }
 
         .doc-btn {
             padding: 0.4rem 0.75rem;
@@ -301,7 +249,7 @@
         }
 
         .doc-btn-primary:hover {
-            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+            transform: scale(1.05);
         }
 
         .doc-btn-secondary {
@@ -315,7 +263,6 @@
             color: var(--text-primary);
         }
 
-        /* Status Badges */
         .status-badge {
             font-size: 0.65rem;
             padding: 0.2rem 0.5rem;
@@ -325,29 +272,16 @@
             letter-spacing: 0.5px;
         }
 
-        .status-complete {
-            background: rgba(74, 222, 128, 0.15);
-            color: var(--success);
-        }
+        .status-complete { background: rgba(74, 222, 128, 0.15); color: var(--success); }
+        .status-draft { background: rgba(251, 191, 36, 0.15); color: var(--warning); }
+        .status-template { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
 
-        .status-draft {
-            background: rgba(251, 191, 36, 0.15);
-            color: var(--warning);
-        }
-
-        .status-template {
-            background: rgba(212, 175, 55, 0.15);
-            color: var(--gold);
-        }
-
-        /* Sidebar */
         .sidebar {
             display: flex;
             flex-direction: column;
             gap: 1.25rem;
         }
 
-        /* Department Tasks */
         .task-list {
             display: flex;
             flex-direction: column;
@@ -373,16 +307,8 @@
             flex-shrink: 0;
         }
 
-        .task-checkbox:hover {
-            border-color: var(--gold);
-        }
+        .task-text { flex: 1; font-size: 0.85rem; }
 
-        .task-text {
-            flex: 1;
-            font-size: 0.85rem;
-        }
-
-        /* Time Stats */
         .time-stat {
             display: flex;
             justify-content: space-between;
@@ -393,16 +319,8 @@
             margin-bottom: 0.5rem;
         }
 
-        .time-stat-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .time-stat-value {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--gold);
-        }
+        .time-stat-label { font-size: 0.85rem; color: var(--text-secondary); }
+        .time-stat-value { font-size: 1rem; font-weight: 600; color: var(--gold); }
 
         .time-bar {
             height: 6px;
@@ -418,7 +336,6 @@
             border-radius: 3px;
         }
 
-        /* Quick Links */
         .quick-links {
             display: flex;
             flex-direction: column;
@@ -443,27 +360,20 @@
             transform: translateX(4px);
         }
 
-        .quick-link-icon {
-            color: var(--gold);
-            font-size: 0.9rem;
-        }
+        .quick-link-icon { color: var(--gold); font-size: 0.9rem; }
 
-        /* Login Protection */
+        /* Login */
         .login-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: var(--navy-deep);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 9999;
         }
-
         .login-overlay.hidden { display: none; }
-
         .login-box {
             background: var(--navy);
             border: 1px solid var(--border-color);
@@ -473,10 +383,8 @@
             max-width: 400px;
             text-align: center;
         }
-
         .login-logo-icon {
-            width: 56px;
-            height: 56px;
+            width: 56px; height: 56px;
             background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
             border-radius: 12px;
             display: flex;
@@ -487,22 +395,9 @@
             font-size: 1.5rem;
             margin: 0 auto 1.5rem;
         }
-
-        .login-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
+        .login-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem; }
         .login-title span { color: var(--gold); }
-
-        .login-subtitle {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
+        .login-subtitle { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; }
         .login-input {
             width: 100%;
             padding: 0.875rem 1rem;
@@ -515,12 +410,7 @@
             text-align: center;
             margin-bottom: 1rem;
         }
-
-        .login-input:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
-
+        .login-input:focus { outline: none; border-color: var(--gold); }
         .login-btn {
             width: 100%;
             padding: 0.875rem;
@@ -533,34 +423,21 @@
             font-weight: 600;
             cursor: pointer;
         }
-
-        .login-error {
-            color: var(--danger);
-            font-size: 0.85rem;
-            margin-top: 0.75rem;
-            display: none;
-        }
-
+        .login-error { color: var(--danger); font-size: 0.85rem; margin-top: 0.75rem; display: none; }
         .login-error.show { display: block; }
-
         .app-content { display: none; }
         .app-content.visible { display: block; }
 
-        /* Responsive */
         @media (max-width: 1200px) {
             .main { grid-template-columns: 1fr; }
             .stats-row { grid-template-columns: repeat(2, 1fr); }
         }
-
         @media (max-width: 768px) {
             .main { padding: 1rem; }
-            .stats-row { grid-template-columns: 1fr 1fr; }
-            .doc-actions { flex-direction: column; }
         }
     </style>
 </head>
 <body>
-    <!-- Login Screen -->
     <div class="login-overlay" id="loginOverlay">
         <div class="login-box">
             <div class="login-logo-icon">CC</div>
@@ -574,7 +451,6 @@
         </div>
     </div>
 
-    <!-- Main App -->
     <div class="app-content" id="appContent">
         <header class="header">
             <div class="header-content">
@@ -592,27 +468,25 @@
 
         <main class="main">
             <div class="content">
-                <!-- Page Header -->
                 <div class="page-header">
                     <h1 class="page-title">
-                        <span class="page-title-icon">⚙️</span>
+                        <span>⚙️</span>
                         Operations
                     </h1>
                     <p class="page-description">Policies, procedures, compliance documents, and operational templates for Curated Capital.</p>
                 </div>
 
-                <!-- Stats Row -->
                 <div class="stats-row">
                     <div class="stat-card">
                         <div class="stat-value">8</div>
-                        <div class="stat-label">Policies</div>
+                        <div class="stat-label">Total Policies</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">6</div>
+                        <div class="stat-value">4</div>
                         <div class="stat-label">Complete</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">2</div>
+                        <div class="stat-value">4</div>
                         <div class="stat-label">In Progress</div>
                     </div>
                     <div class="stat-card">
@@ -621,281 +495,228 @@
                     </div>
                 </div>
 
-                <!-- Policies & Procedures -->
+                <!-- Lending Policies -->
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">📋 Policies & Procedures</h2>
+                        <h2 class="card-title">📋 Lending Policies</h2>
                     </div>
-
-                    <!-- Lending -->
-                    <div class="doc-category">
-                        <div class="doc-category-title">💰 Lending</div>
-                        <div class="doc-list">
-                            <div class="doc-item">
-                                <div class="doc-info">
-                                    <div class="doc-icon">📄</div>
-                                    <div class="doc-details">
-                                        <div class="doc-name">Lending Policy v2</div>
-                                        <div class="doc-meta">
-                                            <span class="status-badge status-complete">Complete</span>
-                                            <span>Execution Copy</span>
-                                        </div>
+                    <div class="doc-list">
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Lending Policy & Underwriting Guidelines</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-complete">Complete</span>
+                                        <span>v2.0 • Core lending standards</span>
                                     </div>
-                                </div>
-                                <div class="doc-actions">
-                                    <a href="/operations/policies/lending-policy" class="doc-btn doc-btn-primary">View</a>
-                                    <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
                                 </div>
                             </div>
-                            <div class="doc-item">
-                                <div class="doc-info">
-                                    <div class="doc-icon">📄</div>
-                                    <div class="doc-details">
-                                        <div class="doc-name">Fair Lending Policy v2</div>
-                                        <div class="doc-meta">
-                                            <span class="status-badge status-complete">Complete</span>
-                                            <span>Execution Copy</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="doc-actions">
-                                    <a href="/operations/policies/fair-lending-policy" class="doc-btn doc-btn-primary">View</a>
-                                    <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                                </div>
+                            <div class="doc-actions">
+                                <a href="/operations/lending-policy/" class="doc-btn doc-btn-primary">View</a>
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Compliance -->
-                    <div class="doc-category">
-                        <div class="doc-category-title">🛡️ Compliance</div>
-                        <div class="doc-list">
-                            <div class="doc-item">
-                                <div class="doc-info">
-                                    <div class="doc-icon">📄</div>
-                                    <div class="doc-details">
-                                        <div class="doc-name">OFAC / AML Policy v2</div>
-                                        <div class="doc-meta">
-                                            <span class="status-badge status-complete">Complete</span>
-                                            <span>Execution Copy</span>
-                                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Fair Lending Policy</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-complete">Complete</span>
+                                        <span>v2.0 • ECOA & Regulation B</span>
                                     </div>
-                                </div>
-                                <div class="doc-actions">
-                                    <a href="/operations/policies/ofac-aml-policy" class="doc-btn doc-btn-primary">View</a>
-                                    <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
                                 </div>
                             </div>
-                            <div class="doc-item">
-                                <div class="doc-info">
-                                    <div class="doc-icon">📄</div>
-                                    <div class="doc-details">
-                                        <div class="doc-name">Complaint Handling Policy v2</div>
-                                        <div class="doc-meta">
-                                            <span class="status-badge status-complete">Complete</span>
-                                            <span>Execution Copy</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="doc-actions">
-                                    <a href="/operations/policies/complaint-policy" class="doc-btn doc-btn-primary">View</a>
-                                    <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Privacy & Governance -->
-                    <div class="doc-category">
-                        <div class="doc-category-title">🔒 Privacy & Governance</div>
-                        <div class="doc-list">
-                            <div class="doc-item">
-                                <div class="doc-info">
-                                    <div class="doc-icon">📄</div>
-                                    <div class="doc-details">
-                                        <div class="doc-name">Website Privacy Policy</div>
-                                        <div class="doc-meta">
-                                            <span class="status-badge status-complete">Complete</span>
-                                            <span>Execution Copy</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="doc-actions">
-                                    <a href="/operations/policies/privacy-policy" class="doc-btn doc-btn-primary">View</a>
-                                    <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                                </div>
-                            </div>
-                            <div class="doc-item">
-                                <div class="doc-info">
-                                    <div class="doc-icon">📄</div>
-                                    <div class="doc-details">
-                                        <div class="doc-name">GLBA Privacy Notice</div>
-                                        <div class="doc-meta">
-                                            <span class="status-badge status-template">Template</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="doc-actions">
-                                    <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                                </div>
-                            </div>
-                            <div class="doc-item">
-                                <div class="doc-info">
-                                    <div class="doc-icon">📄</div>
-                                    <div class="doc-details">
-                                        <div class="doc-name">Corporate Governance Reference</div>
-                                        <div class="doc-meta">
-                                            <span class="status-badge status-complete">Complete</span>
-                                            <span>v1</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="doc-actions">
-                                    <a href="/operations/policies/governance" class="doc-btn doc-btn-primary">View</a>
-                                    <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                                </div>
-                            </div>
-                            <div class="doc-item">
-                                <div class="doc-info">
-                                    <div class="doc-icon">📄</div>
-                                    <div class="doc-details">
-                                        <div class="doc-name">Business Continuity / Disaster Recovery</div>
-                                        <div class="doc-meta">
-                                            <span class="status-badge status-draft">Draft</span>
-                                            <span>v1</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="doc-actions">
-                                    <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                                </div>
+                            <div class="doc-actions">
+                                <a href="/operations/fair-lending-policy/" class="doc-btn doc-btn-primary">View</a>
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Loan Documents & Templates -->
+                <!-- Compliance Policies -->
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">📝 Loan Documents & Templates</h2>
+                        <h2 class="card-title">🛡️ Compliance Policies</h2>
                     </div>
-
                     <div class="doc-list">
                         <div class="doc-item">
                             <div class="doc-info">
-                                <div class="doc-icon">📋</div>
+                                <div class="doc-icon">📄</div>
                                 <div class="doc-details">
-                                    <div class="doc-name">Credit Request Form Template</div>
+                                    <div class="doc-name">OFAC/AML Compliance Policy</div>
                                     <div class="doc-meta">
-                                        <span class="status-badge status-template">Template</span>
+                                        <span class="status-badge status-complete">Complete</span>
+                                        <span>v2.0 • Anti-money laundering</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="doc-actions">
-                                <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                                <a href="/operations/ofac-aml-policy/" class="doc-btn doc-btn-primary">View</a>
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
                             </div>
                         </div>
                         <div class="doc-item">
                             <div class="doc-info">
-                                <div class="doc-icon">📋</div>
+                                <div class="doc-icon">📄</div>
                                 <div class="doc-details">
-                                    <div class="doc-name">TILA Disclosure Template</div>
+                                    <div class="doc-name">Complaint Handling Policy</div>
                                     <div class="doc-meta">
-                                        <span class="status-badge status-template">Template</span>
+                                        <span class="status-badge status-complete">Complete</span>
+                                        <span>v2.0 • Consumer complaint procedures</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="doc-actions">
-                                <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                            </div>
-                        </div>
-                        <div class="doc-item">
-                            <div class="doc-info">
-                                <div class="doc-icon">📋</div>
-                                <div class="doc-details">
-                                    <div class="doc-name">OFAC Screening Worksheet</div>
-                                    <div class="doc-meta">
-                                        <span class="status-badge status-template">Template</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doc-actions">
-                                <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
-                            </div>
-                        </div>
-                        <div class="doc-item">
-                            <div class="doc-info">
-                                <div class="doc-icon">📋</div>
-                                <div class="doc-details">
-                                    <div class="doc-name">Adverse Action Notice Template</div>
-                                    <div class="doc-meta">
-                                        <span class="status-badge status-template">Template</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="doc-actions">
-                                <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                                <a href="/operations/complaint-handling-policy/" class="doc-btn doc-btn-primary">View</a>
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tracking & Reporting -->
+                <!-- Privacy & Governance -->
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">📊 Tracking & Reporting</h2>
+                        <h2 class="card-title">🔒 Privacy & Governance</h2>
                     </div>
-
                     <div class="doc-list">
                         <div class="doc-item">
                             <div class="doc-info">
-                                <div class="doc-icon">📈</div>
+                                <div class="doc-icon">📄</div>
                                 <div class="doc-details">
-                                    <div class="doc-name">TPRM Vendor Overview</div>
+                                    <div class="doc-name">Privacy Notice</div>
                                     <div class="doc-meta">
-                                        <span>Third Party Risk Management</span>
+                                        <span class="status-badge status-draft">Draft</span>
+                                        <span>Customer privacy disclosures</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="doc-actions">
-                                <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
                             </div>
                         </div>
                         <div class="doc-item">
                             <div class="doc-info">
-                                <div class="doc-icon">📈</div>
+                                <div class="doc-icon">📄</div>
                                 <div class="doc-details">
-                                    <div class="doc-name">Complaint Register 2026</div>
+                                    <div class="doc-name">Website Privacy Policy</div>
                                     <div class="doc-meta">
-                                        <span>Tracking spreadsheet</span>
+                                        <span class="status-badge status-draft">Draft</span>
+                                        <span>Website data collection</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="doc-actions">
-                                <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
                             </div>
                         </div>
                         <div class="doc-item">
                             <div class="doc-info">
-                                <div class="doc-icon">📈</div>
+                                <div class="doc-icon">📄</div>
                                 <div class="doc-details">
-                                    <div class="doc-name">Complaint Quarterly Report 2026</div>
+                                    <div class="doc-name">Governance Overview</div>
                                     <div class="doc-meta">
-                                        <span>Quarterly reporting</span>
+                                        <span class="status-badge status-draft">Draft</span>
+                                        <span>Corporate governance framework</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="doc-actions">
-                                <a href="https://drive.google.com" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Document Retention Policy</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-draft">Draft</span>
+                                        <span>Recordkeeping standards</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Templates -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">📝 Templates</h2>
+                    </div>
+                    <div class="doc-list">
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📋</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">OFAC Worksheet Template</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-template">Template</span>
+                                        <span>Screening documentation</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📋</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Adverse Action Notice</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-template">Template</span>
+                                        <span>Loan denial notices</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📋</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Complaint Register</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-template">Template</span>
+                                        <span>Complaint tracking log</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
+                            </div>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-info">
+                                <div class="doc-icon">📋</div>
+                                <div class="doc-details">
+                                    <div class="doc-name">Beneficial Ownership Form</div>
+                                    <div class="doc-meta">
+                                        <span class="status-badge status-template">Template</span>
+                                        <span>Entity borrower certification</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="doc-actions">
+                                <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="doc-btn doc-btn-secondary">GDrive</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Sidebar -->
             <aside class="sidebar">
-                <!-- Department Tasks -->
                 <div class="card">
                     <div class="card-header">
                         <h2 class="card-title">🎯 Operations Tasks</h2>
@@ -903,27 +724,30 @@
                     <div class="task-list">
                         <div class="task-item">
                             <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Finalize DR/BC Policy</span>
+                            <span class="task-text">Finalize Privacy Notice</span>
                         </div>
                         <div class="task-item">
                             <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Q1 Complaint Review</span>
+                            <span class="task-text">Complete InfoSec Policy</span>
                         </div>
                         <div class="task-item">
                             <input type="checkbox" class="task-checkbox">
-                            <span class="task-text">Update TPRM spreadsheet</span>
+                            <span class="task-text">Review Code of Ethics draft</span>
+                        </div>
+                        <div class="task-item">
+                            <input type="checkbox" class="task-checkbox">
+                            <span class="task-text">Update Vendor Management</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Time Tracking -->
                 <div class="card">
                     <div class="card-header">
                         <h2 class="card-title">⏱️ Time This Week</h2>
                     </div>
                     <div class="time-stat">
                         <span class="time-stat-label">Operations</span>
-                        <span class="time-stat-value" id="opsTimeWeek">0h 0m</span>
+                        <span class="time-stat-value" id="opsTimeWeek">0m</span>
                     </div>
                     <div class="time-bar">
                         <div class="time-bar-fill" id="opsTimeBar" style="width: 0%;"></div>
@@ -933,7 +757,6 @@
                     </div>
                 </div>
 
-                <!-- Quick Links -->
                 <div class="card">
                     <div class="card-header">
                         <h2 class="card-title">⚡ Quick Links</h2>
@@ -951,7 +774,7 @@
                             <span class="quick-link-icon">💰</span>
                             Finance
                         </a>
-                        <a href="https://drive.google.com" target="_blank" class="quick-link">
+                        <a href="https://drive.google.com/drive/folders/1z-7-86h7URYesjsucyR93GkURr5Bqkf6" target="_blank" class="quick-link">
                             <span class="quick-link-icon">📁</span>
                             Google Drive
                         </a>
@@ -962,7 +785,6 @@
     </div>
 
     <script>
-        // Login
         const SITE_PASSWORD = 'curated2024';
         const AUTH_KEY = 'ccosAuthenticated';
         const AUTH_EXPIRY_KEY = 'ccosAuthExpiry';
@@ -1001,7 +823,6 @@
 
         checkAuth();
 
-        // Time tracking display
         function formatDuration(seconds) {
             const hrs = Math.floor(seconds / 3600);
             const mins = Math.floor((seconds % 3600) / 60);
@@ -1013,7 +834,7 @@
             const oneWeekAgo = new Date();
             oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 
-            let opsSeconds = 0;
+            let deptSeconds = 0;
             let totalSeconds = 0;
 
             entries.forEach(entry => {
@@ -1021,15 +842,14 @@
                 if (entryDate >= oneWeekAgo) {
                     totalSeconds += entry.seconds;
                     if (entry.category === 'Operations') {
-                        opsSeconds += entry.seconds;
+                        deptSeconds += entry.seconds;
                     }
                 }
             });
 
-            document.getElementById('opsTimeWeek').textContent = formatDuration(opsSeconds);
+            document.getElementById('opsTimeWeek').textContent = formatDuration(deptSeconds);
             document.getElementById('totalTimeWeek').textContent = formatDuration(totalSeconds);
-
-            const percent = totalSeconds > 0 ? (opsSeconds / totalSeconds) * 100 : 0;
+            const percent = totalSeconds > 0 ? (deptSeconds / totalSeconds) * 100 : 0;
             document.getElementById('opsTimeBar').style.width = `${percent}%`;
         }
 
