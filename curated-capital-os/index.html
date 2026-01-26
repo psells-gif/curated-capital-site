@@ -362,14 +362,81 @@
             gap: 1.25rem;
         }
 
-        /* Priorities */
-        .priority-list {
+        /* Task Tracker */
+        .task-input-row {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .task-input {
+            flex: 1;
+            padding: 0.6rem 0.75rem;
+            background: var(--navy-light);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .task-input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .task-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .task-add-btn {
+            padding: 0.6rem 1rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            border: none;
+            border-radius: 6px;
+            color: var(--navy-deep);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .task-add-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+        }
+
+        .task-category-select {
+            padding: 0.6rem 0.75rem;
+            background: var(--navy-light);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            cursor: pointer;
+            min-width: 100px;
+        }
+
+        .task-category-select:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .task-category-select option {
+            background: var(--navy);
+        }
+
+        .task-list {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
+            max-height: 280px;
+            overflow-y: auto;
         }
 
-        .priority-item {
+        .task-item {
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -377,9 +444,24 @@
             background: var(--navy-light);
             border-radius: 8px;
             border-left: 3px solid var(--gold);
+            transition: all 0.2s ease;
         }
 
-        .priority-checkbox {
+        .task-item:hover {
+            background: var(--navy-lighter);
+        }
+
+        .task-item.completed {
+            opacity: 0.6;
+            border-left-color: var(--success);
+        }
+
+        .task-item.completed .task-text {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .task-checkbox {
             width: 18px;
             height: 18px;
             border: 2px solid var(--border-color);
@@ -387,22 +469,131 @@
             cursor: pointer;
             transition: all 0.2s ease;
             flex-shrink: 0;
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            position: relative;
         }
 
-        .priority-checkbox:hover {
+        .task-checkbox:checked {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        .task-checkbox:checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--navy-deep);
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .task-checkbox:hover {
             border-color: var(--gold);
         }
 
-        .priority-text {
+        .task-text {
             flex: 1;
             font-size: 0.85rem;
         }
 
-        .priority-tag {
+        .task-tag {
             font-size: 0.7rem;
-            padding: 0.2rem 0.4rem;
+            padding: 0.2rem 0.5rem;
             border-radius: 4px;
             background: var(--gold-muted);
+            color: var(--gold);
+        }
+
+        .task-tag.strategy { background: rgba(147, 51, 234, 0.2); color: #a78bfa; }
+        .task-tag.operations { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .task-tag.finance { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+        .task-tag.product { background: rgba(249, 115, 22, 0.2); color: #fb923c; }
+        .task-tag.marketing { background: rgba(236, 72, 153, 0.2); color: #f472b6; }
+        .task-tag.legal { background: rgba(99, 102, 241, 0.2); color: #818cf8; }
+        .task-tag.admin { background: rgba(156, 163, 175, 0.2); color: #9ca3af; }
+
+        .task-delete-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 0.25rem;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: all 0.2s ease;
+        }
+
+        .task-item:hover .task-delete-btn {
+            opacity: 1;
+        }
+
+        .task-delete-btn:hover {
+            color: var(--danger);
+        }
+
+        .task-stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem;
+            background: var(--navy-light);
+            border-radius: 6px;
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+        }
+
+        .task-stat {
+            text-align: center;
+        }
+
+        .task-stat-value {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .task-stat-label {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+        }
+
+        .task-empty {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .task-filters {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .task-filter-btn {
+            padding: 0.35rem 0.75rem;
+            background: var(--navy-light);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .task-filter-btn:hover {
+            border-color: var(--gold);
+            color: var(--text-primary);
+        }
+
+        .task-filter-btn.active {
+            background: var(--gold-muted);
+            border-color: var(--gold);
             color: var(--gold);
         }
 
@@ -886,7 +1077,7 @@
                 </a>
                 <a href="https://domains.google.com" target="_blank" class="tool-link">
                     <div class="tool-icon gname">🌐</div>
-                    <div class="tool-name">Google Domains</div>
+                    <div class="tool-name">GNAME</div>
                 </a>
                 <a href="https://secure.chase.com" target="_blank" class="tool-link">
                     <div class="tool-icon chase">🏦</div>
@@ -938,26 +1129,52 @@
 
         <!-- Sidebar -->
         <aside class="sidebar">
-            <!-- Today's Priorities (TOP) -->
+            <!-- Task Tracker (TOP) -->
             <div class="card">
                 <div class="card-header">
-                    <h2 class="card-title">🎯 Today's Priorities</h2>
+                    <h2 class="card-title">📋 Task Tracker</h2>
                 </div>
-                <div class="priority-list">
-                    <div class="priority-item">
-                        <input type="checkbox" class="priority-checkbox">
-                        <span class="priority-text">Build section pages</span>
-                        <span class="priority-tag">Product</span>
+
+                <!-- Add Task Input -->
+                <div class="task-input-row">
+                    <input type="text" class="task-input" id="newTaskInput" placeholder="Add a new task..." onkeypress="handleTaskKeypress(event)">
+                    <select class="task-category-select" id="newTaskCategory">
+                        <option value="Product">Product</option>
+                        <option value="Strategy">Strategy</option>
+                        <option value="Operations">Operations</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Legal">Legal</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                    <button class="task-add-btn" onclick="addTask()">+</button>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="task-filters">
+                    <button class="task-filter-btn active" data-filter="all" onclick="filterTasks('all')">All</button>
+                    <button class="task-filter-btn" data-filter="active" onclick="filterTasks('active')">Active</button>
+                    <button class="task-filter-btn" data-filter="completed" onclick="filterTasks('completed')">Done</button>
+                </div>
+
+                <!-- Task List -->
+                <div class="task-list" id="taskList">
+                    <div class="task-empty">No tasks yet. Add your first task above!</div>
+                </div>
+
+                <!-- Task Stats -->
+                <div class="task-stats">
+                    <div class="task-stat">
+                        <div class="task-stat-value" id="taskTotal">0</div>
+                        <div class="task-stat-label">Total</div>
                     </div>
-                    <div class="priority-item">
-                        <input type="checkbox" class="priority-checkbox">
-                        <span class="priority-text">Review financials</span>
-                        <span class="priority-tag">Finance</span>
+                    <div class="task-stat">
+                        <div class="task-stat-value" id="taskActive">0</div>
+                        <div class="task-stat-label">Active</div>
                     </div>
-                    <div class="priority-item">
-                        <input type="checkbox" class="priority-checkbox">
-                        <span class="priority-text">Update roadmap</span>
-                        <span class="priority-tag">Strategy</span>
+                    <div class="task-stat">
+                        <div class="task-stat-value" id="taskCompleted">0</div>
+                        <div class="task-stat-label">Done</div>
                     </div>
                 </div>
             </div>
@@ -1011,15 +1228,15 @@
                     <h2 class="card-title">⚡ Quick Access</h2>
                 </div>
                 <div class="quick-links">
-                    <a href="/curated-capital-os/strategy/" class="quick-link">
+                    <a href="/curated-capital-os/strategy/index.html" class="quick-link">
                         <span class="quick-link-icon">📍</span>
                         Product Roadmap
                     </a>
-                    <a href="/curated-capital-os/marketing/" class="quick-link">
+                    <a href="/curated-capital-os/marketing/index.html" class="quick-link">
                         <span class="quick-link-icon">🎨</span>
                         Brand Guidelines
                     </a>
-                    <a href="/curated-capital-os/operations/" class="quick-link">
+                    <a href="/curated-capital-os/operations/index.html" class="quick-link">
                         <span class="quick-link-icon">📋</span>
                         Policies & Procedures
                     </a>
@@ -1045,12 +1262,16 @@
         let currentCategory = '';
         let todayEntries = JSON.parse(localStorage.getItem('timeTrackerEntries') || '[]');
 
+        // Active timer state keys
+        const TIMER_STATE_KEY = 'ccosTimerState';
+
         // Filter entries to today only
         const today = new Date().toDateString();
         todayEntries = todayEntries.filter(entry => new Date(entry.date).toDateString() === today);
 
         // Initialize display
         updateTodaySummary();
+        restoreTimerState();
 
         function formatTime(seconds) {
             const hrs = Math.floor(seconds / 3600);
@@ -1074,6 +1295,61 @@
             document.getElementById('currentCategory').textContent = currentCategory || 'Select category';
         }
 
+        function saveTimerState() {
+            const state = {
+                isRunning: isRunning,
+                category: currentCategory,
+                startTime: isRunning ? Date.now() - (elapsedSeconds * 1000) : null,
+                elapsedSeconds: elapsedSeconds
+            };
+            localStorage.setItem(TIMER_STATE_KEY, JSON.stringify(state));
+        }
+
+        function restoreTimerState() {
+            const savedState = localStorage.getItem(TIMER_STATE_KEY);
+            if (!savedState) return;
+
+            try {
+                const state = JSON.parse(savedState);
+
+                // Check if the saved state is from today
+                if (state.startTime) {
+                    const startDate = new Date(state.startTime).toDateString();
+                    if (startDate !== today) {
+                        // Clear stale timer state from previous day
+                        localStorage.removeItem(TIMER_STATE_KEY);
+                        return;
+                    }
+                }
+
+                if (state.isRunning && state.startTime) {
+                    // Calculate elapsed time since timer started
+                    currentCategory = state.category;
+                    elapsedSeconds = Math.floor((Date.now() - state.startTime) / 1000);
+
+                    // Update UI
+                    document.getElementById('categorySelect').value = currentCategory;
+                    document.getElementById('currentCategory').textContent = currentCategory;
+                    document.getElementById('timerDisplay').textContent = formatTime(elapsedSeconds);
+
+                    // Resume the timer
+                    isRunning = true;
+                    document.getElementById('startBtn').disabled = true;
+                    document.getElementById('stopBtn').disabled = false;
+                    document.getElementById('categorySelect').disabled = true;
+
+                    timerInterval = setInterval(() => {
+                        elapsedSeconds++;
+                        document.getElementById('timerDisplay').textContent = formatTime(elapsedSeconds);
+                        saveTimerState();
+                    }, 1000);
+                }
+            } catch (e) {
+                console.error('Error restoring timer state:', e);
+                localStorage.removeItem(TIMER_STATE_KEY);
+            }
+        }
+
         function startTimer() {
             if (!currentCategory) {
                 alert('Please select a category first!');
@@ -1085,9 +1361,13 @@
             document.getElementById('stopBtn').disabled = false;
             document.getElementById('categorySelect').disabled = true;
 
+            // Save initial state
+            saveTimerState();
+
             timerInterval = setInterval(() => {
                 elapsedSeconds++;
                 document.getElementById('timerDisplay').textContent = formatTime(elapsedSeconds);
+                saveTimerState();
             }, 1000);
         }
 
@@ -1108,6 +1388,9 @@
                 localStorage.setItem('timeTrackerEntries', JSON.stringify(todayEntries));
                 updateTodaySummary();
             }
+
+            // Clear active timer state
+            localStorage.removeItem(TIMER_STATE_KEY);
 
             // Reset for next session
             elapsedSeconds = 0;
@@ -1155,6 +1438,140 @@
         const allEntries = JSON.parse(localStorage.getItem('timeTrackerEntries') || '[]');
         const todayOnly = allEntries.filter(entry => new Date(entry.date).toDateString() === today);
         localStorage.setItem('timeTrackerEntries', JSON.stringify(todayOnly));
+
+        // ============================================
+        // TASK TRACKER FUNCTIONALITY
+        // ============================================
+        const TASKS_KEY = 'ccosTasks';
+        let tasks = JSON.parse(localStorage.getItem(TASKS_KEY) || '[]');
+        let currentFilter = 'all';
+
+        // Initialize task list
+        renderTasks();
+        updateTaskStats();
+
+        function generateTaskId() {
+            return 'task_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        function addTask() {
+            const input = document.getElementById('newTaskInput');
+            const categorySelect = document.getElementById('newTaskCategory');
+            const text = input.value.trim();
+
+            if (!text) {
+                input.focus();
+                return;
+            }
+
+            const newTask = {
+                id: generateTaskId(),
+                text: text,
+                category: categorySelect.value,
+                completed: false,
+                createdAt: new Date().toISOString()
+            };
+
+            tasks.unshift(newTask);
+            saveTasks();
+            renderTasks();
+            updateTaskStats();
+
+            // Clear input
+            input.value = '';
+            input.focus();
+        }
+
+        function handleTaskKeypress(event) {
+            if (event.key === 'Enter') {
+                addTask();
+            }
+        }
+
+        function toggleTask(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (task) {
+                task.completed = !task.completed;
+                task.completedAt = task.completed ? new Date().toISOString() : null;
+                saveTasks();
+                renderTasks();
+                updateTaskStats();
+            }
+        }
+
+        function deleteTask(taskId) {
+            tasks = tasks.filter(t => t.id !== taskId);
+            saveTasks();
+            renderTasks();
+            updateTaskStats();
+        }
+
+        function filterTasks(filter) {
+            currentFilter = filter;
+
+            // Update filter button states
+            document.querySelectorAll('.task-filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === filter);
+            });
+
+            renderTasks();
+        }
+
+        function getFilteredTasks() {
+            switch (currentFilter) {
+                case 'active':
+                    return tasks.filter(t => !t.completed);
+                case 'completed':
+                    return tasks.filter(t => t.completed);
+                default:
+                    return tasks;
+            }
+        }
+
+        function renderTasks() {
+            const taskList = document.getElementById('taskList');
+            const filteredTasks = getFilteredTasks();
+
+            if (filteredTasks.length === 0) {
+                let emptyMessage = 'No tasks yet. Add your first task above!';
+                if (currentFilter === 'active') {
+                    emptyMessage = 'No active tasks. Great job!';
+                } else if (currentFilter === 'completed') {
+                    emptyMessage = 'No completed tasks yet.';
+                }
+                taskList.innerHTML = `<div class="task-empty">${emptyMessage}</div>`;
+                return;
+            }
+
+            taskList.innerHTML = filteredTasks.map(task => `
+                <div class="task-item ${task.completed ? 'completed' : ''}" data-id="${task.id}">
+                    <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTask('${task.id}')">
+                    <span class="task-text">${escapeHtml(task.text)}</span>
+                    <span class="task-tag ${task.category.toLowerCase()}">${task.category}</span>
+                    <button class="task-delete-btn" onclick="deleteTask('${task.id}')" title="Delete task">✕</button>
+                </div>
+            `).join('');
+        }
+
+        function updateTaskStats() {
+            const total = tasks.length;
+            const completed = tasks.filter(t => t.completed).length;
+            const active = total - completed;
+
+            document.getElementById('taskTotal').textContent = total;
+            document.getElementById('taskActive').textContent = active;
+            document.getElementById('taskCompleted').textContent = completed;
+        }
+
+        function saveTasks() {
+            localStorage.setItem(TASKS_KEY, JSON.stringify(tasks));
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
 
         // ============================================
         // LOGIN FUNCTIONALITY
